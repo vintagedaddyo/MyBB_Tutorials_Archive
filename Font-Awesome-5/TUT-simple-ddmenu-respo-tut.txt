@@ -1,0 +1,1685 @@
+[Tutorial] - A Simple Responsive Dropdown Navigation Menu (Re-edit) by: WallBB & Vintagedaddyo
+
+* This is a continuation / variation of: [Tutorial] - Simple Responsive Dropdown Navigation Menu for MyBB by WallBB https://community.mybb.com/thread-202472.html  **
+
+** while helping a few members in the past via that tutorial in the distant past https://community.mybb.com/thread-202472-page-3.html & https://community.mybb.com/thread-202472-page-4.html I made several variations of the menu of which some were shared there at the time and then there was this one that I did not share here until much later now found again below:
+
+Also note: that this was done rather fast and there is indeed room for improvements...
+
+
+Ok, simply follows the instructions below:
+
+in your theme changes your logo to logo_white.png
+
+
+Edit your theme and create a stylesheet for your theme called say:
+
+respo_menu.css  * attach it globally
+
+Add to respo_menu.css 
+
+
+/** Simple Responsive Dropdown Navigation by WallBB & Vintagedaddyo **/
+
+ .welcomeblock {
+     background: #555 !important;
+     background: -moz-linear-gradient(top, #555 0%, #333 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #333)) !important;
+     background: -webkit-linear-gradient(top, #555 0%, #333 100%) !important;
+     background: -o-linear-gradiuuuuuent(top, #555 0%, #333 100%) !important;
+     background: -ms-linear-gradient(top, #555 0%, #333 100%) !important;
+     background: linear-gradient(top, #555 0%, #333 100%) !important;
+:filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#555', endColorstr='#333', GradientType=0 ) !important;
+     border-bottom: 1px solid #333 !important;
+     text-align: center;
+     margin: 0 !important;
+     padding: 10px;
+     color: #fff;
+     font-size:70%;
+     white-space: wrap;
+}
+ .welcomeblock:hover {
+     background: #444 !important;
+}
+ .welcomeblock a:link {
+     color: #fff;
+     text-decoration: none;
+}
+ .welcomeblock a:visited {
+     color: #fff;
+     text-decoration: none;
+}
+ .welcomeblock a:visited {
+     color: #fff;
+     text-decoration: none;
+}
+ .mini-avatar {
+     vertical-align:middle;
+     float:right;
+     width:25px;
+     height:25px;
+     border-radius:100%;
+     margin-left:5px;
+     background: url('images/default_avatar.png') no-repeat;
+     background-size: 100% auto;
+     margin-top: -6px;
+}
+ .mini-avatar img {
+     width:25px;
+     height:25px;
+     border-radius:100%;
+}
+ .mini-avatar img[src=""] {
+     display: none;
+}
+ a.brand {
+     float: left;
+     padding:8px;
+     height: 60px;
+}
+ a.brand img {
+     font-size: 1.25rem;
+     line-height: inherit;
+     white-space: nowrap;
+     vertical-align:middle;
+}
+ a.nav {
+     background: #333 !important;
+     background: -moz-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #555)) !important;
+     background: -webkit-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -o-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -ms-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: linear-gradient(top, #333 0%, #555 100%) !important;     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555', GradientType=0 ) !important;
+     border-bottom: 1px solid #555 !important;
+}
+ a.nav:hover {
+     background: #444 !important;
+}
+ nav a:link {
+     color: #fff;
+     text-decoration: none;
+}
+ nav a:visited {
+     color: #fff;
+     text-decoration: none;
+}
+ nav a:hover, nav a:active {
+     color: #a0a0a0;
+     text-decoration: none;
+}
+ .toggle, [id^="drop1"] {
+     display: none;
+}
+ .toggle2, [id^="drop2"] {
+     display: none;
+}
+ nav {
+     background: #333;
+     border-bottom: 1px solid #555;
+     margin: 0;
+     padding: 0;
+}
+ nav:after {
+     clear: both;
+     content: "";
+     display: table;
+}
+ nav ul {
+     list-style: outside none none;
+     margin: 0;
+     padding: 0;
+     position: relative;
+}
+ nav ul li {
+     border-left: 1px solid #555;
+     display: inline-block;
+     float: right;
+     margin: 0;
+     text-align: left;
+}
+ nav a {
+     background: #333;
+     color: #fff;
+     display: block;
+     font-family: Helvetica, Arial, Verdana, sans-serif;
+     font-size: 12px;
+     padding: 10px 15px;
+     text-decoration: none;
+     text-align: left;
+}
+ nav ul li ul li:hover {
+     background: #444 none repeat scroll 0 0;
+}
+ nav a:hover {
+     background-color: #000000;
+}
+ nav ul ul {
+     display: none;
+     position: absolute;
+     top: 35px;
+}
+ nav ul li:hover>ul {
+     display: inherit;
+}
+ nav ul ul li {
+     display: list-item;
+     float: none;
+     position: relative;
+     width: 170px;
+     z-index: 1;
+}
+ nav ul ul ul li {
+     right: 170px;
+     position: relative;
+     top: 60px;
+}
+ nav ul li > a:after {
+     content: " ";
+     display: inline;
+     font-family: "Font Awesome 5 Free";
+     font-weight: 900;
+}
+ nav ul li>a:only-child:after {
+     content: "";
+}
+ @media all and (max-width: 768px) {
+.forum_status {
+    display: block !important;
+}	 
+.forum_legend dd {
+    float: left;
+    margin-left: 42px !important;
+    margin-top: -22px !important;	 
+ }		 
+.forum_legend dt {
+	float: none !important;
+ }	 
+.modal {
+   width: 94%;
+}	 
+.tborder [id^="cat_"] td:nth-child(5){
+     width: 20%;
+     text-align: right;
+}
+.tborder [id^="cat_"] td:nth-child(4){
+     display: none;
+}
+.tborder [id^="cat_"] td:nth-child(3){
+    display: none;
+}
+     nav ul li > a:after {
+         display: none;
+    }
+     nav {
+         margin: 0;
+    }
+     .toggle+a, .menu {
+         display: none;
+    }
+     .toggle {
+         background: #333;
+         border: medium none;
+         color: #ffffff;
+         display: block;
+         font-family: Helvetica, Arial, Verdana, sans-serif;
+         font-size: 25px;
+         padding: 10px 15px;
+         text-decoration: none;
+         float: right;
+    }
+     .toggle:hover {
+         background-color: #212121;
+    }
+     .toggle2 {
+         background: #333;
+         border: medium none;
+         color: #ffffff;
+         display: block;
+         font-family: Helvetica, Arial, Verdana, sans-serif;
+         font-size: 25px;
+         padding: 10px 15px;
+         text-decoration: none;
+         float: right;
+    }
+     .toggle2:hover {
+         background-color:  #212121;
+    }
+     [id^="drop1"]:checked+ul {
+         display: block;
+    }
+     [id^="drop2"]:checked+ul {
+         display: block;
+    }
+     nav ul li {
+         display: block;
+         width: 100%;
+    }
+     nav ul ul .toggle, nav ul ul a {
+         padding: 0 40px;
+         text-align: left !important;
+    }
+     nav ul ul .toggle2, nav ul ul a {
+         padding: 0 40px;
+         text-align: left !important;
+    }
+     nav ul ul ul a {
+         padding: 0 80px;
+    }
+     nav a:hover, nav ul ul ul a {
+         background-color: #000000;
+    }
+     nav ul li ul li .toggle, nav ul ul a, nav ul ul ul a {
+         color: #ffffff;
+         font-size: 12px;
+         padding: 10px 15px;
+         text-align: left !important;
+    }
+     nav ul li ul li .toggle, nav ul ul a {
+         background-color: #212121;
+    }
+     nav ul li ul li .toggle2, nav ul ul a, nav ul ul ul a {
+         color: #ffffff;
+         font-size: 12px;
+         padding: 10px 15px;
+         text-align: left !important;
+    }
+     nav ul li ul li .toggle2, nav ul ul a {
+         background-color: #212121;
+    }
+     nav ul ul {
+         color: #ffffff;
+         float: none;
+         position: static;
+    }
+     nav ul ul li:hover>ul, nav ul li:hover>ul {
+         display: none;
+    }
+     nav ul ul li {
+         display: block;
+         width: 100%;
+    }
+     nav ul ul ul li {
+         position: static;
+    }
+}
+ @media all and (max-width: 330px) {
+     nav ul li {
+         display: block;
+         width: 94%;
+    }
+}
+ @media only screen and (min-width: 769px) {
+     nav ul {
+         margin-left: 8%;
+    }
+     nav ul ul {
+         margin-left: 0;
+    }
+} 
+
+
+
+In headerinclude template find:
+
+
+{$stylesheets}
+
+
+Add before:
+
+For external linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+* Or you can also just download Fontawesome5 pkg and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: https://use.fontawesome.com/releases/v5.15.4/fontawesome-free-5.15.4-web.zip
+
+And change headerinclude linkage to reflect where you uploaded your internal library
+
+Internal linking example:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-5/css/all.css">
+
+
+Change header template as follows:
+
+
+<div id="container">
+    <a name="top" id="top"></a>
+    <nav>
+        <a class="nav" href="{$mybb->settings['bburl']}/index.php"><img src="{$theme['logo']}" alt="{$mybb->settings['bbname']}" title="{$mybb->settings['bbname']}" /></a>
+        <label for="drop1" class="toggle"><i class="fas fa-bars" aria-hidden="true"></i> </label>
+        <input type="checkbox" id="drop1" />
+        <ul class="menu">
+            <li><a href="{$mybb->settings['bburl']}/misc.php?action=help" class="help"><span><i class="fas fa-question"></i> {$lang->toplinks_help}</span></a></li>
+            {$menu_calendar}
+            {$menu_memberlist}
+            {$menu_search}
+            {$menu_portal}
+            <li><a href="{$mybb->settings['homeurl']}" class="home"><span><i class="fas fa-home" aria-hidden="true"></i> {$mybb->settings['homename']}</span></a></li>
+            {$welcomeblock}
+            <div id="content">
+                <div class="wrapper">
+                    {$pm_notice}
+                    {$remote_avatar_notice}
+                    {$bannedwarning}
+                    {$bbclosedwarning}
+                    {$modnotice}
+                    {$pending_joinrequests}
+                    {$awaitingusers}
+                    <navigation>
+                        <br />
+
+
+Change header_welcomeblock_guest template as follows:
+
+
+<!-- Continuation as opened in the header template -->
+<input type="checkbox" id="drop2" />
+<li>
+    <!--<a href="{$mybb->settings['bburl']}/member.php?action=register"> {$lang->welcome_guest}-->
+    <a href="#"> {$lang->welcome_guest}
+        <div class="mini-avatar">
+            <img src="{$mybb->user['avatar']}" alt="avatar" />
+        </div></a>
+    <!-- First Tier Drop Down -->
+    <input type="checkbox" id="drop2-2" />
+    <ul>
+        <li><a href="{$mybb->settings['bburl']}/search.php?action=getnew"><i class="fas fa-comment" aria-hidden="true"></i> {$lang->welcome_newposts}</a></li>
+        <li><a href="{$mybb->settings['bburl']}/search.php?action=getdaily"><i class="fas fa-comments" aria-hidden="true"></i> {$lang->welcome_todaysposts}</a></li>
+        <li><a href="{$mybb->settings['bburl']}/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== 'undefined' ? modal_zindex : 9999) }); return false;"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> {$lang->welcome_login}</a></li>
+        <li><a href="{$mybb->settings['bburl']}/member.php?action=register" class="register"><i class="fas fa-user-plus" aria-hidden="true"></i> {$lang->welcome_register}</a></li>
+    </ul>
+    <label for="drop2-2" class="toggle2"><i class="fas fa-bars" aria-hidden="true"></i> <i class="fas fa-sort-desc" aria-hidden="true"></i></label>
+</li>
+</ul>
+</nav>
+<div class="welcomeblock">
+    <span class="welcome">{$lang->welcome_guest} <a href="{$mybb->settings['bburl']}/member.php?action=login" onclick="$('#quick_login').modal({ fadeDuration: 250, keepelement: true, zIndex: (typeof modal_zindex !== 'undefined' ? modal_zindex : 9999) }); return false;" class="login"><i class="fas fa-sign-in-alt" aria-hidden="true"></i> {$lang->welcome_login}</a>&nbsp;<a href="{$mybb->settings['bburl']}/member.php?action=register" class="register"><i class="fas fa-user-plus" aria-hidden="true"></i> {$lang->welcome_register}</a></span></div>
+<div class="modal" id="quick_login" style="display: none;">
+    <form method="post" action="{$mybb->settings['bburl']}/member.php">
+        <input name="action" type="hidden" value="do_login" />
+        <input name="url" type="hidden" value="" />
+        <input name="quick_login" type="hidden" value="1" />
+        <input name="my_post_key" type="hidden" value="{$mybb->post_code}" />
+        <table width="100%" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" border="0" class="tborder">
+            <tr>
+                <td class="thead" colspan="2"><strong>{$lang->login}</strong></td>
+            </tr>
+            {$loginform}
+        </table>
+    </form>
+</div>
+<script type="text/javascript">
+    $("#quick_login input[name='url']").val($(location).attr('href'));
+</script>
+
+
+Change header_welcomeblock_member template as follows:
+
+
+<!-- Continuation as opened in the header template -->
+<input type="checkbox" id="drop2" />
+<li>
+    <!--<a href="member.php?action=profile&uid={$mybb->user['uid']}">{$mybb->user['username']}-->
+    <a href="#">{$mybb->user['username']}
+        <div class="mini-avatar">
+            <img src="{$mybb->user['avatar']}" alt="avatar" />
+        </div></a>
+    <!-- First Tier Drop Down -->
+    <input type="checkbox" id="drop2-2" />
+    <ul>
+        {$usercplink}
+        {$modcplink}
+        {$admincplink}
+        {$buddylink}
+        {$searchlink}
+        {$pmslink}
+        <li><a href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> {$lang->welcome_logout}</a></li>
+    </ul>
+    <label for="drop2-2" class="toggle2"><i class="fas fa-bars" aria-hidden="true"></i> <i class="fas fa-sort-desc" aria-hidden="true"></i></label>
+</li>
+</ul>
+</nav>
+<div class="welcomeblock">
+    <span class="welcome">{$lang->welcome_back} <a href="{$mybb->settings['bburl']}/member.php?action=logout&amp;logoutkey={$mybb->user['logoutkey']}" class="logout"><i class="fas fa-sign-out-alt" aria-hidden="true"></i> {$lang->welcome_logout}</a></span></div>
+
+
+replace header_welcomeblock_member_user template:
+
+                <li><a href="{$mybb->settings['bburl']}/usercp.php" class="usercp"><i class="fas fa-user" aria-hidden="true"></i> {$lang->welcome_usercp}</a></li>
+
+
+replace header_welcomeblock_member_admin template with:
+
+               <li><a href="{$mybb->settings['bburl']}/{$admin_dir}/index.php" class="admincp"><i class="fas fa-cog" aria-hidden="true"></i> {$lang->welcome_admin}</a></li>
+
+
+replace header_welcomeblock_member_buddy
+template with:
+
+    <li><a id="buddylink" href="javascript:void(0)" onclick="MyBB.popupWindow('{$mybb->settings['bburl']}/misc.php?action=buddypopup&modal=1', null, true); return false;"><i class="fas fa-users" aria-hidden="true"></i> {$lang->welcome_open_buddy_list}</a></li>
+
+
+replace header_welcomeblock_member_moderator template with:
+
+
+                <li><a href="{$mybb->settings['bburl']}/modcp.php" class="modcp"><i class="fas fa-cog" aria-hidden="true"></i> {$lang->welcome_modcp}</a></li>
+
+
+
+replace header_welcomeblock_member_pms template with:
+
+
+               <li><a href="{$mybb->settings['bburl']}/private.php"><i class="fas fa-envelope" aria-hidden="true"></i> {$lang->welcome_pms}</a></li>
+
+
+replace header_welcomeblock_member_search template with:
+
+
+                <li><a href="{$mybb->settings['bburl']}/search.php?action=getnew"><i class="fas fa-comment" aria-hidden="true"></i> {$lang->welcome_newposts}</a></li>
+                <li><a href="{$mybb->settings['bburl']}/search.php?action=getdaily"><i class="fas fa-comments" aria-hidden="true"></i> {$lang->welcome_todaysposts}</a></li>
+
+
+replace header_menu_calendar with:
+
+
+        <li><a href="{$mybb->settings['bburl']}/calendar.php"><i class="fas fa-calendar" aria-hidden="true"></i> {$lang->toplinks_calendar}</a></li>
+
+
+
+replace header_menu_memberlist with:
+
+
+        <li><a href="{$mybb->settings['bburl']}/memberlist.php" class="members"><span><i class="fas fa-user" aria-hidden="true"></i> {$lang->toplinks_memberlist}</span></a></li>
+
+
+replace header_menu_portal with:
+
+
+        <li><a href="{$mybb->settings['bburl']}/portal.php" class="portal"><span><i class="fas fa-bell" aria-hidden="true"></i> {$lang->toplinks_portal}</span></a></li>
+
+
+
+replace header_menu_search with:
+
+
+        <li><a href="{$mybb->settings['bburl']}/search.php" class="search"><span><i class="fas fa-search" aria-hidden="true"></i> {$lang->toplinks_search}</span></a></li>
+
+
+
+Examples:
+
+
+[url=https://ibb.co/zHwKkdH][img]https://i.ibb.co/HpQmJZp/Screenshot-20200204-155616-Firefox.jpg[/img][/url]
+
+[url=https://ibb.co/19PLNZp][img]https://i.ibb.co/fCy2WMK/Screenshot-20200204-155620-Firefox.jpg[/img][/url]
+
+[url=https://ibb.co/m9R4rB4][img]https://i.ibb.co/2vFd06d/Screenshot-20200204-155628-Firefox.jpg[/img][/url]
+
+[url=https://ibb.co/Zf0wdjq][img]https://i.ibb.co/FhFf6rR/Screenshot-20200204-155654-Firefox.jpg[/img][/url]
+
+[url=https://ibb.co/kx3cKzW][img]https://i.ibb.co/6mvsYGf/Screenshot-20200204-155659-Firefox.jpg[/img][/url]
+
+[url=https://ibb.co/L6G57pg][img]https://i.ibb.co/xG4HT5g/Screenshot-20200204-155711-Firefox.jpg[/img][/url]
+
+
+Note: one thing the tutorial forgets to mention is that this menu will not be responsive on mobile device after following the tutorial. Yeah you can resize your desktop browser or what not and it may appear responsive but without viewport, it will not function as intended on mobile devices because this needs to be added to header include for that to happen.
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+Now, this wont make the rest of your theme responsive, only the menu as the rest of the theme is up to you to work on and a good starting point is commenting out container width and wrapper width... until you sort out device sizings.
+
+Example:
+
+global.css find:
+
+#container {
+	color: #333;
+	text-align: left;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	min-width: 990px;
+}
+
+.wrapper {
+	width: 85%;
+	min-width: 970px;
+	max-width: 1500px;
+	margin: auto auto;
+}
+
+
+
+Comment out:
+
+
+#container {
+	color: #333;
+	text-align: left;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	/*min-width: 990px;*/
+}
+
+.wrapper {
+	width: 85%;
+	/*min-width: 970px;
+	max-width: 1500px;*/
+	margin: auto auto;
+}
+
+
+
+Simple enough right? Now, keep editing and modifying for your personal usages. Happy editing, Best of luck!  :cool:
+
+Extra Note: (optional)
+
+One last thing, ok, so maybe you are wanting a pull to refresh addition to this menu and are reading the tutorial found here: https://community.mybb.com/thread-221731.html as it is a rather nice feature..., alrighty, let us add it to this tutorial
+
+First download the pulltorefresh.min.js file from here: https://github.com/vintagedaddyo/MyBB_Tutorials_Archive/tree/main/Font-Awesome-5/pulltorefresh.min.js and upload the pulltorefresh.min.js file to your /jscripts folder.
+
+
+Then in header template find:
+
+
+<div id="container">
+
+
+and replace it with:
+
+
+<div id="pulltorefresh"></div>
+<script src="{$mybb->asset_url}/jscripts/pulltorefresh.min.js"></script>
+<script>
+PullToRefresh.init({
+  mainElement: '#pulltorefresh', // above which element?
+  onRefresh: function (done) {
+    setTimeout(function () {
+      done(); // end pull to refresh
+document.location.reload(true);
+    }, 1500);
+  }
+});
+</script>
+<div id="container">
+
+
+
+
+Ok, let us focus since we already did the menu, the pull to refresh, now let us do the favicon also for a variety of devices.
+
+Find in headerinclude template where you added:
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+Also now add:
+
+<link rel="apple-touch-icon" sizes="180x180" href="{$mybb->asset_url}/images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="{$mybb->asset_url}/images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="{$mybb->asset_url}/images/favicon/favicon-16x16.png">
+<link rel="manifest" href={$mybb->asset_url}/images/favicon?"/site.webmanifest">
+<link rel="mask-icon" href="{$mybb->asset_url}/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+Then visit here to do these on the fly https://realfavicongenerator.net/ * once downloaded create a directory called favicon and place the downloaded files in it then upload the favicon folder into your images directory and then modify the headerinclude and images found in favicon directory to your respective favicon images....
+
+
+Simple ModCP Responsive Dropdown Navigation Menu
+
+ie:
+https://i.ibb.co/Lxqb3Rx/Forums-Moderator-Control-Panel.png
+
+https://i.ibb.co/nfmJspN/Forums-Moderator-Control-Panel-1.png
+
+Create Stylesheet: modnav.css (attached to modcp.php)
+
+Edit Stylesheet: modnav.css
+
+
+/** ModCP Responsive Dropdown Navigation by WallBB & Vintagedaddyo **/
+
+.modcp_nav_forums_posts:before{
+      content:"\f086";
+}
+.modcp_nav_users:before{
+      content:"\f0c0";
+}  
+.modcpnav_container {
+	width: 100%;
+	 background: #333 !important;
+     background: -moz-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #555)) !important;
+     background: -webkit-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -o-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -ms-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: linear-gradient(top, #333 0%, #555 100%) !important;        filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555', GradientType=0 ) !important;
+	 border-radius: 6px;
+}
+a.modcpnav {
+     background: #333 !important;
+     background: -moz-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #555)) !important;
+     background: -webkit-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -o-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -ms-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: linear-gradient(top, #333 0%, #555 100%) !important;     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555', GradientType=0 ) !important;
+}
+ a.modcpnav:hover {
+     background: #444 !important;
+}
+ modcpnav a:link {
+     color: #fff;
+     text-decoration: none;
+}
+ modcpnav a:visited {
+     color: #fff;
+     text-decoration: none;
+}
+ modcpnav a:hover, modcpnav a:active {
+     color: #a0a0a0;
+     text-decoration: none;
+}
+.modcpnavtoggle1, [id^="modcpnavdrop1"] {
+   display: none; 
+}
+.modcpnavtoggle2, [id^="modcpnavdrop2"] {
+   display: none; 
+}
+.modcpnavtoggle3, [id^="modcpnavdrop3"] {
+   display: none; 
+}
+modcpnav {
+   background: #333;
+   margin: 0;
+   padding: 0;
+}
+modcpnav:after {
+   clear: both;
+   content: "";
+   display: table;
+}
+modcpnav ul {
+   list-style: outside none none;
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+modcpnav ul li {
+   border-left: 1px solid #555;
+   display: inline-block;
+   float: left;
+   margin: 0;
+}
+modcpnav a {
+   background: #222;
+   color: #fff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+modcpnav ul li ul li:hover {
+   background: #444 none repeat scroll 0 0;
+}
+modcpnav a:hover {
+   background-color: #000000;
+}
+modcpnav ul ul {
+   display: none;
+   position: absolute;
+   top: 35px;
+}
+modcpnav ul li:hover > ul {
+   display: inherit;
+}
+modcpnav ul ul li {
+   display: list-item;
+   float: none;
+   position: relative;
+   width: 170px;
+   z-index: 1;	
+}
+modcpnav ul ul ul li {
+   left: 170px;
+   position: relative;
+   top: -60px;
+}
+modcpnav ul li > a::after {
+   content: " ";
+   display: inline;
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+}
+modcpnav ul li > a:only-child::after {
+   content: "";
+}
+@media all and (max-width: 768px) {
+.modcpnav_container {
+	width: 100%;
+	 padding-top: 2px;
+	 padding-left: 2px;
+	 padding-right: 4px;
+	 padding-bottom: 2px;
+}		
+modcpnav ul li > a::after {
+   content: " ";
+   display: inline;
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+}	
+modcpnav {
+   margin: 0;
+}
+.modcpnavtoggle1 + a, .modcpnavmenu {
+   display: none;
+}
+.modcpnavtoggle1 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.modcpnavtoggle1:hover {
+   background-color: #000000;
+}
+.modcpnavtoggle2 + a, .modcpnavmenu {
+   display: none;
+}
+.modcpnavtoggle2 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.modcpnavtoggle2:hover {
+   background-color: #000000;
+}	
+.modcpnavtoggle3 + a, .modcpnavmenu {
+   display: none;
+}
+.modcpnavtoggle3 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.modcpnavtoggle3:hover {
+   background-color: #000000;
+}	
+[id^="modcpnavdrop1"]:checked + ul {
+   display: block;
+}
+[id^="modcpnavdrop2"]:checked + ul {
+   display: block;
+}
+[id^="modcpnavdrop3"]:checked + ul {
+   display: block;
+} 	
+modcpnav ul li {
+   display: block;
+   width: 100%;
+}
+modcpnav ul ul .modcpnavtoggle1, modcpnav ul ul a {
+   padding: 0 40px;
+}
+modcpnav ul ul .modcpnavtoggle2, modcpnav ul ul a {
+   padding: 0 40px;
+}
+modcpnav ul ul .modcpnavtoggle3, modcpnav ul ul a {
+   padding: 0 40px;
+} 	
+modcpnav ul ul ul a {
+   padding: 0 80px;
+}
+modcpnav a:hover, modcpnav ul ul ul a {
+   background-color: #000000;
+}
+modcpnav ul li ul li .modcpnavtoggle1, modcpnav ul ul a, modcpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+modcpnav ul li ul li .modcpnavtoggle1, modcpnav ul ul a {
+   background-color: #212121;
+}
+modcpnav ul li ul li .modcpnavtoggle2, modcpnav ul ul a, modcpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+modcpnav ul li ul li .modcpnavtoggle2, modcpnav ul ul a {
+   background-color: #212121;
+}
+modcpnav ul li ul li .modcpnavtoggle3, modcpnav ul ul a, modcpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+modcpnav ul li ul li .modcpnavtoggle3, modcpnav ul ul a {
+   background-color: #212121;
+}  	
+modcpnav ul ul {
+   color: #ffffff;
+   float: none;
+   position: static;
+}
+modcpnav ul ul li:hover > ul, modcpnav ul li:hover > ul {
+   display: none;
+}
+modcpnav ul ul li {
+   display: block;
+   width: 100%;
+}
+modcpnav ul ul ul li {
+   position: static;
+}
+}
+@media all and (max-width: 330px) {
+modcpnav ul li {
+   display: block;
+   width: 94%;
+}
+}
+@media only screen and (min-width: 769px) {
+modcpnav ul {
+   margin-left: 8%;
+}
+modcpnav ul ul {
+   margin-left: 0;
+}
+}
+
+
+Edit stylesheet: modcp.css
+
+
+.modcp_nav_item:before{
+      font-size:16px;
+      font-family:"Font Awesome 5 Free";
+	  font-weight: 900;
+      color: #666;
+      width:28px;
+      margin-right:3px;
+      text-align:center;
+      display:inline-block;
+}
+.modcp_nav_home:before{
+      content:"\f015";
+}
+.modcp_nav_announcements:before {
+    content:"\f0f3"
+}
+.modcp_nav_reports:before {
+    content: "\f071";
+}
+.modcp_nav_modqueue:before {
+    content:"\f02d"
+}
+.modcp_nav_modlogs:before {
+    content: "\f109";
+}
+.modcp_nav_editprofile:before {
+    content: "\f007";
+}
+.modcp_nav_banning:before {
+    content: "\f023";
+}
+.modcp_nav_warninglogs:before {
+    content: "\f06e";
+}
+.modcp_nav_ipsearch:before {
+    content: "\f002";
+}
+.modqueue_message {
+	overflow: auto;
+	max-height: 250px;
+}
+.modqueue_controls {
+	width: 270px;
+	float: right;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px;
+	font-weight: bold;
+}
+.modqueue_controls label {
+	margin-right: 8px;
+}
+.label_radio_ignore,
+.label_radio_delete,
+.label_radio_approve {
+	font-weight: bold;
+}
+.modqueue_meta {
+	color: #444;
+	font-size: 95%;
+	margin-bottom: 8px;
+}
+.modqueue_mass {
+	list-style: none;
+	margin: 0;
+	width: 150px;
+	padding: 0;
+}
+.modqueue_mass li {
+	margin-bottom: 4px;
+	padding: 0;
+}
+.modqueue_mass li a {
+	display: block;
+	padding: 4px;
+	border: 1px solid transparent;
+}
+.modqueue_mass li a:hover {
+	background: #efefef;
+	border: 1px solid #ccc;
+	text-decoration: none;
+}
+
+
+Edit Template: modcp_nav
+
+<div class="modcpnav_container">
+<modcpnav>
+   <label for="modcpnavdrop1" class="modcpnavtoggle1"><i class="fas fa-bars" aria-hidden="true"></i> {$lang->nav_menu}</label>
+   <input type="checkbox" id="modcpnavdrop1" />
+   <ul class="modcpnavmenu">
+      <li><a href="modcp.php" class="modcp_nav_item modcp_nav_home">{$lang->mcp_nav_home}</a></li>
+      {$modcp_nav_forums_posts}
+      {$modcp_nav_users} 
+   </ul>
+</modcpnav>
+</div>
+
+
+Edit Template: modcp_nav_announcements
+
+					 <li><a href="{$mybb->settings['bburl']}/modcp.php?action=announcements" class="modcp_nav_item modcp_nav_announcements">{$lang->mcp_nav_announcements}</a></li> 
+ 
+
+Edit Template: modcp_nav_banning
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=banning" class="modcp_nav_item modcp_nav_banning">{$lang->mcp_nav_banning}</a></li> 	
+ 
+
+
+Edit Template: modcp_nav_editprofile
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=finduser" class="modcp_nav_item modcp_nav_editprofile">{$lang->mcp_nav_editprofile}</a></li> 	
+ 
+
+
+Edit Template: modcp_nav_forums_posts
+
+<li>
+   <!-- Forums & Posts Drop Down -->
+   <label for="modcpnavdrop2" class="modcpnavtoggle2"><span class="modcp_nav_item modcp_nav_forums_posts"></span>{$lang->mcp_nav_forums} <i class="fas fa-sort-desc" aria-hidden="true"></i><span class="float_right"><i class="fas fa-bars" aria-hidden="true"></i></span></label>
+   <a href="#"><span class="modcp_nav_item modcp_nav_forums_posts"></span>{$lang->mcp_nav_forums}</a>
+   <input type="checkbox" id="modcpnavdrop2"/>
+   <ul>
+      {$nav_announcements}
+      {$nav_modqueue}
+      {$nav_reportcenter}
+      {$nav_modlogs}			  
+   </ul>
+</li>
+
+
+Edit Template: modcp_nav_ipsearch
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=ipsearch" class="modcp_nav_item modcp_nav_ipsearch">{$lang->mcp_nav_ipsearch}</a></li> 	
+ 
+
+Edit Template: modcp_nav_modlogs
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=modlogs" class="modcp_nav_item modcp_nav_modlogs">{$lang->mcp_nav_modlogs}</a></li> 	
+ 
+
+
+Edit Template: modcp_nav_modqueue
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=modqueue" class="modcp_nav_item modcp_nav_modqueue">{$lang->mcp_nav_modqueue}</a</li> 	
+ 
+
+
+Edit Template: modcp_nav_reportcenter
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=reports" class="modcp_nav_item modcp_nav_reports">{$lang->mcp_nav_report_center}</a></li> 	
+ 
+
+
+Edit Template: modcp_nav_users
+
+<li>
+                <!-- Users Drop Down -->
+                   <label for="modcpnavdrop3" class="modcpnavtoggle3"><span class="modcp_nav_item modcp_nav_users"></span>{$lang->mcp_nav_users} <i class="fas fa-sort-desc" aria-hidden="true"></i><span class="float_right"><i class="fas fa-bars" aria-hidden="true"></i></span></label>
+                   <a href="#"><span class="modcp_nav_item modcp_nav_users"></span>{$lang->mcp_nav_users}</a>
+                   <input type="checkbox" id="modcpnavdrop3"/>
+                   <ul>
+		{$nav_editprofile}
+		{$nav_banning}
+		{$nav_warninglogs}
+		{$nav_ipsearch}                                     
+                   </ul> 
+               </li>
+              
+              
+Edit Template: modcp_nav_warninglogs
+
+							<li><a href="{$mybb->settings['bburl']}/modcp.php?action=warninglogs" class="modcp_nav_item modcp_nav_warninglogs">{$lang->mcp_nav_warninglogs}</a></li> 
+ 
+* note: the snippets provided are merely meant as a starting point and is meant to be continued to be edited further to finish any areas I did not get around to focussing on when quickly putting this tutorial together.
+
+[hr]
+--- placeholder for the past matching respo usercp nav menu sections of this tutorial if I can locate them in my files again, if not no worries as I will just re-write them and add them here if and or when I have/find the free time to do so -- ;)
+
+ie:
+https://i.ibb.co/w4tBhhB/User-Control-Panel.png
+
+https://i.ibb.co/0Y9yMCc/User-Control-Panel-2.png
+
+
+Create Stylesheet: usercpnav.css (attached to usercp.php & private.php)
+
+
+/** UserCP Responsive Dropdown Navigation by WallBB & Vintagedaddyo **/
+
+.usercpnav_container {
+	width: 100%;
+	 background: #333 !important;
+     background: -moz-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #555)) !important;
+     background: -webkit-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -o-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -ms-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: linear-gradient(top, #333 0%, #555 100%) !important;     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555', GradientType=0 ) !important;
+	 border-radius: 6px;
+} 
+ a.usercpnav {
+     background: #333 !important;
+     background: -moz-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #333), color-stop(100%, #555)) !important;
+     background: -webkit-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -o-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: -ms-linear-gradient(top, #333 0%, #555 100%) !important;
+     background: linear-gradient(top, #333 0%, #555 100%) !important;     filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#333', endColorstr='#555', GradientType=0 ) !important;
+     border-bottom: 1px solid #555 !important;
+}
+ a.usercpnav:hover {
+     background: #444 !important;
+}
+ usercpnav a:link {
+     color: #fff;
+     text-decoration: none;
+}
+ usercpnav a:visited {
+     color: #fff;
+     text-decoration: none;
+}
+ usercpnav a:hover, usercpnav a:active {
+     color: #a0a0a0;
+     text-decoration: none;
+}
+.usercpnavtoggle1, [id^="usercpnavdrop1"] {
+   display: none;
+}
+.usercpnavtoggle2, [id^="usercpnavdrop2"] {
+   display: none;
+}
+.usercpnavtoggle3, [id^="usercpnavdrop3"] {
+   display: none;
+}
+.usercpnavtoggle4, [id^="usercpnavdrop4"] {
+   display: none;
+}
+usercpnav {
+   background: #333;
+   margin: 0;
+   padding: 0;
+}
+usercpnav:after {
+   clear: both;
+   content: "";
+   display: table;
+}
+usercpnav ul {
+   list-style: outside none none;
+   margin: 0;
+   padding: 0;
+   position: relative;
+}
+usercpnav ul li {
+   border-left: 1px solid #555;
+   display: inline-block;
+   float: left;
+   margin: 0;
+}
+usercpnav a {
+   background: #222;
+   color: #fff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+usercpnav ul li ul li:hover {
+   background: #444 none repeat scroll 0 0;
+}
+usercpnav a:hover {
+   background-color: #000000;
+}
+usercpnav ul ul {
+   display: none;
+   position: absolute;
+   top: 35px;
+}
+usercpnav ul li:hover > ul {
+   display: inherit;
+}
+usercpnav ul ul li {
+   display: list-item;
+   float: none;
+   position: relative;
+   width: 170px;
+   z-index: 1;
+}
+usercpnav ul ul ul li {
+   left: 170px;
+   position: relative;
+   top: -60px;
+}
+usercpnav ul li > a:after {
+   content: " ";
+   display: inline;
+   font-family: "Font Awesome 5 Free";
+   font-weight: 900;
+}
+usercpnav ul li > a:only-child::after {
+   content: "";
+}
+@media all and (max-width: 768px) {
+.usercpnav_container {
+	 padding-top: 2px;
+	 padding-left: 4px;
+	 padding-right: 2px;
+	 padding-bottom: 2px;
+}	
+	
+usercpnav {
+   margin: 0;
+}
+.usercpnavtoggle1 + a, .usercpnavmenu {
+   display: none;
+}
+.usercpnavtoggle1 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.usercpnavtoggle1:hover {
+   background-color: #000000;
+}
+.usercpnavtoggle2 + a, .usercpnavmenu {
+   display: none;
+}
+.usercpnavtoggle2 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.usercpnavtoggle2:hover {
+   background-color: #000000;
+}
+.usercpnavtoggle3 + a, .usercpnavmenu {
+   display: none;
+}
+.usercpnavtoggle3 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.usercpnavtoggle3:hover {
+   background-color: #000000;
+}
+.usercpnavtoggle4 + a, .usercpnavmenu {
+   display: none;
+}
+.usercpnavtoggle4 {
+   background: #333;
+   border: medium none;
+   color: #ffffff;
+   display: block;
+   font-family: Helvetica,Arial,Verdana,sans-serif;
+   font-size: 12px;
+   padding: 10px 15px;
+   text-decoration: none;
+}
+.usercpnavtoggle4:hover {
+   background-color: #000000;
+}	
+[id^="usercpnavdrop1"]:checked + ul {
+   display: block;
+}
+[id^="usercpnavdrop2"]:checked + ul {
+   display: block;
+}
+[id^="usercpnavdrop3"]:checked + ul {
+   display: block;
+}
+[id^="usercpnavdrop4"]:checked + ul {
+   display: block;
+} 
+usercpnav ul li {
+   display: block;
+   width: 100%;
+}
+usercpnav ul ul .usercpnavtoggle1, usercpnav ul ul a {
+   padding: 0 40px;
+}
+usercpnav ul ul .usercpnavtoggle2, usercpnav ul ul a {
+   padding: 0 40px;
+}
+usercpnav ul ul .usercpnavtoggle3, usercpnav ul ul a {
+   padding: 0 40px;
+}
+usercpnav ul ul .usercpnavtoggle4, usercpnav ul ul a {
+   padding: 0 40px;
+}	
+usercpnav ul ul ul a {
+   padding: 0 80px;
+}
+usercpnav a:hover, usercpnav ul ul ul a {
+   background-color: #000000;
+}
+usercpnav ul li ul li .usercpnavtoggle1, usercpnav ul ul a, usercpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+usercpnav ul li ul li .usercpnavtoggle1, usercpnav ul ul a {
+   background-color: #212121;
+}
+usercpnav ul li ul li .usercpnavtoggle2, usercpnav ul ul a, usercpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+usercpnav ul li ul li .usercpnavtoggle2, usercpnav ul ul a {
+   background-color: #212121;
+}
+usercpnav ul li ul li .usercpnavtoggle3, usercpnav ul ul a, usercpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+usercpnav ul li ul li .usercpnavtoggle3, usercpnav ul ul a {
+   background-color: #212121;
+} 
+usercpnav ul li ul li .usercpnavtoggle4, usercpnav ul ul a, usercpnav ul ul ul a {
+   color: #ffffff;
+   font-size: 12px;
+   padding: 10px 15px;
+}
+usercpnav ul li ul li .usercpnavtoggle4, usercpnav ul ul a {
+   background-color: #212121;
+} 	
+usercpnav ul ul {
+   color: #ffffff;
+   float: none;
+   position: static;
+}
+usercpnav ul ul li:hover > ul, usercpnav ul li:hover > ul {
+   display: none;
+}
+usercpnav ul ul li {
+   display: block;
+   width: 100%;
+}
+usercpnav ul ul ul li {
+   position: static;
+}
+}
+@media all and (max-width: 330px) {
+usercpnav ul li {
+   display: block;
+   width: 94%;
+}
+}
+@media only screen and (min-width: 769px) {
+usercpnav ul {
+   margin-left: 8%;
+}
+usercpnav ul ul {
+   margin-left: 0;
+}
+}
+
+
+replace usercp.css with
+
+
+/** UserCP Responsive Dropdown Navigation by WallBB & V **/
+
+.usercp_nav_item:before {
+      font-size:16px;
+      font-family:"Font Awesome 5 Free";
+	  font-weight: 900;
+      color: #fff;
+      margin-right:3px;
+      text-align:center; 
+      display:inline-block;
+}
+
+.usercp_nav_composepm:before {
+      content:"\f3e5";
+}
+
+.usercp_nav_pmfolder:before {
+      content:"\f07c";
+}
+
+.usercp_nav_sub_pmfolder:before {
+      content:"\f07b";
+}
+
+.usercp_nav_trash_pmfolder:before {
+      content:"\f2ed";
+}
+
+.usercp_nav_pmtracking:before {
+      content:"\f024";
+}
+
+.usercp_nav_pmfolders:before {
+      content:"\f07b";
+}
+
+.usercp_nav_profile:before {
+      content:"\f007";
+}
+
+.usercp_nav_email:before {
+      content:"\f0e0";
+}
+
+.usercp_nav_password:before {
+      content:"\f084";
+}
+
+.usercp_nav_username:before {
+      content:"\f111";
+}
+
+.usercp_nav_editsig:before {
+      content:"\f303";
+}
+
+.usercp_nav_avatar:before {
+      content:"\f03e";
+}
+
+.usercp_nav_options:before {
+      content:"\f085";
+}
+
+.usercp_nav_usergroups:before {
+      content:"\f0c0";
+}
+
+.usercp_nav_editlists:before {
+      content:"\f004";
+}
+
+.usercp_nav_attachments:before {
+      content:"\f0c6";
+}
+
+.usercp_nav_drafts:before {
+      content:"\f303";
+}
+
+.usercp_nav_subscriptions:before {
+      content:"\f02e";
+}
+
+.usercp_nav_fsubscriptions:before{
+      content:"\f03a";
+}
+
+.usercp_nav_viewprofile:before {
+      content:"\f007";
+}
+
+.usercp_nav_home:before {
+      content:"\f015";
+}
+
+.usercp_nav_messenger:before{
+      content:"\f658";
+}
+
+.usercp_nav_misc:before{
+      content:"\f069";
+}
+
+.usercp_nav_profiles:before{
+      content:"\f007";
+}
+
+.usercp_notepad {
+	width: 99%;
+}
+
+.usercp_container {
+	margin: 5px;
+	padding: 8px;
+	border:1px solid #CCCCCC;
+}
+
+.pmspace {
+	float: right;
+	margin: -3px 5px;
+}
+
+.pmspace_container {
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 100px;
+	display: inline-block;
+}
+
+.pmspace_used {
+	display: inline-block;
+	color: #fff;
+	margin: -1px;
+}
+
+.pmspace_used.low {
+	border: 1px solid #0c5a01;
+	background: #167203;
+}
+
+.pmspace_used.medium {
+	background: #ff862b;
+	border: 1px solid #d7611e;
+}
+
+.pmspace_used.high {
+	background: #e73c3c;
+	border: 1px solid #c00;
+}
+
+.pmspace_unused {
+	display: inline-block;
+}
+
+.pmspace_text {
+	padding: 1px 5px;
+	display: inline-block;
+}
+
+.new_pm {
+	font-weight: bold;
+}
+
+
+
+Edit Template: usercp_nav
+
+
+<div class="usercpnav_container">
+<usercpnav>
+      <label for="usercpnavdrop1" class="usercpnavtoggle1"><i class="fa fa-bars" aria-hidden="true"></i> {$lang->ucp_nav_menu}</label>
+       <input type="checkbox" id="usercpnavdrop1" />
+           <ul class="usercpnavmenu">
+             {$ucp_nav_home}
+              {$usercpmenu}
+           </ul>
+    </usercpnav>
+</div>
+
+
+Edit Template: usercp_nav_home
+
+
+             <li><a href="{$mybb->settings['bburl']}/usercp.php" class="usercp_nav_item usercp_nav_home">{$lang->ucp_nav_home}</a></li>
+
+            
+
+Edit Template: usercp_nav_messenger
+
+
+               <li>
+                   <!-- Messenger Drop Down -->
+                   <label for="usercpnavdrop2" class="usercpnavtoggle2"><span class="usercp_nav_item usercp_nav_messenger"></span>{$lang->ucp_nav_messenger} <i class="fass fa-sort-desc" aria-hidden="true"></i><span class="float_right"><i class="fa fa-bars" aria-hidden="true"></i></span></label>
+                   <a href="#"><span class="usercp_nav_item usercp_nav_messenger"></span>{$lang->ucp_nav_messenger}</a>
+                   <input type="checkbox" id="usercpnavdrop2"/>
+                   <ul>
+					   {$ucp_nav_compose}
+                       {$folderlinks}
+					   {$ucp_nav_tracking}
+					   <li><a href="private.php?action=folders" class="usercp_nav_item usercp_nav_pmfolders">{$lang->ucp_nav_edit_folders}</a></li> 					   
+                   </ul> 
+               </li>
+
+
+Edit Template: usercp_nav_misc
+
+
+               <li>
+                   <!-- Misc Drop Down -->
+                   <label for="usercpnavdrop4" class="usercpnavtoggle4"><span class="usercp_nav_item usercp_nav_misc"></span>{$lang->ucp_nav_misc} <i class="fas fa-sort-desc" aria-hidden="true"></i><span class="float_right"><i class="fa fa-bars" aria-hidden="true"></i></span></label>
+                   <a href="#"><span class="usercp_nav_item usercp_nav_misc"></span>{$lang->ucp_nav_misc}</a>
+                   <input type="checkbox" id="usercpnavdrop4"/>
+                   <ul>
+					   <li><a href="usercp.php?action=usergroups" class="usercp_nav_item usercp_nav_usergroups">{$lang->ucp_nav_usergroups}</a></li>
+					   <li><a href="usercp.php?action=editlists" class="usercp_nav_item usercp_nav_editlists">{$lang->ucp_nav_editlists}</a></li>
+					   {$attachmentop}
+					   <li><a href="usercp.php?action=drafts" class="usercp_nav_item usercp_nav_drafts">{$draftcount}</a></li>
+					   <li><a href="usercp.php?action=subscriptions" class="usercp_nav_item usercp_nav_subscriptions">{$lang->ucp_nav_subscribed_threads}</a></li>
+					   <li><a href="usercp.php?action=forumsubscriptions" class="usercp_nav_item usercp_nav_fsubscriptions">{$lang->ucp_nav_forum_subscriptions}</a></li>
+					   <li><a href="{$profile_link}" class="usercp_nav_item usercp_nav_viewprofile">{$lang->ucp_nav_view_profile}</a></li>                       
+                   </ul> 
+               </li>
+
+
+Edit Template: usercp_nav_profile
+
+
+               <li>
+                   <!-- Profile Drop Down -->
+                   <label for="usercpnavdrop3" class="usercpnavtoggle3"><span class="usercp_nav_item usercp_nav_profiles"></span>{$lang->ucp_nav_profile} <i class="fas fa-sort-desc" aria-hidden="true"></i><span class="float_right"><i class="fa fa-bars" aria-hidden="true"></i></span></label>
+                   <a href="#"><span class="usercp_nav_item usercp_nav_profiles"></span>{$lang->ucp_nav_profile}</a>
+                   <input type="checkbox" id="usercpnavdrop3"/>
+                   <ul>
+					   <li><a href="usercp.php?action=profile" class="usercp_nav_item usercp_nav_profile">{$lang->ucp_nav_edit_profile}</a></li>
+					   {$changenameop}
+					   <li><a href="usercp.php?action=password" class="usercp_nav_item usercp_nav_password">{$lang->ucp_nav_change_pass}</a></li>
+					   <li><a href="usercp.php?action=email" class="usercp_nav_item usercp_nav_email">{$lang->ucp_nav_change_email}</a></li>
+					   <li><a href="usercp.php?action=avatar" class="usercp_nav_item usercp_nav_avatar">{$lang->ucp_nav_change_avatar}</a></li>
+					   {$changesigop}
+					   <li><a href="usercp.php?action=options" class="usercp_nav_item usercp_nav_options">{$lang->ucp_nav_edit_options}</a></li>                      
+                   </ul>
+
+
+Edit Template: usercp_nav_messenger_compose
+
+
+<li><a href="private.php?action=send" class="usercp_nav_item usercp_nav_composepm">{$lang->ucp_nav_compose}</a></li>
+
+
+Edit Template: usercp_nav_messenger_folder
+
+
+<li><a href="private.php?fid={$folder_id}" class="usercp_nav_item {$class}">{$folder_name}</a></li>
+
+
+Edit Template: usercp_nav_messenger_tracking
+
+
+<li><a href="private.php?action=tracking" class="usercp_nav_item usercp_nav_pmtracking">{$lang->ucp_nav_tracking}</a></li>
+
+
+Edit Template: usercp_nav_attachments
+
+
+					   <li><a href="usercp.php?action=attachments" class="usercp_nav_item usercp_nav_attachments">{$lang->ucp_nav_attachments}</a></li>
+
+
+Edit Template: usercp_nav_changename
+
+
+<li><a href="usercp.php?action=changename" class="usercp_nav_item usercp_nav_username">{$lang->ucp_nav_change_username}</a></li>
+
+
+Edit Template: usercp_nav_editsignature
+
+
+					   <li><a href="usercp.php?action=editsig" class="usercp_nav_item usercp_nav_editsig">{$lang->ucp_nav_edit_sig}</a></li>
+
+
+
+Happy editing! Best of luck!  :cool: ~ Vintagedaddyo

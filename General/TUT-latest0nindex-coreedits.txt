@@ -1,0 +1,313 @@
+[TUT] - Portal Latest Threads on Index by core edits
+
+
+In core index.php file find: 
+
+$plugins->run_hooks('index_start');
+
+Add this after:
+
+
+// start threadlist on index
+
+// get forums user cannot view
+$unviewable = get_unviewable_forums(true);
+if($unviewable)
+{
+        $unviewwhere = " AND fid NOT IN ($unviewable)";
+}
+
+        $altbg = alt_trow();
+        $threadlist = '';
+        $query = $db->query("
+                SELECT t.*, u.username
+                FROM ".TABLE_PREFIX."threads t
+                LEFT JOIN ".TABLE_PREFIX."users u ON (u.uid=t.uid)
+                WHERE 1=1 $unviewwhere AND t.visible='1' AND t.closed NOT LIKE 'moved|%'
+                ORDER BY t.lastpost DESC
+                LIMIT 0, 10"
+        );
+        while($thread = $db->fetch_array($query))
+        {
+        		$lastpostdate = my_date('relative', $thread['lastpost']);
+		        $thread['replies'] = my_number_format($thread['replies']);
+		        $thread['views'] = my_number_format($thread['views']);
+
+                //$lastpostdate = my_date($mybb->settings['dateformat'], $thread['lastpost']);
+                //$lastposttime = my_date($mybb->settings['timeformat'], $thread['lastpost']);
+
+                // Don't link to guest's profiles (they have no profile).
+                if($thread['lastposteruid'] == 0)
+                {
+                        $lastposterlink = $thread['lastposter'];
+                }
+                else
+                {
+                        $lastposterlink = build_profile_link($thread['lastposter'], $thread['lastposteruid']);
+                }
+                if(my_strlen($thread['subject']) > 25)
+                {
+                        $thread['subject'] = my_substr($thread['subject'], 0, 25) . "...";
+                }
+                $thread['subject'] = htmlspecialchars_uni($parser->parse_badwords($thread['subject']));
+                $thread['threadlink'] = get_thread_link($thread['tid']);
+                $thread['lastpostlink'] = get_thread_link($thread['tid'], 0, "lastpost");
+                $thread['forumname'] = $forum_cache[$thread['fid']]['name'];
+                eval("\$threadlist .= \"".$templates->get("portal_latestthreads_thread")."\";");
+                $altbg = alt_trow();
+        }
+        if($threadlist)
+        {
+                // Show the table only if there are threads
+                eval("\$latestthreads = \"".$templates->get("portal_latestthreads")."\";");
+        } 
+
+// end threadlist on index
+
+
+Add this to: inc/languages/english/global.lang.php
+
+$l['posted_by'] = "Posted by:";
+$l['forum'] = "Forum:";
+$l['replies'] = "Replies";
+$l['no_replies'] = "No Replies";
+$l['latest_threads'] = "Latest Threads";
+$l['latest_threads_replies'] = "Replies:";
+$l['latest_threads_views'] = "Views:";
+$l['latest_threads_lastpost'] = "Last Post:";
+
+
+
+Add this to: global.css
+
+
+.sidebar {
+    float: right;
+    width: 20%
+}
+
+.forum {
+    float: left;
+    width: 79%
+}
+
+
+Replace all of Index.php with:
+
+
+<html>
+<head>
+<title>{$mybb->settings['bbname']}</title>
+{$headerinclude}
+<script type="text/javascript">
+<!--
+	lang.no_new_posts = "{$lang->no_new_posts}";
+	lang.click_mark_read = "{$lang->click_mark_read}";
+// -->
+</script>
+</head>
+<body>
+{$header}
+	
+<div class="forum"> 
+  {$forums} 
+</div>
+	
+<div class="sidebar">
+  {$latestthreads} 
+</div>
+	
+{$boardstats}
+
+<dl class="forum_legend smalltext">
+	<dt><span class="forum_status forum_on" title="{$lang->new_posts}"></span></dt>
+	<dd>{$lang->new_posts}</dd>
+
+	<dt><span class="forum_status forum_off" title="{$lang->no_new_posts}"></span></dt>
+	<dd>{$lang->no_new_posts}</dd>
+
+	<dt><span class="forum_status forum_offclose" title="{$lang->forum_closed}"></span></dt>
+	<dd>{$lang->forum_locked}</dd>
+
+	<dt><span class="forum_status forum_offlink" title="{$lang->forum_redirect}"></span></dt>
+	<dd>{$lang->forum_redirect}</dd>
+</dl>
+<br class="clear" />
+{$footer}
+</body>
+</html>
+
+
+
+If you want to make the threadlist collapsable:
+
+Replace portal_latestthreads with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+    <tr>
+      <td class="thead"><strong>{$lang->latest_threads}</strong>
+        <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex1_img" class="expander" alt="[-]" title="[-]" /></div></td>
+    </tr>
+    <tbody style="{$collapsed['sidebar_ex1_e']}" id="sidebar_ex1_e">
+     {$threadlist}
+    </tbody>
+  </table>
+  <br />
+
+
+
+Replace portal_latestthreads_thread with:
+
+
+
+<tr>
+<td class="{$altbg}">
+<strong><a href="{$mybb->settings['bburl']}/{$thread['threadlink']}">{$thread['subject']}</a></strong>
+<span class="smalltext"><br />
+{$lang->forum} <a href="{$mybb->settings['bburl']}/{$thread['forumlink']}">{$thread['forumname']}</a><br />
+<a href="{$mybb->settings['bburl']}/{$thread['lastpostlink']}">{$lang->latest_threads_lastpost}</a> {$lastposterlink}<br />
+{$lastpostdate} {$lastposttime}<br />
+<strong>&raquo; </strong>{$lang->latest_threads_replies} {$thread['replies']}<br />
+<strong>&raquo; </strong>{$lang->latest_threads_views} {$thread['views']}
+</span>
+</td>
+</tr>
+
+
+
+replace css3.css with:
+
+tr td.trow1:first-child,
+tr td.trow2:first-child,
+tr td.trow_shaded:first-child {
+	border-left: 0;
+}
+
+tr td.trow1:last-child,
+tr td.trow2:last-child,
+tr td.trow_shaded:last-child {
+	border-right: 0;
+}
+
+.tborder {
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+
+.tborder tbody tr:last-child > td {
+	border-bottom: 0;
+}
+
+.tborder tbody tr:last-child > td:first-child {
+}
+
+.tborder tbody tr:last-child > td:last-child {
+}
+
+.thead {
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.thead_collapsed {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.thead_left {
+	-moz-border-radius-topright: 0;
+	-webkit-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.thead_right {
+	-moz-border-radius-topleft: 0;
+	-webkit-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.tcat_menu {
+	-moz-border-radius: 0 !important;
+	-webkit-border-radius: 0 !important;
+  	border-radius: 0 !important;
+}
+
+.tborder tbody:nth-last-child(2) .tcat_collapse_collapsed {
+	-moz-border-radius-bottomleft: 6px !important;
+	-moz-border-radius-bottomright: 6px !important;
+	-webkit-border-bottom-left-radius: 6px !important;
+	-webkit-border-bottom-right-radius: 6px !important;
+	border-bottom-left-radius: 6px !important;
+	border-bottom-right-radius: 6px !important;
+}
+
+button,
+input.button,
+input.textbox,
+input.invalid_field,
+input.valid_field,
+select,
+textarea,
+.editor_control_bar,
+blockquote,
+.codeblock,
+fieldset,
+.pm_alert,
+.red_alert,
+.popup_menu,
+.postbit_buttons > a,
+a.button {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.post.classic .post_author {
+	-moz-border-radius: 0 6px 6px 0;
+	-webkit-border-radius: 0 6px 6px 0;
+	border-radius: 0 6px 6px 0;
+}
+
+.popup_menu .popup_item_container:first-child .popup_item {
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	-webkit-border-top-left-radius: 6px;
+	-webkit-border-top-right-radius: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.popup_menu .popup_item_container:last-child .popup_item {
+	-moz-border-radius-bottomleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	-webkit-border-bottom-left-radius: 6px;
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.pagination a {
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.pollbar {
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+
+
+Best of Luck!  :D Happy Editing! ~ Vintagedaddyo
