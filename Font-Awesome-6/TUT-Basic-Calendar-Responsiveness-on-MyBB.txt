@@ -40,7 +40,7 @@ Edit: headerinclude
 
 1. Loading Font Awesome 6
 
-We need to load FA5 due to the two arrows we are adding to calendar....
+We need to load FA6 due to the two arrows we are adding to calendar....
 
 In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
 
