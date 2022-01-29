@@ -1,0 +1,395 @@
+[TUT] - Simply one way to set active status of clicked link styling - Vintagedaddyo
+
+Just a real quick & simple example of just one way to set overall various styling related to active status on clicked links...
+
+ie:
+
+https://i.ibb.co/pfHsjKD/User-Control-Panel.png
+
+https://i.ibb.co/sFtZfJh/Forums-Member-List.png
+
+https://i.ibb.co/FzHVvKt/Forums-Forum-Team.png
+
+
+
+Edit Template: headerinclude
+
+find:
+
+{$stylesheets}
+
+
+add after:
+
+
+<!-- active init class start --> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("[href]").each(function() {
+        if (this.href == window.location.href) {
+            $(this).addClass("active");
+        }
+    });
+});
+</script>
+
+<!-- active init class end -->
+
+
+
+add to your .css file:
+
+/*** Active Styling ***/
+
+/** global **/
+
+/* all .active */
+
+.active {
+/*   color: #ff7500 !important; */ /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** navigation breadcrumb **/
+
+.navigation .active {
+/*   color: #ff7500 !important; */ /* color override disable / enable */
+}
+
+/** modcp nav **/
+
+/* all */
+
+.modcp_nav_item.active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** usercp nav **/
+
+/* all */
+
+.usercp_nav_item.active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** toplinks **/
+
+/* only toplinks */
+
+#logo ul.top_links .active {
+/*   color: #ff7500 !important; */ /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** header menu links **/
+
+/* all */
+
+#header ul.menu li .active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** footer menu links **/
+
+#footer .upper ul.bottom_links .active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+* this focuses on just a few of the main common existing areas in default theme....
+
+Anyhoo, so say for example you then have some custom areas you wanted to implement specific styling with this say your clicked active menu item background and text colors, well here is just a basic example:
+.main-menu_links .active {
+   background: #007FD0; /* bg color here */
+   color: #fff; /* text color here */
+}
+
+.user-bar_links .active {
+   color: #ff7500 !important; /* text color here with !important to override existing styling */
+   background: #EEEEEE; /* bg color here */
+   border-radius: unset !important;
+}
+
+etc, etc....
+
+now the beauty of this is that like I already said you can simply do a global styling for all or target various diff areas and style specific.....
+
+
+for example sake let us take the global styling for modcp and usercp nav  .active 
+and instead style specific to each:
+
+/* modcp */
+
+.modcp_nav_item.active {
+/*   color: #ff7500 !important; */
+}
+
+a.modcp_nav_item.modcp_nav_home.active {
+  color: #ff7500 !important; 
+}
+
+a.modcp_nav_item.modcp_nav_announcements.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_modqueue.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_reports.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_modlogs.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_editprofile.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_banning.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_warninglogs.active {
+  color: #ff7500 !important;
+}
+
+a.modcp_nav_item.modcp_nav_ipsearch.active {
+  color: #ff7500 !important;
+}
+
+
+/* usercp */
+
+.usercp_nav_item.active {
+/*   color: #ff7500 !important; */
+}
+
+a.usercp_nav_item.usercp_nav_home.active {
+  color: #ff7500 !important; 
+}
+
+a.usercp_nav_item.usercp_nav_composepm.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_pmfolder.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_sub_pmfolder.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_pmtracking.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_pmfolders.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_profile.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_username.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_password.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_email.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_avatar.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_editsig.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_options.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_usergroups.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_editlists.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_attachments.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_drafts.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_subscriptions.active {
+  color: #ff7500 !important;
+}
+
+a.usercp_nav_item.usercp_nav_fsubscriptions.active {
+  color: #ff7500 !important;
+}
+
+
+You then could say desire to set :ative and :hover status to a specific .active class:
+
+/* modcp nav all items .active states :hover :active */
+
+.modcp_nav_item.active:hover,
+.modcp_nav_item.active:active {
+   color: green !important; /* color override disable / enable */
+   font-weight: bold;  /* bold disable / enable */
+}
+
+or for say individual item specific example:
+
+
+/* modcp nav specific item .active states :hover :active */
+
+a.modcp_nav_item.modcp_nav_home.active:hover,
+a.modcp_nav_item.modcp_nav_home.active:active {
+   color: green !important; /* color override disable / enable */
+   font-weight: bold;  /* bold disable / enable */
+}
+
+
+anyhoo, now that you have an idea on all that, here is the original snippet example simply with added :active :hover states for example:
+
+
+/** global **/
+
+/* all .active */
+
+.active {
+/*   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+.active:hover,
+.active:active {
+/*   color: green !important; */ /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** navigation breadcrumb **/
+
+.navigation .active {
+/*   color: #ff7500 !important; */ /* color override disable / enable */
+}
+
+/* .active :hover :active */
+
+.navigation .active:hover,
+.navigation .active:active {
+/*   color: green !important; */ /* color override disable / enable */
+}
+
+/** modcp nav **/
+
+/* all */
+
+.modcp_nav_item.active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+.modcp_nav_item.active:hover,
+.modcp_nav_item.active:active {
+   color: green !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** usercp nav **/
+
+/* all */
+
+.usercp_nav_item.active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+.usercp_nav_item.active:hover,
+.usercp_nav_item.active:active {
+   color: green !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** toplinks **/
+
+/* only toplinks */
+
+#logo ul.top_links .active {
+/*   color: #ff7500 !important; */ /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+#logo ul.top_links .active:hover,
+#logo ul.top_links .active:active {
+/*   color: green !important; */ /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** header menu links **/
+
+/* all */
+
+#header ul.menu li .active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+#header ul.menu li .active:hover,
+#header ul.menu li .active:active {
+   color: green !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/** footer menu links **/
+
+#footer .upper ul.bottom_links .active {
+   color: #ff7500 !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+/* .active :hover :active */
+
+#footer .upper ul.bottom_links .active:hover,
+#footer .upper ul.bottom_links .active:active {
+   color: green !important; /* color override disable / enable */
+/*   font-weight: bold; */ /* bold disable / enable */
+}
+
+
+hopefully that all makes sense...
+
+* Anyhoo, all of these examples are only meant as a starting point so that the tutorial reader can see examples of the commented out all type styling or see specific area styling and then expand/edit/change/improve existing examples...
+
+now, you can edit, un-comment or comment out the existing examples and or continue defining to your specific usages...
+
+Best of luck! ~ Vintagedaddyo :D
