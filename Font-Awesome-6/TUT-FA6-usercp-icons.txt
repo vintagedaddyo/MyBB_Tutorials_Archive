@@ -1,4 +1,4 @@
-[Tutorial - Font Awesome 6 UserCP icons 
+[Tutorial - Font Awesome 6 UserCP icons  - by Vintagedaddyo
 
 
 1. Loading Font Awesome 6
@@ -266,3 +266,6 @@ td[class^=trow]{
 .new_pm {
 	font-weight: bold;
 }
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

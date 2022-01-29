@@ -1,12 +1,12 @@
-[Tutorial] - Font Awesome 5 - Postbit status & Showteam status (online/offline/away)
+ - by VintagedaddyoTutorial] - Font Awesome 5 - Postbit status & Showteam status (online/offline/away) 
 
 ie:
 
-[url=https://imgbb.com/][img]https://i.ibb.co/mqtM3P8/Forums-Forum-Team-1.png[/img][/url]
+https://i.ibb.co/mqtM3P8/Forums-Forum-Team-1.png
 
-[url=https://imgbb.com/][img]https://i.ibb.co/82XPLB1/Forums-Forum-Team.png[/img][/url]
+https://i.ibb.co/82XPLB1/Forums-Forum-Team.png
 
-[url=https://imgbb.com/][img]https://i.ibb.co/x8z1D1b/Forums-Forum-Team-2.png[/img][/url]
+https://i.ibb.co/x8z1D1b/Forums-Forum-Team-2.png
 
 1. Loading Font Awesome 5
 
@@ -98,11 +98,11 @@ Replace with:
 Now if you want the postbit user online/offline/away status to be similar you can do the following:
 
 ie:
-[url=https://imgbb.com/][img]https://i.ibb.co/cN6yqw6/test-1.png[/img][/url]
+https://i.ibb.co/cN6yqw6/test-1.png
 
-[url=https://imgbb.com/][img]https://i.ibb.co/T4WP7Qd/test.png[/img][/url]
+https://i.ibb.co/T4WP7Qd/test.png
 
-[url=https://imgbb.com/][img]https://i.ibb.co/p407VVP/test-2.png[/img][/url]
+https://i.ibb.co/p407VVP/test-2.png
 
 Add to global.css:
 
@@ -169,4 +169,4 @@ Replace postbit_away with:
 
 
 
-Best of luck!  :D  Happy editing!  ~ V
+Best of luck!  :D  Happy editing!  ~ Vintagedaddyo

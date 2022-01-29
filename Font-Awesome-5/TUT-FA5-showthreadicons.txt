@@ -1,4 +1,4 @@
-[Tutorial - Font Awesome 5 show thread icons 
+[Tutorial - Font Awesome 5 show thread icons  - by Vintagedaddyo
 
 
 1. Loading Font Awesome 5
@@ -126,3 +126,6 @@ ul.thread_tools li.poll:after {
 	padding: 20px;
 	width: 100%;
 }
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

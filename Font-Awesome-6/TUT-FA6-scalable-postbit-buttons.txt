@@ -1,9 +1,9 @@
-[Tutorial] - Font-Awesome 6 Scalable Postbit Buttons Forum Icons on MyBB 
+[Tutorial] - Font-Awesome 6 Scalable Postbit Buttons Forum Icons on MyBB  - by Vintagedaddyo
 
 ie:
-[url=https://ibb.co/bQP30FY][img]https://i.ibb.co/xXDskYw/test.png[/img][/url]
+https://i.ibb.co/xXDskYw/test.png
 
-[url=https://ibb.co/C60y6cB][img]https://i.ibb.co/dtKvtTB/test-1.png[/img][/url]
+https://i.ibb.co/dtKvtTB/test-1.png
 
 Let us get started. ok, for testing purposes we need to make the forum scalable to see the scalable postbit buttons in action so we need to set viewport and remove existing container and wrapper sizing so begin by opening up the default theme headerinclude template and find:
 
@@ -450,4 +450,4 @@ content: "\f0a1";
 }
 
 
-Happy editing! Best of luck!  ;)  :cool:  ~ V
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

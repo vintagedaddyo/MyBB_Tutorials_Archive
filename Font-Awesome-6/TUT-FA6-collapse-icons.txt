@@ -1,4 +1,4 @@
-[Tutorial] - FA6 collapse icons for index, help section, usercp, modcp...
+[Tutorial] - FA6 collapse icons for index, help section, usercp, modcp...  - by Vintagedaddyo
 
 
 Loading Font Awesome 6 *
@@ -199,3 +199,7 @@ Replace with:
 
 <div class="expcolimage"><div src="{$theme['imgdir']}/" id="modcpusers_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
 
+
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

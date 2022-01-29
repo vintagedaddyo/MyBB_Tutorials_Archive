@@ -4,7 +4,7 @@
 This here is a Tutorial For mybb to use Font Awesome 5:
 
 
-Font-Awesome 5 Forum Icons on MyBB 1.8.29 + Software
+Font-Awesome 5 Forum Icons on MyBB 1.8.29 + Software   - by Vintagedaddyo
 
 
 Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 5 icons. The software of board being used in this tutorial is MyBB 1.8.29. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial. 

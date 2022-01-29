@@ -1,0 +1,450 @@
+[TUT] - Color by fid/tid forum title, thread title, threadlist title, cat title... - by Vintagedaddyo
+
+For forums:
+
+Add a stylesheet called: fid_tid_titles.css
+
+attached globally
+
+
+
+/** Colored Forum Titles by Fids by vintagedaddyo **/
+
+.fcolor_2 a:link,
+.fcolor_2 a:active {
+	color: green!important;
+	font-weight: 700!important;
+}
+
+.fcolor_2 a:visited {
+	color: green!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.fcolor_2 a:hover {
+	color: green!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.fcolor_3 a:link,
+.fcolor_3 a:active {
+	color: #FFD700!important;
+	font-weight: 700!important;
+}
+
+.fcolor_3 a:visited {
+	color: #FFD700!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.fcolor_3 a:hover {
+	color: #FFD700!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.fcolor_4 a:link,
+.fcolor_4 a:active {
+	color: red!important;
+	font-weight: 700!important;
+}
+
+.fcolor_4 a:visited {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.fcolor_4 a:hover {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+
+* you then would adjust the fcolor_ # numbers to match your forum ids and add further ids and colors for all of your forum ids. This way you can have different colors for any and or all.
+
+
+In forumbit_depth2_forum template find:
+
+
+<strong><a href="{$forum_url}">{$forum['name']}</a></strong>
+
+
+replace with:
+
+
+<span class="fcolor_{$forum['fid']}"><a href="{$forum_url}">{$forum['name']}</a></span>
+
+
+
+For subforums:
+
+In forumbit_depth3 find:
+
+
+<strong><a href="{$forum_url}" title="{$forum_viewers_text_plain}">{$forum['name']}</a></strong>
+
+
+replace with:
+
+
+<span class="sfcolor_{$forum['fid']}"><a href="{$forum_url}" title="{$forum_viewers_text_plain}">{$forum['name']}</a></span>
+
+
+
+Add to: fid_tid_titles.css
+
+
+/** Subforum title color by fid by vintagedaddyo **/
+
+.sfcolor_6 a:link,
+.sfcolor_6 a:active {
+	color: green!important;
+	font-weight: 700!important;
+}
+
+.sfcolor_6 a:visited {
+	color: green!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.sfcolor_6 a:hover {
+	color: green!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+
+* you then would adjust the sfcolor_ # numbers to match your sub forum ids and add further ids and colors for all of your forum ids. This way you can have different colors for any and or all.
+
+
+
+For colored thread titles: 
+
+
+In showthread find:
+
+
+<div> <strong>{$thread['displayprefix']}{$thread['subject']}</strong> </div>
+
+
+replace with:
+
+
+ <div>
+<span class="tcolor_{$thread['tid']}">{$thread['displayprefix']}{$thread['subject']}</span> </div>
+
+
+
+Add to: fid_tid_titles.css
+
+
+/** colored by tid thread titles by vintagedaddyo **/
+
+.tcolor_1 {
+	color: orange!important;
+	font-weight: 700!important;
+}
+
+.tcolor_2 {
+	color: yellow!important;
+	font-weight: 700!important;
+}
+
+.tcolor_3 {
+	color: red!important;
+	font-weight: 700!important;
+}
+
+
+* you then would adjust the tcolor_ # numbers to match your thread ids and add further ids and colors for all of your thread ids. This way you can have different colors for any and or all.
+
+
+For colored threadlist titles:
+
+in forumdisplay_thread find:
+
+
+<span>{$prefix} {$gotounread}{$thread['displayprefix']}<span class="{$inline_edit_class} {$new_class}" id="tid_{$inline_edit_tid}"><a href="{$thread['threadlink']}">{$thread['subject']}</a></span>{$thread['multipage']}</span>
+
+
+replace with:
+
+
+<span>{$prefix} {$gotounread}{$thread['displayprefix']}<span class="{$inline_edit_class} {$new_class}" id="tid_{$inline_edit_tid}"><span class="tlcolor_{$thread['tid']}"><a href="{$thread['threadlink']}">{$thread['subject']}</a></span></span>{$thread['multipage']}</span>
+
+
+
+Add to: fid_tid_titles.css
+
+
+/** colored by tid threadlist titles by vintagedaddyo **/
+
+.tlcolor_1 a:link,
+.tlcolor_1 a:active {
+	color: orange!important;
+	font-weight: 700!important;
+}
+
+.tlcolor_1 a:visited {
+	color: orange!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.tlcolor_1 a:hover {
+	color: orange!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.tlcolor_2 a:link,
+.tlcolor_2 a:active {
+	color: #FFD700!important;
+	font-weight: 700!important;
+}
+
+.tlcolor_2 a:visited {
+	color: #FFD700!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.tlcolor_2 a:hover {
+	color: #FFD700!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.tlcolor_3 a:link,
+.tlcolor_3 a:active {
+	color: red!important;
+	font-weight: 700!important;
+}
+
+.tlcolor_3 a:visited {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.tlcolor_3 a:hover {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+
+* you then would adjust the tlcolor_ # numbers to match your thread ids and add further ids and colors for all of your thread ids. This way you can have different colors for any and or all.
+
+
+For category depth 1 & 2 titles:
+
+Find in forumbit_depth1_cat:
+
+
+<div><strong><a href="{$forum_url}">{$forum['name']}</a></strong><br /><div class="smalltext">{$forum['description']}</div></div>
+
+
+replace with:
+
+
+<div><span class="catcolord1_{$forum['fid']}"><a href="{$forum_url}">{$forum['name']}</a></span><br /><div class="smalltext">{$forum['description']}</div></div>
+
+
+
+Find in forumbit_depth2_cat:
+
+
+<strong><a href="{$forum_url}">{$forum['name']}</a></strong>{$forum_viewers_text}<div class="smalltext">{$forum['description']}{$subforums}</div>
+
+
+replace with:
+
+
+<span class="catcolord2_{$forum['fid']}"><a href="{$forum_url}">{$forum['name']}</a></span>{$forum_viewers_text}<div class="smalltext">{$forum['description']}{$subforums}</div>
+
+
+
+Add to: fid_tid_titles.css
+
+
+/** colored category depth 1&2 titles by vintagedaddyo**/
+
+
+/** d1**/
+
+.catcolord1_1 a:link,
+.catcolord1_1 a:active {
+	color: orange!important;
+	font-weight: 700!important;
+}
+
+.catcolord1_1 a:visited {
+	color: orange!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.catcolord1_1 a:hover {
+	color: orange!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.catcolord1_2 a:link,
+.catcolord1_2 a:active {
+	color: yellow!important;
+	font-weight: 700!important;
+}
+
+.catcolord1_2 a:visited {
+	color: yellow!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.catcolord1_2 a:hover {
+	color: yellow!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+
+/** d2 **/
+
+.catcolord2_3 a:link,
+.catcolord2_3 a:active {
+	color: purple!important;
+	font-weight: 700!important;
+}
+
+.catcolord2_3 a:visited {
+	color: purple!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.catcolord2_3 a:hover {
+	color: purple!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.catcolord2_5 a:link,
+.catcolord2_5 a:active {
+	color: red!important;
+	font-weight: 700!important;
+}
+
+.catcolord2_5 a:visited {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.catcolord2_5 a:hover {
+	color: red!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+.catcolord2_9 a:link,
+.catcolord2_9 a:active {
+	color: gold!important;
+	font-weight: 700!important;
+}
+
+.catcolord2_9 a:visited {
+	color: gold!important;
+	font-weight: 700!important;
+	text-decoration: none!important;
+}
+
+.catcolord2_9 a:hover {
+	color: gold!important;
+	font-weight: 700!important;
+	text-decoration: underline!important;
+}
+
+
+* you then would adjust the catcolord1_ # & catcolord2_# numbers to match your forum ids and add further ids and colors for all of your forum ids. This way you can have different colors for any and or all.
+
+ok, one last part that was originally asked by the person requesting this tut when I originally wrote this tutorial a few years back is:
+
+forum info title...
+
+
+In forumdisplay_threadlist find:
+
+<strong>{$foruminfo['name']}</strong>
+
+And replace with:
+
+<span class="finfocolor_{$thread['fid']}">{$foruminfo['name']}</span>
+
+
+
+add to: fid_tid_titles.css
+
+
+
+/** colored by fid forum info titles by vintagedaddyo **/
+
+.finfocolor_1 {
+	color: orange!important;
+	font-weight: 700!important;
+}
+
+.finfocolor_2 {
+	color: yellow!important;
+	font-weight: 700!important;
+}
+
+.finfocolor_3 {
+	color: red!important;
+	font-weight: 700!important;
+}
+
+* you then would adjust the finfocolor_ #  numbers to match your forum ids and add further ids and colors for all of your forum ids. This way you can have different colors for any and or all.
+
+
+ok, one other tweak you can do is a lil diff than the previous:
+
+for this we are editing a language file and then adding respective css to our css file
+
+includes/languages/english/forumdisplay.lang.php
+
+look for:
+
+$l['sub_forums_in']  = "...";
+
+Change to:
+$l['sub_forums_in']  = "Forums in '<span class=\"{1}\">{1}</span>'";
+
+
+and in this example my particular title is 'My Category' so we are going to style it by title name
+
+so for example:
+
+Add to: fid_tid_titles.css
+
+/* Forums in */
+
+.My.Category {
+color:orange!important;
+font-weight:700!important;
+}
+
+etc, etc
+
+hopefully that makes sense ;)
+
+after adding all of that you can then continue editing further for your specific purposes...
+
+Best of Luck! Happy editing! :D  ~ Vintagedaddyo

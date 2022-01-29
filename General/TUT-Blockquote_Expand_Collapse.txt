@@ -1,4 +1,4 @@
-[Tutorial] Blockquote Expand/Collapse
+[Tutorial] Blockquote Expand/Collapse - by Vintagedaddyo
 
 So, I have seen a few people here ask about collapsing quote/codeblock and also a few people have asked me personally about the collapsing quote/codeblock in the Devel theme. Credit goes to as you notice in the devel theme: "Authors: mmadhankumar & vintagedaddyo". Anyhoo..., credit to mmadhankumar & myself on the "Blockquote Expand/Collapse and optional respective localization" ..., and I figured I would share since folks have asked for this and even if it is already in a theme..., here it is for anyone needing it outside of a theme...
 

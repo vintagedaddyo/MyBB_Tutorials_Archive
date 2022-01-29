@@ -1,4 +1,4 @@
-[Tutorial] - Font Awesome 5 modcp icons
+[Tutorial] - Font Awesome 5 modcp icons  - by Vintagedaddyo
 
 Loading Font Awesome 5 *
 
@@ -184,3 +184,7 @@ Edit Template: modcp_announcements_announcement_expired
 Replace with:
 
 <div class="mcp_announceicon mcp_announceicon_off" title="{$lang->expired_announcement}"></div>
+
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

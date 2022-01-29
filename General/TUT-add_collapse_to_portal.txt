@@ -1,0 +1,148 @@
+[TUT] - Add collapse functionality to portal - by Vintagedaddyo
+
+Edit Template: portal_latestthreads
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+    <tr>
+      <td class="thead{$expthead}"><strong>{$lang->latest_threads}</strong>
+        <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex5_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+    </tr>
+    <tbody style="{$collapsed['sidebar_ex5_e']}" id="sidebar_ex5_e">
+     {$threadlist}
+    </tbody>
+  </table>
+  <br />
+
+Edit Template: portal_pms
+
+
+  <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong><a href="{$mybb->settings['bburl']}/private.php">{$lang->private_messages}</a></strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex9_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex9_e']}" id="sidebar_ex9_e">
+    <tr>
+      <td class="trow1"><span class="smalltext">{$lang->pms_received_new}<br />
+        <br />
+        <strong>&raquo; </strong> <strong>{$messages['pms_unread']}</strong> {$lang->pms_unread}<br />
+        <strong>&raquo; </strong> <strong>{$messages['pms_total']}</strong> {$lang->pms_total}</span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+Edit Template: portal_search
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->search_forums}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex8_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex8_e']}" id="sidebar_ex8_e">
+<tr>
+<td class="trow1" align="center">
+<form action="{$mybb->settings['bburl']}/search.php">
+<input type="hidden" name="action" value="do_search" />
+<input type="hidden" name="postthread" value="1" />
+<input type="hidden" name="forums" value="all" />
+<input type="hidden" name="showresults" value="threads" />
+<input type="text" class="textbox portal_search" name="keywords" value="" />
+{$gobutton}
+</form><br />
+<span class="smalltext">
+(<a href="{$mybb->settings['bburl']}/search.php">{$lang->advanced_search}</a>)
+</span>
+</tbody>	
+</td>
+</tr>
+</table>
+<br />
+
+
+Edit Template: portal_stats
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->forum_stats}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex7_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex7_e']}" id="sidebar_ex7_e">
+    <tr>
+      <td class="trow1"><span class="smalltext"> <strong>&raquo; </strong>{$lang->num_members} {$stats['numusers']}<br />
+        <strong>&raquo; </strong>{$lang->latest_member} {$newestmember}<br />
+        <strong>&raquo; </strong>{$lang->num_threads} {$stats['numthreads']}<br />
+        <strong>&raquo; </strong>{$lang->num_posts} {$stats['numposts']} <br />
+        <br />
+        <a href="{$mybb->settings['bburl']}/stats.php">{$lang->full_stats}</a> </span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+Edit Template: portal_welcome
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->welcome}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex10_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex10_e']}" id="sidebar_ex10_e">
+    <tr>
+      <td class="trow1"> {$welcometext} </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+add to css3.css
+
+.tborder_portal {
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+
+
+
+add to global.css
+
+
+.tborder_portal {
+	background: #fff;
+	width: 100%;
+	margin: auto auto;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+
+
+Edit Template: portal_whosonline
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->online}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex6_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex6_e']}" id="sidebar_ex6_e">
+    <tr>
+      <td class="trow1"><span class="smalltext"> {$lang->online_users}<br />
+        <strong>&raquo;</strong> {$lang->online_counts}<br />
+        {$onlinemembers} </span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+You can then keep editing further for your usages....
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo

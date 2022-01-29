@@ -9,7 +9,7 @@ hmm, simple enough huh?
 Thus here was my quick explanation now added as a tutorial, and while my free time is limited as of late I will try to say add some screenshots or expand upon this as my time or interest may allow....
 
 
-[TUT] - Simply style category by fid, style trow1/2 by fid, apply cat styling forumdisplay & showthread
+[TUT] - Simply style category by fid, style trow1/2 by fid, apply cat styling forumdisplay & showthread - by Vintagedaddyo
 
 ie:
 
@@ -2888,4 +2888,4 @@ NOTE: I left the trow1 and trow2 styling per same as the default trow1 and trow2
 
 You then after gathering a simple understanding of this implementation you would modify such to reflect your respective fids and then further expand upon your desired specific colors and other such stylings....
 
-Best of luck!  :D Happy editing!  ~ V
+Best of luck!  :D Happy editing!  ~ Vintagedaddyo

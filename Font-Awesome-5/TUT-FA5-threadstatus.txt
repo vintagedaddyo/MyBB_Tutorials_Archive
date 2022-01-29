@@ -1,4 +1,4 @@
-[Tutorial] - Font Awesome 5 thread status icons
+[Tutorial] - Font Awesome 5 thread status icons  - by Vintagedaddyo
 
 
 1. Loading Font Awesome 5
@@ -423,3 +423,6 @@ Replace all with:
     border: #333 1px solid;
     font-weight: 900;    
 }
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
