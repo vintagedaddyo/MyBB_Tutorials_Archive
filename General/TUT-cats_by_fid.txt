@@ -1,0 +1,2891 @@
+* I quickly threw this together for a user that had followed say other tutorials in the past but found them to be limited in implementation thus the user asked me to explain how to do the following:
+
+* color theads (categories) by fid
+* also trow 1 and 2  by fid *most tuts never explain this or consider why styling by fid  trow 1 and 2 could become handy
+* display theads (categories) by fid in showthread and forumdisplay * of which most past tuts do not factor
+
+hmm, simple enough huh?
+
+Thus here was my quick explanation now added as a tutorial, and while my free time is limited as of late I will try to say add some screenshots or expand upon this as my time or interest may allow....
+
+
+[TUT] - Simply style category by fid, style trow1/2 by fid, apply cat styling forumdisplay & showthread
+
+ie:
+
+https://i.ibb.co/kGDyjgr/Forums.png
+
+https://i.ibb.co/sHxBc0v/Forums-My-Category-1.png
+
+https://i.ibb.co/6Bh5RKH/Forums-My-Forum-1.png
+
+https://i.ibb.co/jR6Ls77/Test-Thread.png
+
+
+Ok, let us start with template edits first:
+
+Edit Template: forumbit_depth1_cat
+
+find:
+
+
+<td class="thead{$expthead}" colspan="5">
+
+
+replace with:
+
+
+<td class="thead{$expthead}" colspan="5" id="cat_thead_{$forum['fid']}">
+
+
+
+
+Edit Template: forumbit_depth2_forum
+
+find all instances of:
+
+
+<td class="{$bgcolor}"
+
+
+replace with:
+
+<td class="{$bgcolor}_{$forum['fid']}"
+
+
+
+Edit Template: forumdisplay_subforums
+
+find:
+
+
+<td class="thead" colspan="5"
+
+
+replace with:
+
+
+<td class="thead" colspan="5" id="cat_thead_{$fid}"
+
+
+
+Edit Template: forumdisplay_thread
+
+
+Find all instances of:
+
+
+{$bgcolor}
+
+
+replace with:
+
+
+{$bgcolor}_{$fid}
+
+
+
+Edit Template: forumdisplay_thread_modbit
+
+find:
+
+
+<td class="{$bgcolor}
+
+
+replace with:
+
+
+<td class="{$bgcolor}_{$fid}
+
+
+Edit Template: forumdisplay_thread_rating
+
+find: 
+
+
+<td align="center" class="{$bgcolor}
+
+
+replace with:
+
+
+<td align="center" class="{$bgcolor}_{$fid}
+
+
+Edit Template: forumdisplay_threadlist
+
+find:
+
+
+		<td class="thead" colspan="{$colspan}">
+
+
+
+replace with:
+
+
+		<td class="thead" colspan="{$colspan}" id="cat_thead_{$fid}">
+
+
+
+Edit Template: showthread
+
+find:
+
+
+			<td class="thead">
+
+
+replace with:
+
+
+			<td class="thead" id="cat_thead_{$fid}">
+
+
+
+Now that we had done our template edits, let us add the respective css styling:
+
+create a new stylesheet attached to your theme called say for example:
+
+fcats_trows.css
+
+attached globally
+
+and add your respective styling....
+
+
+/** TUT - Color by fid, cats, trows, apply cat by fid to forumdisplay and showthread by: Vintagedaddyo **/
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_2 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 4 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_4 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_4 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_4 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 7 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_7 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_7 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_7 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Parent Category = fid 3 */
+
+#cat_thead_3 {
+background: #00ACED;
+}
+
+/* Forum = fid 5 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_5 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_5 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_5 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 6 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_6 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_6 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_6 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 8 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_8 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_8 {
+	background: #f5f5f5;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_8 {
+	background: #efefef;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+
+* the reason why we want to add a new stylesheet is that if you have alot of forums to define then this stylesheet could get lengthly over time... thus this keeps it all in one place without clogging up any other lengthly stylesheets.
+
+
+also you will note while the trow1 and trow2 is now defined by fid, I left the styling same as default for simply quick example, but you could say for example say decide on the fly to use your [url=https://www.mozilla.org/en-US/firefox/developer/]browser[/url] tool like [url=https://addons.mozilla.org/en-US/firefox/addon/colorzilla/]colorzilla ff[/url] or  [url=https://www.colorzilla.com/chrome/]colorzilla ch[/url] for example and say grab hex from thead for example the "Dark Blue" (#3b5998 color description : Dark moderate blue) category: 
+
+#3B5998
+
+then visit somewhere like:
+
+[url=https://www.colorhexa.com/3b5998]https://www.colorhexa.com/3b5998[/url]
+
+[url=https://www.color-hex.com/color/3b5998]https://www.color-hex.com/color/3b5998[/url]
+
+and then find say shade variations for example:
+
+#edf1f8
+
+#dfe6f3
+
+and say use those for  trow1 & trow2 backgrounds just for example, though the end choices of styling are ultimately yours
+
+you may then even find another shade variation for example:
+
+
+#d1dbee
+
+
+and opt to say apply that as a trow1 & trow2 hover and active state background.... again these are supplied only as suggestions for those considering expanding further upon the supplied examples in this tutorial.
+
+example of the previously mentioned applied to  all fids trow1 & trow2 within  Parent Category = fid 1 
+
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_2 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2:active,
+.trow1_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2:active,
+.trow2_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 4 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_4 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_4 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4:active,
+.trow1_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_4 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4:active,
+.trow2_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 7 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_7 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_7 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7:active,
+.trow1_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_7 {
+/*	background: #efefef; */
+	background: #dfe6f3;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7:active,
+.trow2_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+
+ie:
+
+[url=https://ibb.co/f9ZCZst][img]https://i.ibb.co/jzqLqSG/Forums-2.png[/img][/url]
+
+so then say again for example you now use your broswer eyedropper tool to pull hex from Cat 2 
+
+#00ACED
+
+
+and then you say visit:
+
+https://www.colorhexa.com/00aced
+
+ok, say you now found say  the following hex(s) for example to apply to trow1 and trow2 and active hover state bgs:
+
+
+#f3fcff
+
+
+
+#e2f1f6
+
+
+
+#d9f5ff
+
+
+Now Parent Category = fid 3  related styling becomes for example:
+
+
+/* Parent Category = fid 3 */
+
+#cat_thead_3 {
+background: #00ACED;
+}
+
+/* Forum = fid 5 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_5 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_5 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5:active,
+.trow1_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_5 {
+/*	background: #efefef;*/
+	background: #e2f1f6;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5:active,
+.trow2_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 6 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_6 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_6 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6:active,
+.trow1_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_6 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6:active,
+.trow2_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/* Forum = fid 8 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_8 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_8 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8:active,
+.trow1_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+/*trow 2 */
+
+.trow2_8 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8:active,
+.trow2_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+
+ie:
+
+[url=https://ibb.co/CQ47knr][img]https://i.ibb.co/bXYBSrf/Forums-3.png[/img][/url]
+
+
+ok, say you then also want to apply links styling per trow per fid you would say then modify you stylesheet like so:
+
+
+/** TUT - Color by fid, cats, trows, apply cat by fid to forumdisplay and showthread by: Vintagedaddyo **/
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_2 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2:active,
+.trow1_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:hover,
+.trow1_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2:active,
+.trow2_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:hover,
+.trow2_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 4 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_4 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_4 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4:active,
+.trow1_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:hover,
+.trow1_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_4 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4:active,
+.trow2_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:hover,
+.trow2_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 7 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_7 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_7 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7:active,
+.trow1_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:hover,
+.trow1_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_7 {
+/*	background: #efefef; */
+	background: #dfe6f3;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7:active,
+.trow2_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:hover,
+.trow2_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Parent Category = fid 3 */
+
+#cat_thead_3 {
+background: #00ACED;
+}
+
+/* Forum = fid 5 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_5 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_5 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5:active,
+.trow1_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:hover,
+.trow1_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_5 {
+/*	background: #efefef;*/
+	background: #e2f1f6;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5:active,
+.trow2_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:hover,
+.trow2_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 6 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_6 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_6 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6:active,
+.trow1_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:hover,
+.trow1_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_6 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6:active,
+.trow2_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:hover,
+.trow2_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 8 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_8 {
+background: #00ACED;
+}
+
+/* trow 1 */
+
+.trow1_8 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8:active,
+.trow1_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:hover,
+.trow1_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_8 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8:active,
+.trow2_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:hover,
+.trow2_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+
+ie:
+[url=https://ibb.co/8BQSjJt][img]https://i.ibb.co/VNkPvd5/Forums-4.png[/img][/url]
+
+* again just for example are these colors quickly provided and can be easily changed to whatever you opt on, hopefully all of that makes sense...
+
+ok, another final note just in case needed, say for example I just now in fid1 category added a subforum in fid2 that is fid9 for example:
+
+after parent fid1 forum fid2 I would then add below this:
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_2 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2:active,
+.trow1_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:hover,
+.trow1_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2:active,
+.trow2_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:hover,
+.trow2_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+
+
+adding this respective styling for my newly add subforum fid 9:
+
+
+/* fid 2 subforum fid 9 */
+
+/* Forum = fid 9 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_9 {
+background: #3B5998;
+}
+
+/* trow 1 */
+
+.trow1_9 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_9:active,
+.trow1_9:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:hover,
+.trow1_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_9 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_9:active,
+.trow2_9:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:hover,
+.trow2_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+
+this keeps a rough idea of what is  with what in the stylesheet in my opinion, haha! anyhoo, hopefully that all makes sense. ;) 
+
+
+
+so also let us show quickly starting another colored cat
+
+in this example:
+
+My Category 3 = fid 10
+
+  My Forum 1 = fid 11
+
+  My Forum 2 = fid 12
+
+I then opted on these hex(s)
+
+thead
+
+#DA5135
+
+
+trow1
+
+#fcfcfc
+
+
+trow 2
+
+#fff7f7
+
+
+hover / active
+
+#fbeeeb
+
+
+
+I then add the respective css:
+
+
+/* Parent Category = fid 10 */
+
+#cat_thead_10 {
+	background: #DA5135;
+}
+
+/* Forum = fid 11 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_11 {
+background: #DA5135;
+}
+
+/* trow 1 */
+
+.trow1_11 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_11:active,
+.trow1_11:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:hover,
+.trow1_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_11 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_11:active,
+.trow2_11:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:hover,
+.trow2_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/* Forum = fid 12 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_12 {
+background: #DA5135;
+}
+
+/* trow 1 */
+
+.trow1_12 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_12:active,
+.trow1_12:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:hover,
+.trow1_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_12 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_12:active,
+.trow2_12:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:hover,
+.trow2_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+
+ie:
+
+thus making with applied suggested edits the end result in css file:
+
+
+/** TUT - Color by fid, cats, trows, apply cat by fid to forumdisplay and showthread by: Vintagedaddyo **/
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+    border-bottom: 1px solid #3B5998;	
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;	
+}
+
+/* trow 1 */
+
+.trow1_2 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2:active,
+.trow1_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:hover,
+.trow1_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2:active,
+.trow2_2:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:hover,
+.trow2_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* fid 2 subforum fid 9 */
+
+/* Forum = fid 9 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_9 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_9 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_9:active,
+.trow1_9:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:hover,
+.trow1_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_9 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_9:active,
+.trow2_9:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:hover,
+.trow2_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 4 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_4 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_4 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4:active,
+.trow1_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:hover,
+.trow1_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_4 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4:active,
+.trow2_4:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:hover,
+.trow2_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 7 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_7 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_7 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7:active,
+.trow1_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:hover,
+.trow1_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_7 {
+/*	background: #efefef; */
+	background: #dfe6f3;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7:active,
+.trow2_7:hover {
+	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:hover,
+.trow2_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Parent Category = fid 3 */
+
+#cat_thead_3 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;		
+}
+
+/* Forum = fid 5 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_5 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_5 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5:active,
+.trow1_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:hover,
+.trow1_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_5 {
+/*	background: #efefef;*/
+	background: #e2f1f6;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5:active,
+.trow2_5:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:hover,
+.trow2_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 6 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_6 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_6 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6:active,
+.trow1_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:hover,
+.trow1_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_6 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6:active,
+.trow2_6:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:hover,
+.trow2_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 8 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_8 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_8 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8:active,
+.trow1_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:hover,
+.trow1_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_8 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8:active,
+.trow2_8:hover {
+	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:hover,
+.trow2_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Parent Category = fid 10 */
+
+#cat_thead_10 {
+	background: #DA5135;
+    border-bottom: 1px solid #DA5135;	
+}
+
+/* Forum = fid 11 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_11 {
+background: #DA5135;
+border-bottom: 1px solid #DA5135;	
+}
+
+/* trow 1 */
+
+.trow1_11 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_11:active,
+.trow1_11:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:hover,
+.trow1_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_11 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_11:active,
+.trow2_11:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:hover,
+.trow2_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/* Forum = fid 12 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_12 {
+background: #DA5135;
+border-bottom: 1px solid #DA5135;	
+}
+
+/* trow 1 */
+
+.trow1_12 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_12:active,
+.trow1_12:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:hover,
+.trow1_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_12 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_12:active,
+.trow2_12:hover {
+	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:hover,
+.trow2_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+
+* this edit also corrects the thead border bottom display
+
+* here is the same as above EXCEPT hover effect for trow is commented out for thos desiring example of such:
+
+
+/** TUT - Color by fid, cats, trows, apply cat by fid to forumdisplay and showthread by: Vintagedaddyo **/
+
+/* Parent Category = fid 1 */
+
+#cat_thead_1 {
+	background: #3B5998;
+    border-bottom: 1px solid #3B5998;	
+}
+
+/* Forum = fid 2 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_2 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;	
+}
+
+/* trow 1 */
+
+.trow1_2 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_2:active,
+.trow1_2:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_2 a:hover,
+.trow1_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_2 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_2:active,
+.trow2_2:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_2 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_2 a:hover,
+.trow2_2 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* fid 2 subforum fid 9 */
+
+/* Forum = fid 9 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_9 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_9 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_9:active,
+.trow1_9:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_9 a:hover,
+.trow1_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_9 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_9:active,
+.trow2_9:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_9 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_9 a:hover,
+.trow2_9 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 4 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_4 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_4 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_4:active,
+.trow1_4:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_4 a:hover,
+.trow1_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_4 {
+/*	background: #efefef; */
+	background: #dfe6f3;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_4:active,
+.trow2_4:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_4 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_4 a:hover,
+.trow2_4 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Forum = fid 7 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_7 {
+background: #3B5998;
+border-bottom: 1px solid #3B5998;		
+}
+
+/* trow 1 */
+
+.trow1_7 {
+/*	background: #f5f5f5; */
+	background: #edf1f8;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_7:active,
+.trow1_7:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow1_7 a:hover,
+.trow1_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_7 {
+/*	background: #efefef; */
+	background: #dfe6f3;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_7:active,
+.trow2_7:hover {
+/*	background: #d1dbee;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_7 a:link {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:visited {
+	color: #3B5998;
+	text-decoration: none;
+}
+
+.trow2_7 a:hover,
+.trow2_7 a:active {
+	color: #3B5998;
+	text-decoration: underline;
+}
+
+/* Parent Category = fid 3 */
+
+#cat_thead_3 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;		
+}
+
+/* Forum = fid 5 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_5 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_5 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_5:active,
+.trow1_5:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_5 a:hover,
+.trow1_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_5 {
+/*	background: #efefef;*/
+	background: #e2f1f6;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_5:active,
+.trow2_5:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_5 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_5 a:hover,
+.trow2_5 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 6 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_6 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_6 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_6:active,
+.trow1_6:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_6 a:hover,
+.trow1_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_6 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_6:active,
+.trow2_6:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_6 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_6 a:hover,
+.trow2_6 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Forum = fid 8 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_8 {
+background: #00ACED;
+border-bottom: 1px solid #00ACED;	
+}
+
+/* trow 1 */
+
+.trow1_8 {
+/*	background: #f5f5f5;*/
+	background: #f3fcff;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_8:active,
+.trow1_8:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow1_8 a:hover,
+.trow1_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_8 {
+/*	background: #efefef;*/
+	background: #e2f1f6;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_8:active,
+.trow2_8:hover {
+/*	background: #d9f5ff;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_8 a:link {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:visited {
+	color: #00ACED;
+	text-decoration: none;
+}
+
+.trow2_8 a:hover,
+.trow2_8 a:active {
+	color: #00ACED;
+	text-decoration: underline;
+}
+
+/* Parent Category = fid 10 */
+
+#cat_thead_10 {
+	background: #DA5135;
+    border-bottom: 1px solid #DA5135;	
+}
+
+/* Forum = fid 11 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_11 {
+background: #DA5135;
+border-bottom: 1px solid #DA5135;	
+}
+
+/* trow 1 */
+
+.trow1_11 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_11:active,
+.trow1_11:hover {
+/*	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_11 a:hover,
+.trow1_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_11 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_11:active,
+.trow2_11:hover {
+/*	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_11 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_11 a:hover,
+.trow2_11 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/* Forum = fid 12 */
+
+/* thead for forumdisplay & showthread */
+
+#cat_thead_12 {
+background: #DA5135;
+border-bottom: 1px solid #DA5135;	
+}
+
+/* trow 1 */
+
+.trow1_12 {
+/*	background: #f5f5f5; */
+	background: #fcfcfc;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow1_12:active,
+.trow1_12:hover {
+/*	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow1_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow1_12 a:hover,
+.trow1_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+/*trow 2 */
+
+.trow2_12 {
+/*	background: #efefef; */
+	background: #fff7f7;	
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;
+}
+
+.trow2_12:active,
+.trow2_12:hover {
+/*	background: #fbeeeb;
+	border: 1px solid;
+	border-color: #fff #ddd #ddd #fff;*/
+}
+
+.trow2_12 a:link {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:visited {
+	color: #DA5135;
+	text-decoration: none;
+}
+
+.trow2_12 a:hover,
+.trow2_12 a:active {
+	color: #DA5135;
+	text-decoration: underline;
+}
+
+
+[url=https://ibb.co/MG2Ss1V][img]https://i.ibb.co/LJkR8gt/Forums-5.png[/img][/url]
+
+again hopefully that all makes sense...
+
+anyhoo, let us close this tutorial up and quickly  explain the overall base stylesheet and why my example fid #(s) may differ from your end results as your fids shall be inevitably diff.....
+
+NOTE: understanding this will make understanding the example stylesheet content much easier and also make modifying the example content to reflect your respective fids much easier...
+
+ok, so I have a test forum with 2 categories:
+
+
+My Category 1 = fid 1
+
+My Category 2 = fid 3
+
+
+
+ok now for this example I then have 3 forums within each category:
+
+My Category 1 = fid 1
+
+  My Forum 1 = fid 2
+
+  My Forum 2 = fid 4
+
+  My Forum 3 = fid 7
+
+My Category 2 = fid 3
+
+  My Forum 1 = fid 5
+
+  My Forum 2 = fid 6
+
+  My Forum 3 = fid 8
+
+We then later in the tutorial if you opt for those suggestions add:
+
+to:
+My Category 1 = fid 1
+
+  My Forum 1 = fid 2
+
+the following:
+
+      My Sub 1 = fid9
+
+and then later we add a new category and respective forums:
+
+My Category 3 = fid 10
+
+  My Forum 1 = fid 11
+
+  My Forum 2 = fid 12
+
+
+so..., in knowing that, you can then see why the stylesheet is setup to be visibly understandable for mindset:
+
+ie:
+
+* main category thead styling
+
+** thead styling for forumdisplay and showthread to match  main category 
+
+  *** then respective trow1 & trow2 styling per forums within category
+
+NOTE: I left the trow1 and trow2 styling per same as the default trow1 and trow2 styling for simply a fast example but you can say do some pretty nice styling per fid or say apply such to say all fids within one category and then apply different styling to say fids in another category, you could also say apply hover and active state to some each or all and note that those examples are already supplied above, anyhoo, the choice is up to the end user, hopefully that all makes sense ;)
+
+You then after gathering a simple understanding of this implementation you would modify such to reflect your respective fids and then further expand upon your desired specific colors and other such stylings....
+
+Best of luck!  :D Happy editing!  ~ V
