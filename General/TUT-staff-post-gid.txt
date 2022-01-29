@@ -1,0 +1,464 @@
+[TUT] - Staff Post BG Color By GID: 
+
+ie:
+
+https://i.ibb.co/72vbHnd/Test-Thread.png
+
+https://i.ibb.co/K0yMwPy/Test-Thread-1.png
+
+https://i.ibb.co/3yRbwjS/Forums-Profile-of-vintagedaddyo.png
+
+
+Edit your theme(s) and...
+
+create a stylesheet for your theme(s) called:
+
+staff_post.css
+
+ * attach it globally
+
+add to staff_post.css
+
+
+/** Staff Post BG Colors by GID by: Vintagedaddyo **/
+
+/** Staff Post BG Colors Head **/
+
+.staff_post_head_bg3 {
+/* Super Moderator */
+/*  Background Color */
+    background: #ffd6fc !important;        
+}
+
+.staff_post_head_bg4 {
+/* Administrator  */
+/*  Background Color */
+    background: #b1f279 !important;
+}
+
+.staff_post_head_bg6 {
+/* Moderator */
+/*  Background Color */
+    background: #ffd6fc !important;    
+}
+
+/** Staff Post BG Colors Post **/
+
+.staff_post_bg3 {
+/* Super Moderator */
+/*  Background Color */
+    background: #f9e3f8 !important;
+    /* Post Font */ 
+    color: #CC00CC !important;
+    /* Post Border */ 
+/*    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    margin-bottom: 6px;
+    border: 1px solid #CC00CC;
+    -webkit-box-shadow: inset 0 1px 1px rgb(204,0,204), 0 0 8px rgba(204,0,204, 0.8);
+    box-shadow: inset 0 1px 1px rgba(204,0,204, 0.8), 0 0 8px rgba(204,0,204, 0.8); */
+}
+
+.staff_post_bg4 {
+/* Administrator  */
+/*  Background Color */
+    background: #e5fcd1 !important;
+    /* Post Font */ 
+    color: #318000 !important;
+    /* Post Border */ 
+/*    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    margin-bottom: 6px;
+    border: 1px solid #008000;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0,128,0), 0 0 8px rgba(0,128,0, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0,128,0, 0.8), 0 0 8px rgba(0,128,0, 0.8); */
+}
+
+.staff_post_bg6 {
+/* Moderator */
+/*  Background Color */
+    background: #f9e3f8 !important;
+    /* Post Font */ 
+    color: #CC00CC !important;
+    /* Post Border */ 
+/*    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    margin-bottom: 6px;
+    border: 1px solid #CC00CC;
+    -webkit-box-shadow: inset 0 1px 1px rgb(204,0,204), 0 0 8px rgba(204,0,204, 0.8);
+    box-shadow: inset 0 1px 1px rgba(204,0,204, 0.8), 0 0 8px rgba(204,0,204, 0.8); */
+}
+
+/** Staff Post BG Colors Post Classic 2 **/
+
+.staff_post_c2_bg3 {
+/* Super Moderator */
+/*  Background Color */
+    background: #f9e3f8 !important;
+    /* Post Font */ 
+    color: #CC00CC !important; 
+}
+
+.staff_post_c2_bg4 {
+/* Administrator  */
+/*  Background Color */
+    background: #e5fcd1 !important;
+    /* Post Font */ 
+    color: #318000 !important;
+}
+
+.staff_post_c2_bg6 {
+/* Moderator */
+/*  Background Color */
+    background: #f9e3f8 !important;
+    /* Post Font */ 
+    color: #CC00CC !important; 
+}
+
+/** Staff Post BG Colors Foot **/
+
+.staff_post_foot_bg3 {
+/* Super Moderator */
+/* Background Color */
+    background: #ffd6fc !important;
+}
+
+.staff_post_foot_bg4 {
+/* Administrator */
+/* Background Color */
+    background: #b1f279 !important;    
+}
+
+.staff_post_foot_bg6 {
+/* Moderator */
+/* Background Color */
+    background: #ffd6fc !important;
+}
+
+
+Edit postbit template:
+
+in postbit template find:
+
+
+<div class="post {$unapproved_shade}" style="{$post_visibility}" id="post_{$post['pid']}">
+
+
+change to:
+
+
+<div class="post staff_post_bg{$usergroup['gid']} {$unapproved_shade}" style="{$post_visibility}" id="post_{$post['pid']}">
+
+
+still in postbit template find:
+
+
+<div class="post_author">
+
+
+change to:
+
+
+<div class="post_author staff_post_head_bg{$usergroup['gid']}">
+
+
+still in posbit template find:
+
+
+<div class="post_controls">
+
+
+change to:
+
+
+<div class="post_controls staff_post_foot_bg{$usergroup['gid']}">
+
+
+Edit postbit_classic template:
+
+in posbit_classic template find:
+
+
+<div class="post classic {$unapproved_shade}" style="{$post_visibility}" id="post_{$post['pid']}">
+
+
+change to:
+
+
+<div class="post classic staff_post_bg{$usergroup['gid']} {$unapproved_shade}" style="{$post_visibility}" id="post_{$post['pid']}">
+
+
+in posbit_classic template find:
+
+
+<div class="post_author scaleimages">
+
+
+change to:
+
+
+<div class="post_author scaleimages staff_post_head_bg{$usergroup['gid']}">
+
+
+in posbit_classic template find:
+
+
+<div class="post_body scaleimages" id="pid_{$post['pid']}">
+
+
+change to:
+
+
+<div class="post_body staff_post_c2_bg{$usergroup['gid']} scaleimages" id="pid_{$post['pid']}">
+
+
+in posbit_classic template find:
+
+
+<div class="post_controls">
+
+
+change to:
+
+
+<div class="post_controls staff_post_foot_bg{$usergroup['gid']}">
+
+
+MyBB default staff "gids" are:
+
+
+
+
+ [ 3 ] _ Super Moderators
+ [ 4 ] _ Administrators
+ [ 6 ] _ Moderators
+
+
+
+
+Note: if you want member profile fieldset to have same styling then...
+
+in member_profile template find:
+
+
+<fieldset>
+
+
+change to:
+
+
+<fieldset class="staff_post_bg{$memprofile['usergroup']}">
+
+
+Now if you want to then start tweaking post borders you can un-comment the post border styling 
+
+ie:
+https://i.ibb.co/W3C1DhV/Test-Thread-2.png
+
+https://i.ibb.co/JQxdMC8/Forums-Profile-of-vintagedaddyo-1.png
+
+Find these specific commented out areas of each staff gid
+
+    /* Post Border */ 
+/*    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    margin-bottom: 6px;
+    border: 1px solid #008000;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0,128,0), 0 0 8px rgba(0,128,0, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0,128,0, 0.8), 0 0 8px rgba(0,128,0, 0.8); */
+
+
+And un-comment like so:
+
+    /* Post Border */ 
+    margin-top: 6px;
+    margin-left: 4px;
+    margin-right: 4px; 
+    margin-bottom: 6px;
+    border: 1px solid #008000;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0,128,0), 0 0 8px rgba(0,128,0, 0.8);
+    box-shadow: inset 0 1px 1px rgba(0,128,0, 0.8), 0 0 8px rgba(0,128,0, 0.8); 
+
+
+
+anyhoo, 
+
+
+Say you then would like to then add this to forumdisplay threadlist...
+
+ie:
+
+https://i.ibb.co/Y2xm2ct/Forums-My-Forum.png
+
+we will need to add {$thread['usergroup']}
+
+so this requires a core file edit....
+
+in forumdisplay.php find:
+
+SELECT t.*, {$ratingadd}t.username AS threadusername, u.username
+
+
+change to:
+
+SELECT t.*, {$ratingadd}t.username AS threadusername, u.username, u.usergroup
+
+
+Edit Template: forumdisplay_thread
+
+find all instance of:
+
+{$thread_type_class} 
+
+
+add this directly after:
+
+ staff_post_threadlist_bg{$thread['usergroup']}
+
+
+Edit Template: forumdisplay_thread_rating
+find all instance of:
+
+{$thread_type_class} 
+
+
+add this directly after:
+
+ staff_post_threadlist_bg{$thread['usergroup']}
+
+
+Edit Template: forumdisplay_thread_modbit
+
+find all instance of:
+
+{$thread_type_class} 
+
+
+add this directly after:
+
+ staff_post_threadlist_bg{$thread['usergroup']}
+
+
+add this to staff_post.css:
+
+ /** Staff Post Threadlist BG Colors **/
+
+.staff_post_threadlist_bg3 {
+/* Super Moderator */
+/* Background Color */
+	background: #f9e3f8 !important;
+/* Border Color */		
+    border-color: #f9e3f8 !important;	
+}
+
+.staff_post_threadlist_bg4 {
+/* Administrator */
+/* Background Color */
+    background: #e5fcd1 !important;
+/* Border Color */		
+    border-color: #e5fcd1 !important;	
+}
+
+.staff_post_threadlist_bg6 {
+/* Moderator */
+/* Background Color */
+	background: #f9e3f8 !important;
+/* Border Color */	
+    border-color: #f9e3f8 !important;
+}
+
+
+You could then keep expanding on such for various areas to your desire:
+
+here is just two examples for an example so you get the general idea of expanding on these further:
+
+ie:
+https://i.ibb.co/PmmhLTQ/User-Control-Panel.png
+
+again a core edit:
+
+edit: usercp.php
+
+find:
+
+	$query = $db->query("
+		SELECT t.*, t.username AS threadusername, u.username
+		FROM ".TABLE_PREFIX."threads t
+		LEFT JOIN ".TABLE_PREFIX."users u ON (u.uid = t.uid)
+		WHERE t.uid='".$mybb->user['uid']."' AND t.firstpost != 0 AND t.visible >= 0 {$visible}{$f_perm_sql}
+		ORDER BY t.lastpost DESC
+		LIMIT 0, 5
+	");
+
+
+change to:
+
+	$query = $db->query("
+		SELECT t.*, t.username AS threadusername, u.username, u.usergroup
+		FROM ".TABLE_PREFIX."threads t
+		LEFT JOIN ".TABLE_PREFIX."users u ON (u.uid = t.uid)
+		WHERE t.uid='".$mybb->user['uid']."' AND t.firstpost != 0 AND t.visible >= 0 {$visible}{$f_perm_sql}
+		ORDER BY t.lastpost DESC
+		LIMIT 0, 5
+	");
+
+
+Edit Template: usercp_latest_threads_threads
+
+find all instances of:
+
+{$bgcolor}
+
+Add this after:
+ staff_post_threadlist_bg{$thread['usergroup']}
+
+
+ie:
+https://i.ibb.co/3RLRR5R/Forums-Thread-Subscriptions.png
+
+again a core edit:
+
+again in usercp.php
+
+find:
+	// Fetch subscriptions
+	$query = $db->query("
+		SELECT s.*, t.*, t.username AS threadusername, u.username
+		FROM ".TABLE_PREFIX."threadsubscriptions s
+		LEFT JOIN ".TABLE_PREFIX."threads t ON (s.tid=t.tid)
+		LEFT JOIN ".TABLE_PREFIX."users u ON (u.uid = t.uid)
+		WHERE s.uid='".$mybb->user['uid']."' and t.visible >= 0 {$visible}
+		ORDER BY t.lastpost DESC
+		LIMIT $start, $perpage
+	");
+
+change to:
+	// Fetch subscriptions
+	$query = $db->query("
+		SELECT s.*, t.*, t.username AS threadusername, u.username, u.usergroup
+		FROM ".TABLE_PREFIX."threadsubscriptions s
+		LEFT JOIN ".TABLE_PREFIX."threads t ON (s.tid=t.tid)
+		LEFT JOIN ".TABLE_PREFIX."users u ON (u.uid = t.uid)
+		WHERE s.uid='".$mybb->user['uid']."' and t.visible >= 0 {$visible}
+		ORDER BY t.lastpost DESC
+		LIMIT $start, $perpage
+	");
+
+
+Edit Template: usercp_subscriptions_thread
+
+find all instances of:
+
+{$bgcolor}
+
+Add this after:
+ staff_post_threadlist_bg{$thread['usergroup']}
+
+etc, etc, and so on and so forth....
+
+
+Enjoy!  :) Happy Editing!  :cool:  ~ V
