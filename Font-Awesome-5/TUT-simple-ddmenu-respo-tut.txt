@@ -516,17 +516,17 @@ replace header_menu_search with:
 Examples:
 
 
-[url=https://ibb.co/zHwKkdH][img]https://i.ibb.co/HpQmJZp/Screenshot-20200204-155616-Firefox.jpg[/img][/url]
+https://i.ibb.co/HpQmJZp/Screenshot-20200204-155616-Firefox.jpg
 
-[url=https://ibb.co/19PLNZp][img]https://i.ibb.co/fCy2WMK/Screenshot-20200204-155620-Firefox.jpg[/img][/url]
+https://i.ibb.co/fCy2WMK/Screenshot-20200204-155620-Firefox.jpg
 
-[url=https://ibb.co/m9R4rB4][img]https://i.ibb.co/2vFd06d/Screenshot-20200204-155628-Firefox.jpg[/img][/url]
+https://i.ibb.co/2vFd06d/Screenshot-20200204-155628-Firefox.jpg
 
-[url=https://ibb.co/Zf0wdjq][img]https://i.ibb.co/FhFf6rR/Screenshot-20200204-155654-Firefox.jpg[/img][/url]
+https://i.ibb.co/FhFf6rR/Screenshot-20200204-155654-Firefox.jpg
 
-[url=https://ibb.co/kx3cKzW][img]https://i.ibb.co/6mvsYGf/Screenshot-20200204-155659-Firefox.jpg[/img][/url]
+https://i.ibb.co/6mvsYGf/Screenshot-20200204-155659-Firefox.jpg
 
-[url=https://ibb.co/L6G57pg][img]https://i.ibb.co/xG4HT5g/Screenshot-20200204-155711-Firefox.jpg[/img][/url]
+https://i.ibb.co/xG4HT5g/Screenshot-20200204-155711-Firefox.jpg
 
 
 Note: one thing the tutorial forgets to mention is that this menu will not be responsive on mobile device after following the tutorial. Yeah you can resize your desktop browser or what not and it may appear responsive but without viewport, it will not function as intended on mobile devices because this needs to be added to header include for that to happen.
