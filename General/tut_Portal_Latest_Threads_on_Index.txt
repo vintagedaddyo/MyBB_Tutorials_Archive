@@ -1,0 +1,259 @@
+[TUT] - Portal Latest Threads on Index sidebar without req a core edit or plugin
+
+* while I have shared say various instructions in the past on say applying a core edit to add portal latest threads on index and or as well provided instructions on also doing it by various plugin creations methods, this tutorial is simply provided as simple instructions on how to do it without a core edit or plugin and such and yes, while such similar methods may have been shared here already, regardless of such here is this simple tutorial, in case it is of any interest to some.
+
+
+ie:
+https://i.ibb.co/yFxxgBX/Forums.png
+
+create a new stylesheet for example:
+
+sidebar.css
+
+Attached to index.php
+
+
+Add respective css styling:
+
+
+/** Portal Latest Threads on Index Sidebar TUT by: Vintagedaddyo **/
+
+.forum { 
+   width: 78%;
+   float: left;
+}
+
+.side-bar { 
+  width: 21%;
+  float: right;
+}
+
+.tborder_latest_threads {
+   width: 100%;
+   padding: 1px; 
+   margin: auto auto;
+   border-radius: 7px;	
+   background: #FFFFFF;	
+   -moz-border-radius: 7px;
+   -webkit-border-radius: 7px;
+   border: 1px solid #CCCCCC;
+}
+
+.latest_threads_content {
+   padding-top: 1px;
+   padding-left: 1px;
+   padding-right: 1px;
+   padding-bottom: 1px;
+   background-color: #EFEFEF;
+}
+
+.portal_latest_threads{
+   display: block;
+}
+
+.latest_threads_content .latest_threads .portal_latest_threads td.trow1 {
+   width: 100%;	
+   display: inline-block;
+}
+
+.latest_threads_content .latest_threads .portal_latest_threads td.trow2 {
+   width: 100%;	
+   display: inline-block;
+}
+
+.latest_threads_content .latest_threads .portal_latest_threads td.trow1:nth-child(n+1) {
+   border-top: 0px;
+   border-bottom: 0px;
+   background: #F5F5F5;
+}
+
+.latest_threads_content .latest_threads .portal_latest_threads td.trow2:nth-child(n+1) { 	
+   background: #EFEFEF;
+   border-top-color: #DDDDDD;
+   border-bottom-color: #DDDDDD;
+}
+
+.tborder_latest_threads .tbodyLT tr:last-child > td:first-child {
+   border-bottom: 0px;		   
+   border-bottom-left-radius: 6px;   
+   -moz-border-radius-bottomleft: 6px;
+   -webkit-border-bottom-left-radius: 6px;
+}
+
+.tborder_latest_threads .tbodyLT tr:last-child > td:last-child {
+   border-bottom: 0px;	   	   
+   border-bottom-right-radius: 6px;
+   -moz-border-radius-bottomright: 6px;
+   -webkit-border-bottom-right-radius: 6px;
+}
+
+
+
+Edit Template: index
+
+Find:
+
+
+{$forums}
+
+
+
+Change to:
+
+<!-- Portal Latest Threads Init -->
+<script type="text/javascript">
+   $(function() {
+   	$(".latest_threads").load("{$mybb->settings['bburl']}/portal.php .portal_latest_threads");
+   });
+</script>
+<!-- Sidebar -->
+<div class="side-bar">
+   <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_latest_threads">
+      <thead>
+         <tr>
+            <td class="thead{$expthead}" colspan="5">
+               <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_exLT_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+               <div><strong>{$lang->latest_threads}</strong></div>
+            </td>
+         </tr>
+      </thead>
+      <tbody class="tbodyLT" style="{$collapsed['sidebar_exLT_e']}" id="sidebar_exLT_e">
+         <td class="latest_threads_content">
+            <!-- Portal Latest Threads -->
+            <div class="latest_threads"></div>
+         </td>
+      </tbody>
+   </table>
+   <br />	
+</div>
+<!-- Forums -->
+<div class="forum">	
+   {$forums}
+</div>
+
+
+
+Edit Template: portal_latestthreads_thread
+
+Find:
+
+
+<tr>
+
+
+
+Change to:
+
+
+<tr class="portal_latest_threads">
+
+
+etc, etc..., you then would edit further for your usages.
+
+[hr]
+
+NOTE: you can say also use this method for other such things and just to show an example we will add the portal whosonline to index just for a real quick example sake:
+
+ie:
+https://i.ibb.co/kggCjkV/Forums-1.png
+
+
+Edit Template: index
+
+add inside the sidebar:
+
+
+<!-- Portal Online Init -->
+<script type="text/javascript">
+   $(function() {
+   	$(".portalonline").load("{$mybb->settings['bburl']}/portal.php .portal_online");
+   });
+</script>		
+   <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal_online">
+      <thead>
+         <tr>
+            <td class="thead{$expthead}" colspan="5">
+               <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_exPO_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+               <div><strong>{$lang->whos_online}</strong></div>
+            </td>
+         </tr>
+      </thead>
+      <tbody class="tbodyPO" style="{$collapsed['sidebar_exPO_e']}" id="sidebar_exPO_e">
+         <td class="portal_online_content">
+            <!-- Portal Online -->
+            <div class="portalonline"></div>
+         </td>
+      </tbody>
+   </table>	
+   <br />
+
+
+Edit Template: portal_whosonline
+
+Find:
+
+<tr>
+<td class="trow1">
+
+
+Change to:
+<tr class="portal_online">
+<td class="trow1">
+
+add to sidebar css:
+
+
+/** Portal Online On Index **/
+
+.tborder_portal_online {
+   width: 100%;
+   padding: 1px;
+   background: #FFFFFF;	   
+   margin: auto auto;
+   border-radius: 7px;	   
+   border: 1px solid #CCCCCC;
+   -moz-border-radius: 7px;
+   -webkit-border-radius: 7px;
+}
+
+.portal_online_content {
+   padding-top: 1px;
+   padding-left: 1px;
+   padding-right: 1px;
+   padding-bottom: 1px;
+   background-color: #EFEFEF;
+}
+
+.portal_online {
+   display: block;
+}
+
+.portal_online_content .portalonline .portal_online td.trow1 {
+   width: 100%;	
+   display: inline-block;
+}
+
+.portal_online_content .portalonline .portal_online td.trow1:nth-child(n+1) {
+   border-top: 0px;
+   border-bottom: 0px;
+   background: #F5F5F5;
+}
+
+.tborder_portal_online .tbodyPO tr:last-child > td:first-child {
+   border-bottom: 0px;		   
+   border-bottom-left-radius: 6px;   
+   -moz-border-radius-bottomleft: 6px;
+   -webkit-border-bottom-left-radius: 6px;
+}
+
+.tborder_portal_online .tbodyPO tr:last-child > td:last-child {
+   border-bottom: 0px;	   	   
+   border-bottom-right-radius: 6px;
+   -moz-border-radius-bottomright: 6px;
+   -webkit-border-bottom-right-radius: 6px;
+}
+
+
+etc, etc..., you then would edit further for your usages.
+
+Best of Luck!  :D Happy Editing! ~ Vintagedaddyo
