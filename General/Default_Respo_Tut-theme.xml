@@ -4158,6 +4158,50 @@ table td {
 					{$day_events}
 					</div>
 				</td>]]></template>
+		<template name="footer" version="1829"><![CDATA[<debugstuff>
+	</div>
+</div>
+<div id="footer">
+	<div class="upper">
+		<div class="wrapper">
+			{$lang_select}
+			{$theme_select}
+			<ul class="menu bottom_links">
+				{$showteamlink}
+				{$contact_us}
+				<li><a href="{$mybb->settings['homeurl']}">{$mybb->settings['homename']}</a></li>
+				<li><a href="#top">{$lang->bottomlinks_returntop}</a></li>
+				<li><a href="<archive_url>">{$lang->bottomlinks_litemode}</a></li>
+				<li><a href="{$mybb->settings['bburl']}/misc.php?action=markread{$post_code_string}">{$lang->bottomlinks_markread}</a></li>
+				<li><a href="{$mybb->settings['bburl']}/misc.php?action=syndication">{$lang->bottomlinks_syndication}</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="lower">
+		<div class="wrapper">
+			<span id="current_time">{$lang->welcome_current_time}</span>
+			<span id="copyright">
+				<!-- MyBB is free software developed and maintained by a volunteer community.
+					It would be much appreciated by the MyBB Group if you left the full copyright and "powered by" notice intact,
+					to show your support for MyBB.  If you choose to remove or modify the copyright below,
+					you may be refused support on the MyBB Community Forums.
+
+					This is free software, support us and we'll support you. -->
+				{$lang->powered_by} <a href="https://mybb.com" target="_blank" rel="noopener">MyBB{$mybbversion}</a>, &copy; 2002-{$copy_year} <a href="https://mybb.com" target="_blank" rel="noopener">MyBB Group</a>.
+				<!-- End powered by -->
+				<br />
+				<!-- Begin Theme Credits -->
+				
+				Theme &copy; by: <a href="https://github.com/vintagedaddyo" target="_blank">Vintagedaddyo</a> &amp; <a href="#" target="_blank">You</a>
+				
+                <!-- End Theme Credits -->
+			</span>
+		</div>
+	</div>
+</div>
+<!-- The following piece of code allows MyBB to run scheduled tasks. DO NOT REMOVE -->{$task_image}<!-- End task image code -->
+{$auto_dst_detection}
+</div>]]></template>
 		<template name="forumbit_depth2_forum" version="1829"><![CDATA[<tr>
 <td class="{$bgcolor}" align="center" width="1"><span class="forum_status forum_{$lightbulb['folder']} ajax_mark_read" title="{$lightbulb['altonoff']}" id="mark_read_{$forum['fid']}"></span><span class="smalltext threads_show" style="margin-bottom: -22px;">&nbsp;&nbsp;{$lightbulb['altonoff']}</span></span></td>
 <td class="{$bgcolor}">
