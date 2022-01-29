@@ -1301,6 +1301,10 @@ the following to respective section:
 
 * ok, by now doing these should give you a better idea and mindset on how to as you go through the mobile side over time and may see that you might want to add text here and there for mobile display you may now do so with ease... and continue from there with expanding upon and improving upon this rather basic quick set of edits for your own usages.
 
+Here is there original theme that was included as a bonus to the tutorial with the initial steps of tutorial completed and furthered simply for a rough idea of the direction one should go with the tutorial n the hopes that the read would then continue on and finish such and improve upon it (*note: the original theme file included was outdated so it is now updated for 1.8.29 usage)
+
+https://github.com/vintagedaddyo/MyBB_Tutorials_Archive/blob/main/General/Default_Respo_Tut-theme.xml
+
 Best of luck! ;)  
 
 ~ Vintagedaddyo
