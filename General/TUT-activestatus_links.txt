@@ -40,7 +40,7 @@ $(document).ready(function() {
 
 add to your .css file:
 
-/*** Active Styling ***/
+/*** Active Styling by Vintagedaddyo ***/
 
 /** global **/
 
