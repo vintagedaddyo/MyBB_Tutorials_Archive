@@ -1,0 +1,283 @@
+[Tutorial] Blockquote Expand/Collapse
+
+So, I have seen a few people here ask about collapsing quote/codeblock and also a few people have asked me personally about the collapsing quote/codeblock in the Devel theme. Credit goes to as you notice in the devel theme: "Authors: mmadhankumar & vintagedaddyo". Anyhoo..., credit to mmadhankumar & myself on the "Blockquote Expand/Collapse and optional respective localization" ..., and I figured I would share since folks have asked for this and even if it is already in a theme..., here it is for anyone needing it outside of a theme...
+
+ie:
+https://i.ibb.co/jTB0cRM/Nulla-quis-placerat-auxiliary-sed.png
+
+https://i.ibb.co/84CFYwd/Nulla-quis-placerat-auxiliary-sed-1.png
+
+Edit: headerinclude 
+
+find:
+
+{$stylesheets}
+
+
+Add this below it:
+
+
+<!-- Blockquote Expand/Collapse -->
+<script type="text/javascript">
+$(document).ready(function () {
+    $('blockquote').addClass('collapsed');
+        $('blockquote').click(function(){
+        $(this).toggleClass("expanded collapsed");
+        e.preventDefault();
+    });
+});
+</script>
+
+
+
+Edit: global.css 
+
+
+Find:
+
+
+blockquote {
+	border: 1px solid #ccc;
+	margin: 0;
+	background: #fff;
+	padding: 10px;
+}
+
+blockquote cite {
+	font-weight: bold;
+	border-bottom: 1px solid #ccc;
+	font-style: normal;
+	display: block;
+	padding-bottom: 3px;
+	margin: 0 0 10px 0;
+}
+
+blockquote cite > span {
+	float: right;
+	font-weight: normal;
+	font-size: 12px;
+	color: #666;
+}
+
+blockquote cite span.highlight {
+	float: none;
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+.codeblock {
+	background: #fff;
+	border: 1px solid #ccc;
+	padding: 10px;
+}
+
+.codeblock .title {
+	border-bottom: 1px solid #ccc;
+	font-weight: bold;
+	padding-bottom: 3px;
+	margin: 0 0 10px 0;
+}
+
+.codeblock code {
+	overflow: auto;
+	height: auto;
+	max-height: 200px;
+	display: block;
+	font-family: Monaco, Consolas, Courier, monospace;
+	font-size: 13px;
+}
+
+
+
+add this after:
+
+/** blockcode expand/collapse by: mmadhankumar & vintagedaddyo **/
+
+.no_bottom_border {
+    border-bottom: 0;
+}
+.collapsed, .expanded {
+    overflow: hidden;
+    border: 1px solid #D3D3D3;
+    background: #FAFAFA;
+    text-align: justify;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 0;
+    position: relative;
+}
+.collapsed {
+    max-height: 75px;
+    opacity: 0.7;
+}
+.expanded {
+    height: 100%;
+    opacity: 1;
+    padding-bottom: 35px;
+}
+.collapsed:after, .expanded:after {
+    position: absolute;
+    height: 25px;
+    bottom: 0px;
+    left: 1px;
+    right: 1px;
+    cursor: pointer;
+    border: 1px solid #A5A5A5;
+    background: #D3D3D3;
+    color: #4A4A4A;
+    text-align: center;
+    line-height: 25px;
+    font-weight: bold;
+    font-family: Tahoma, Verdana, Arial, Sans-Serif;
+    font-size: 13px;
+    border-radius: 0px 0px 5px 5px;
+}
+.collapsed:after {
+    content: 'Show More';
+    opacity: 0.9;
+}
+.expanded:after {
+    content: 'Show Less';
+    opacity: 0.7;
+}
+.collapsed:hover:after, .expanded:hover:after {
+opacity: 1;
+background: #838383;
+    color: #1A1A1A;
+}
+
+
+
+now this so far has covered the template side inclusion as well as the respective styling to get this working, and one could be happy leaving it at that, but.....
+
+
+What about localization?  :lightbulb: as currently the button text is defined in css as english text...., so if that was something you noticed and wanted to change well, we can do that:
+
+(A) 
+ie:
+
+https://i.ibb.co/X3tSKJB/test-thread-1.png
+
+https://i.ibb.co/2KMxWK2/test-thread.png
+
+for this example: I will do english, spanish, french, italian via css for example sake:
+
+Find:
+
+
+.collapsed:after {
+	content: 'Show More'; 
+	opacity: 0.9;
+}
+.expanded:after {
+	content: 'Show Less'; 
+	opacity: 0.7;
+}
+
+
+
+comment out like so:
+
+
+.collapsed:after {
+/*	content: 'Show More'; */
+	opacity: 0.9;
+}
+.expanded:after {
+/*	content: 'Show Less'; */
+	opacity: 0.7;
+}
+
+
+
+add this below it:
+
+for english, spanish, french, italian:
+
+
+/** Translations **/
+
+/* english */
+
+.collapsed:lang(en):after{
+   content: 'Show More';
+}
+
+.expanded:lang(en):after{
+   content: 'Show Less';
+}
+
+/* espanol */
+
+.collapsed:lang(es):after{
+   content: 'Mostrar más';
+}
+
+.expanded:lang(es):after{
+   content: 'Muestra menos';
+}
+
+/* french */
+
+.collapsed:lang(fr):after{
+   content: 'Montre plus';
+}
+
+.expanded:lang(fr):after{
+   content: 'Montrer moins';
+}
+
+/* italiano */
+
+.collapsed:lang(it):after{
+   content: 'Mostra di più';
+}
+
+.expanded:lang(it):after{
+   content: 'Mostra meno';
+}
+
+
+you would then make any further respective edits for your needs...
+
+ie:
+
+German:
+
+/* german */
+
+.collapsed:lang(de):after{
+   content: 'Zeig mehr';
+}
+
+.expanded:lang(de):after{
+   content: 'Zeige weniger';
+}
+
+Russian:
+
+/* russian */
+
+.collapsed:lang(ru):after{
+   content: 'Показать больше';
+}
+
+.expanded:lang(ru):after{
+   content: 'Показывай меньше';
+}
+
+Polish:
+
+/* polish */
+
+.collapsed:lang(pl):after{
+   content: 'Pokaż więcej';
+}
+
+.expanded:lang(pl):after{
+   content: 'Pokaż mniej';
+}
+
+etc, etc...
+
+Best of Luck!  :D Happy Editing!  :cool:  ~ Vintagedaddyo
