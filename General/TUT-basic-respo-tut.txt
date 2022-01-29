@@ -1,0 +1,1306 @@
+Now there are plenty of more time consuming ways/extensive edits and better say more lengthly routes to converting your theme to responsiveness, but for this particular quick edit the goal was to simple quickly get the basic default theme started responsive in as few template and css edits as possible without any usage of inc/libraries/frameworks etc, etc and without spending more than a few minutes ( took approx like 10 or so minutes) to throw this basic tutorial together simply to help anyone that wants a starting point to continue on editing from but may say as not have the time or knowledge for say other more extensible and time consuming routes. This does not focus on say things I may have shared in tutorials for in the past like custom responsive menus or any other such things, etc, etc, as I stated this goal for this simple tutorial was basic, take the default theme and within 10 minutes make it responsive enough to use on the mobile....
+
+This is done by a basic method I call the hide fold method, in theory simply by hiding tcat and then thinking and applying various folding compensations for such you can quickly start getting a desired result very quickly once your mind wraps around the hide and fold method...
+
+
+ok, as stated already that this was simply done in a few minutes, it is not perfect and is simply meant as an aide or starting point for anyone interested in say spending more than the few minutes i spent to put this basic tutorial together for thier own usages.
+
+Examples:
+
+https://i.ibb.co/d7D3FK1/Forums.png
+https://i.ibb.co/10Wy9HS/New-Thread-in-My-Forum.png
+
+Let us get started. ok, open the default theme headerinclude template and find:
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+
+
+
+Add this before it:
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+
+
+Now open and edit > Smilie Inserter Templates > smilieinsert
+
+
+Find:
+
+
+<div style="margin:auto; width: 170px; margin-top: 20px;">
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder" width="150">
+
+
+
+
+Replace with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder">
+
+
+then find: 
+
+
+id="clickable_smilies"
+
+
+and add after:
+
+
+class="clickable_smilies"
+
+then find at the end: 
+
+
+</div>
+
+
+and replace with:
+
+
+<br />
+
+
+Edit Template: calendar_weekrow_day
+
+find:
+
+		 		    <td class="trow1" style="vertical-align: top; height: 100px;">
+
+ 
+
+replace with:
+
+			
+				    <td class="trow1" style="vertical-align: top;">
+
+
+
+Edit Template: calendar_addevent
+
+find:
+
+class="textbox" size="50" name="name"
+
+
+change to:
+
+class="textbox" size="40" name="name"
+
+
+
+Edit Template: printthread
+
+find:
+
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+
+
+add this before it:
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+and that is the only template edits..... simple enough huh?!
+
+
+Now quickly start the simple css edits:
+
+... now in your default theme go into global.css stylesheet and find:
+
+
+#container {
+	color: #333;
+	text-align: left;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+	min-width: 990px;
+}
+
+.wrapper {
+	width: 85%;
+	min-width: 970px;
+	max-width: 1500px;
+	margin: auto auto;
+}
+
+
+Comment out as follows:
+
+
+#container {
+	color: #333;
+	text-align: left;
+	line-height: 1.4;
+	margin: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+/*	min-width: 990px; */
+	min-width: 360px;
+}
+
+.wrapper {
+	width: 85%;
+ /*    min-width: 970px; */
+	max-width: 1500px;
+	margin: auto auto;
+	min-width: 330px;
+}
+
+
+Now add the following to your css and continue editing this simple edit further to your needs:
+
+
+
+/* Quick & basic converting to responsiveness tutorial by: V */
+
+/* Hide span */
+
+.threads_show, .posts_show {
+/*	display: none !important;*/
+}
+
+.replies_show, .views_show {
+/*	display: none !important;*/
+}
+
+.thread_show, .author_show {
+/*	display: none !important;*/
+}
+
+.folder_show, .post_icon_show {
+/*	display: none !important;*/
+}
+
+.last_post_show {
+/*	display: none !important;*/
+}
+
+.rating_show {
+/*	display: none !important;*/
+}
+
+@media only screen and (max-width: 868px) {
+body {
+	overflow-x: hidden !important;
+    overflow-y: scroll !important;
+}
+	
+/* modal */
+	
+.modal {
+    width: 300px !important;
+}
+	
+/* logo */
+	
+#logo {
+	/*margin-top: 30px !important;*/
+    padding-bottom: 10px !important;	
+	text-align: center !important;
+    float: none !important;
+}
+	
+#logo img {
+	padding-bottom: 15px;
+}
+	
+/* table */
+	
+table td {
+    background: transparent;
+    padding: 3px;
+    text-align: left !important;
+    float: none !important;
+	border-top: 0px !important;
+	border-left: 0px !important;
+	border-bottom: 1px solid: #DDDDDD;
+    display: block !important;	
+	width: auto !important;
+	font-size: 13px !important;	
+	overflow:hidden;
+}
+
+/* new/edit post/reply/announcement/pmcompose/calendaraddevent smilies display tweak */
+	
+.clickable_smilies > tbody {
+     display: inline-flex !important;
+}
+	
+.clickable_smilies > tbody > tr > td{
+     text-align: center !important;
+     padding: 20px;
+     display: inline-block !important;
+}
+	
+/* F-b & F-i tweaks */
+	
+form#buddy {
+	width: unset !important;
+}
+	
+form#ignored {
+	width: unset !important;
+}
+
+/* textarea tweaks */
+	
+html > body > div#container > div#content > div.wrapper > form > table > tbody > tr > td > table.tborder > tbody > tr > td.trow1 > fieldset.trow2 > textarea {
+	width: 95% !important;
+}	
+	
+html > body > div#container > div#content > div.wrapper > table > tbody > tr > td > form > table.tborder > tbody > tr > td.trow2 > textarea {
+	width: 95% !important;
+}
+
+/* star rating float left */
+	
+.star_rating {
+	float: left !important;
+}		
+	
+/* index legend */
+	
+.forum_legend dt {
+	 float: unset !important; 
+	 padding: 5px !important;	 
+}
+	
+.forum_legend dd {	
+	 margin-left: 40px !important;
+	 margin-top: -30px !important;	 
+}	
+	
+/* ucp avatar border */
+	
+.usercp_container {
+    width: 101px;
+}
+
+/* footer links */ 
+	
+#footer .upper ul.bottom_links {
+    float: unset !important;
+    display: inline-grid !important;	
+}
+	
+/* tcat tweaks */
+
+/* overall tcat display */
+.tcat {
+/*	display: none !important; */
+}
+
+/* UserCP & ModCP nav tcat display */
+	
+.cpshow {
+/*	display: block !important; */
+}
+	
+/* whosonline tcat  display */	
+	
+.wolshow {
+/*	display: block !important; */
+}
+	
+/* cal event tcat display */
+	
+.tcalshow {
+/*	display: flow !important; */
+}
+	
+
+/* thread & posts span for mobile */
+	
+.threads_show, .posts_show {
+/*    display: inline-block !important; */	
+}
+	
+/* replies & views span for mobile */
+	
+.replies_show, .views_show {
+/*    display: inline-block !important; */	
+}
+
+/* thread & author span for mobile */
+	
+.thread_show, .author_show {
+/*    display: inline-block !important; */	
+}
+
+/* folder & post icon span for mobile */
+	
+.folder_show, .post_icon_show {
+/*    display: inline-block !important; */	
+}
+
+/* last post span for mobile */
+	
+.last_post_show {
+/*    display: inline-block !important; */	
+}
+
+/* rating span for mobile */
+	
+.rating_show {
+/*    display: block !important; 	*/
+}
+	
+}
+
+@media (max-width:768px) {
+
+/* Postbit button scaling */
+
+.post_controls {
+text-align: center;
+}
+
+.postbit_buttons a span {
+font-size: 0px;
+}
+
+.postbit_buttons a span:before {
+margin: 0;
+}
+
+.postbit_buttons > a:link, .postbit_buttons > a:hover, .postbit_buttons > a:visited, .postbit_buttons > a:active {
+padding: 3px 7px;
+}
+
+}
+
+@media (max-width:360px) {
+	
+/* select tweaks */
+	
+html > body > div#container > div#content > div.wrapper > form > table > tbody > tr > td > table.tborder > tbody > tr > td.trow1 > div#s2id_to.select2-container.select2-container-multi > ul.select2-choices {
+	width: 105px !important;
+}
+
+html > body > div#select2-drop.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
+	width: 112px !important;	
+}	
+
+.select2-container, .select2-drop, .select2-search, .select2-search input {
+width: 115px !important;
+}
+
+/* first */
+
+select {
+  display: block !important;
+  max-width: 180px !important;
+}
+	
+}
+
+@media (max-width:375px) {
+
+/* wrapper tweak */
+	
+.wrapper {
+	width: unset !important;
+	margin: unset !important;
+}
+	
+}
+
+@media (min-width:375px)  {
+	
+/* select tweaks */
+	
+html > body > div#container > div#content > div.wrapper > form > table > tbody > tr > td > table.tborder > tbody > tr > td.trow1 > div#s2id_to.select2-container.select2-container-multi > ul.select2-choices {
+	width: 120px !important;
+}
+
+html > body > div#select2-drop.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
+	width: 127px !important;	
+}	
+
+.select2-container, .select2-drop, .select2-search, .select2-search input {
+width: 130px !important;
+}
+
+/* second */
+
+select {
+  display: block !important;
+  max-width: 190px !important;
+}
+	
+}
+
+@media (min-width:414px) {
+	
+/* select tweaks */
+	
+html > body > div#container > div#content > div.wrapper > form > table > tbody > tr > td > table.tborder > tbody > tr > td.trow1 > div#s2id_to.select2-container.select2-container-multi > ul.select2-choices {
+	width: 159px !important;
+}
+
+html > body > div#select2-drop.select2-drop.select2-drop-multi.select2-display-none.select2-drop-active {
+	width: 166px !important;	
+}	
+
+.select2-container, .select2-drop, .select2-search, .select2-search input {
+width: 167px !important;
+}
+
+/* last */
+select {
+  display: block !important;
+  max-width: 200px !important;
+}
+	
+}
+
+@media (max-width: 414px) {
+
+/* toplinks tweak */
+	
+#logo ul.top_links {	
+/*   text-align: right !important;*/	
+}
+
+#logo ul.top_links a.search {
+/*	font-size: 0px;*/	
+}
+
+#logo ul.top_links a.memberlist {
+	/* font-size: 0px;*/
+}
+
+#logo ul.top_links a.calendar {
+	/* font-size: 0px;*/
+}
+
+#logo ul.top_links a.help {
+	/* font-size: 0px;*/
+}
+
+#logo ul.top_links a.portal {
+	/*font-size: 0px;*/
+}
+	
+}
+
+@media (min-width:868px) {
+
+/* final */
+
+select {
+  display: unset !important;
+
+}
+	
+}
+
+
+** note: if you are reading this tut on a mobile device you might notice a lil bug with the plugin here at the community that deals with select all on code snippets that often times adds the beginning lines of snippets again at the end of snippet..., this is a bug I have noted for some time and while the plugin is in usage here at the community just take note that occasionally this bug happens when viewing and selecting on this community via mobile and compensate for it by looking at the snippet after select all and see if the issue is present for you and simply remove the extra bits the select all function may have added.
+
+
+* Primarily, this quick edit focuses on the following, setup viewport, remove sizing in a few items to get viewport to work, minor tweaks to css for things like logo img, tables, forum legend, begin with basic portal, ucp and modcp responsiveness, minor other tweaks to bottom menu and minor tweaks to smiliesinsert to sort out the basics to primarily use the default theme on mobile and to then expand upon that as you see fit for your needs. As I said this is not perfect nor did I spend much time on it like I may have on many of my older free in great detail and in length tutorials in the past and as i only spent about ten minutes on this, I did not look at much further or focus on say the calendar (while I did once write and share a free extensive tutorial way back on say full calendar responsiveness but that is another story and not a focus of this basic tutorial here) and any other such things that may still need focus, but for this really simple edit it gets your foot in the door with the default theme basic responsiveness in a few minutes of following this tutorial free of charge... :P
+
+one other note:
+
+you may see and wonder why this is commented out:
+
+
+/* tcat tweaks */
+
+/* overall tcat display */
+.tcat {
+/*	display: none !important; */
+}
+
+/* UserCP & ModCP nav tcat display */
+	
+.cpshow {
+/*	display: block !important; */
+}
+	
+/* whosonline tcat  display */	
+	
+.wolshow {
+/*	display: block !important; */
+}
+	
+/* cal event tcat display */
+	
+.tcalshow {
+/*	display: flow !important; */
+}
+
+/* thread & posts span for mobile */
+	
+.threads_show, .posts_show {
+/*    display: inline-block !important; */	
+}
+/* replies & views span for mobile */
+	
+.replies_show, .views_show {
+/*    display: inline-block !important; */	
+}
+/* thread & author span for mobile */
+	
+.thread_show, .author_show {
+/*    display: inline-block !important; */	
+}
+/* folder & post icon span for mobile */
+	
+.folder_show, .post_icon_show {
+/*    display: inline-block !important; */	
+}
+/* last post span for mobile */
+	
+.last_post_show {
+/*    display: inline-block !important; */	
+}
+/* rating span for mobile */
+	
+.rating_show {
+/*    display: block !important; */
+	
+}
+
+
+And or:
+
+
+/* Hide span */
+
+.threads_show, .posts_show {
+/*	display: none !important;*/
+}
+
+.replies_show, .views_show {
+/*	display: none !important;*/
+}
+
+.thread_show, .author_show {
+/*	display: none !important;*/
+}
+
+.folder_show, .post_icon_show {
+/*	display: none !important;*/
+}
+
+.last_post_show {
+/*	display: none !important;*/
+}
+
+.rating_show {
+/*	display: none !important;*/
+}
+
+
+and even: * this, if enabled hides toplink text on smallest devices
+
+@media (max-width: 414px) {
+
+/* toplinks tweak */
+	
+#logo ul.top_links {	
+ /*  text-align: right !important;	*/
+}
+
+#logo ul.top_links a.search {
+	/*font-size: 0px;*/	
+}
+
+#logo ul.top_links a.memberlist {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.calendar {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.help {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.portal {
+	/*font-size: 0px;*/
+}
+	
+}
+
+
+
+that is for one other tweak... that may be preferable
+
+
+that little tweak is as follows:
+
+
+change to:
+
+
+/* tcat tweaks */
+
+/* overall tcat display */
+.tcat {
+	display: none !important; 
+}
+
+/* UserCP & ModCP nav tcat display */
+	
+.cpshow {
+	display: block !important; 
+}
+	
+/* whosonline tcat  display */	
+	
+.wolshow {
+	display: block !important; 
+}
+	
+/* cal event tcat display */
+	
+.tcalshow {
+	display: flow !important; 
+}
+
+/* thread & posts span for mobile */
+	
+.threads_show, .posts_show {
+	display: inline-block !important;	
+}
+
+/* replies & views span for mobile */
+	
+.replies_show, .views_show {
+	display: inline-block !important;	
+}
+
+/* thread & author span for mobile */
+	
+.thread_show, .author_show {
+	display: inline-block !important;	
+}
+
+/* folder & post icon span for mobile */
+	
+.folder_show, .post_icon_show {
+	display: inline-block !important;	
+}
+
+/* last post span for mobile */
+	
+.last_post_show {
+	display: inline-block !important;	
+}
+
+/* rating span for mobile */
+	
+.rating_show {
+	display: block !important;	
+}
+
+
+Also change to:
+
+
+
+/* Hide span */
+ 
+.threads_show, .posts_show {
+	display: none !important;
+}
+
+.replies_show, .views_show {
+	display: none !important;
+}
+
+.thread_show, .author_show {
+	display: none !important;
+}
+
+.folder_show, .post_icon_show {
+	display: none !important;
+}
+
+.last_post_show {
+	display: none !important;
+}
+
+.rating_show {
+	display: none !important;
+}
+
+
+Find:
+
+and even: * this, if enabled hides toplink text on smallest devices
+
+@media (max-width: 414px) {
+
+/* toplinks tweak */
+	
+#logo ul.top_links {	
+ /*  text-align: right !important;	*/
+}
+
+#logo ul.top_links a.search {
+	/*font-size: 0px;*/	
+}
+
+#logo ul.top_links a.memberlist {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.calendar {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.help {
+	/*font-size: 0px;*/
+}
+
+#logo ul.top_links a.portal {
+	/*font-size: 0px;*/
+}
+	
+}
+
+
+change to:
+
+@media (max-width: 414px) {
+
+/* toplinks tweak */
+	
+#logo ul.top_links {	
+   text-align: right !important;	
+}
+
+#logo ul.top_links a.search {
+	font-size: 0px;	
+}
+
+#logo ul.top_links a.memberlist {
+	font-size: 0px;
+}
+
+#logo ul.top_links a.calendar {
+	font-size: 0px;
+}
+
+#logo ul.top_links a.help {
+	font-size: 0px;
+}
+
+#logo ul.top_links a.portal {
+	font-size: 0px;
+}
+	
+}
+
+
+Edit Template: forumbit_depth2_forum
+
+find:
+
+
+{$threads}
+
+
+Add next to it:
+
+
+ <span class="threads_show">{$lang->forumbit_threads}</span>
+
+
+find:
+
+
+{$posts}
+
+
+Add next to it:
+
+
+ <span class="posts_show">{$lang->forumbit_posts}</span>
+
+
+Find:
+
+
+{$lastpost}
+
+
+Add this before it:
+
+<span class="last_post_show">{$lang->forumbit_lastpost}</span> 
+
+
+Edit Template: forumdisplay_thread
+
+
+find:
+
+title="{$folder_label}">&nbsp;</span>
+
+
+add after it:
+
+<span class="folder_show"> {$folder_label}</span>
+
+
+find:
+
+{$icon}
+
+
+add after it:
+
+<span class="post_icon_show"> {$lang->post_icon}</span>
+
+
+find:
+
+{$prefix}
+
+
+Add before it:
+
+<span class="thread_show">{$lang->thread}</span> 
+
+
+find:
+
+{$thread['profilelink']}
+
+
+Add before it:
+
+<span class="author_show">{$lang->author}</span>
+
+
+find:
+
+{$thread['replies']}</a>
+
+
+add next to that:
+
+ <span class="replies_show"> {$lang->replies}</span>
+
+
+find:
+
+{$thread['views']} 
+
+
+add next to that:
+
+ <span class="views_show"> {$lang->views}</span>
+
+
+Edit Template: forumdisplay_thread_rating
+
+find:
+
+id="rating_table_{$thread['tid']}">
+
+
+add after:
+
+<span class="rating_show">{$lang->rating}</span>
+
+
+
+Edit Template: usercp_nav_messenger
+
+find:
+
+
+tcat_collapse{$collapsedimg['usercppms']}
+
+
+change to:
+
+tcat_collapse{$collapsedimg['usercppms']} cpshow
+
+
+Edit Template: usercp_nav_profile
+
+find:
+
+tcat_collapse{$collapsedimg['usercpprofile']}
+
+
+change to:
+
+tcat_collapse{$collapsedimg['usercpprofile']} cpshow
+
+
+Edit Template: usercp_nav_misc
+
+find:
+
+tcat_collapse{$collapsedimg['usercpmisc']}
+
+
+change to:
+
+tcat_collapse{$collapsedimg['usercpmisc']} cpshow
+
+
+
+Edit Template: modcp_nav_forums_posts
+
+find:
+
+tcat_collapse{$collapsedimg['modcpforums']}
+
+
+change to:
+
+tcat_collapse{$collapsedimg['modcpforums']} cpshow
+
+
+Edit Template: modcp_nav_users
+
+find:
+
+tcat_collapse{$collapsedimg['modcpusers']}
+
+
+change to:
+
+tcat_collapse{$collapsedimg['modcpusers']} cpshow
+
+
+Edit Template: calendar_event
+
+find:
+
+"tcat"
+
+
+change to:
+
+"tcat tcalshow"
+
+
+Edit Template: index_whosonline
+
+find:
+
+"tcat"
+
+
+replace with:
+
+ "tcat wolshow"
+
+
+* now what this lil tweak does is say on smaller devices completely hide tcat display boardwide say on mobile devices as an option but enables tcat display on usercp and modcp menus, again this tweak is optional, I tend to like it for this tutorial as again it is minimal edit minded and well it looks nice when most of the the tcat is not displayed on mobile, now, umm, this could be done other ways with more edits say create another class called "tcatshow" or whatever and then re-enable tcat display and go into various templates that you want to hide tcat only specific to there and add your ninja class, haha, hopefully that makes sense. Also it adds text ie: "replies, threads, views, replies... on smaller views while it hides it on larger views. ;)
+
+
+** Another lil handy tweak (Add collapse to portal)
+
+Edit Template: portal_latestthreads
+
+Replace with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+    <tr>
+      <td class="thead{$expthead}"><strong>{$lang->latest_threads}</strong>
+        <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex5_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+    </tr>
+    <tbody style="{$collapsed['sidebar_ex5_e']}" id="sidebar_ex5_e">
+     {$threadlist}
+    </tbody>
+  </table>
+  <br />
+
+
+  Edit Template: portal_pms
+
+  Replace with:
+
+
+  <table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong><a href="{$mybb->settings['bburl']}/private.php">{$lang->private_messages}</a></strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex9_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex9_e']}" id="sidebar_ex9_e">
+    <tr>
+      <td class="trow1"><span class="smalltext">{$lang->pms_received_new}<br />
+        <br />
+        <strong>&raquo; </strong> <strong>{$messages['pms_unread']}</strong> {$lang->pms_unread}<br />
+        <strong>&raquo; </strong> <strong>{$messages['pms_total']}</strong> {$lang->pms_total}</span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+Edit Template: portal_search
+
+Replace with:
+
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->search_forums}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex8_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex8_e']}" id="sidebar_ex8_e">
+<tr>
+<td class="trow1" align="center">
+<form action="{$mybb->settings['bburl']}/search.php">
+<input type="hidden" name="action" value="do_search" />
+<input type="hidden" name="postthread" value="1" />
+<input type="hidden" name="forums" value="all" />
+<input type="hidden" name="showresults" value="threads" />
+<input type="text" class="textbox portal_search" name="keywords" value="" />
+{$gobutton}
+</form><br />
+<span class="smalltext">
+(<a href="{$mybb->settings['bburl']}/search.php">{$lang->advanced_search}</a>)
+</span>
+</tbody>	
+</td>
+</tr>
+</table>
+<br />
+
+
+Edit Template: portal_stats
+
+Replace with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->forum_stats}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex7_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex7_e']}" id="sidebar_ex7_e">
+    <tr>
+      <td class="trow1"><span class="smalltext"> <strong>&raquo; </strong>{$lang->num_members} {$stats['numusers']}<br />
+        <strong>&raquo; </strong>{$lang->latest_member} {$newestmember}<br />
+        <strong>&raquo; </strong>{$lang->num_threads} {$stats['numthreads']}<br />
+        <strong>&raquo; </strong>{$lang->num_posts} {$stats['numposts']} <br />
+        <br />
+        <a href="{$mybb->settings['bburl']}/stats.php">{$lang->full_stats}</a> </span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+Edit Template: portal_welcome
+
+Replace with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->welcome}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex10_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex10_e']}" id="sidebar_ex10_e">
+    <tr>
+      <td class="trow1"> {$welcometext} </td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+Edit Template: portal_whosonline
+
+
+Replace with:
+
+
+<table border="0" cellspacing="{$theme['borderwidth']}" cellpadding="{$theme['tablespace']}" class="tborder_portal">
+  <tr>
+    <td class="thead{$expthead}"><strong>{$lang->online}</strong>
+      <div class="expcolimage"><img src="{$theme['imgdir']}/collapse.png" id="sidebar_ex6_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></td>
+  </tr>
+  <tbody style="{$collapsed['sidebar_ex6_e']}" id="sidebar_ex6_e">
+    <tr>
+      <td class="trow1"><span class="smalltext"> {$lang->online_users}<br />
+        <strong>&raquo;</strong> {$lang->online_counts}<br />
+        {$onlinemembers} </span></td>
+    </tr>
+  </tbody>
+</table>
+<br />
+
+
+
+
+add to css3.css
+
+
+.tborder_portal {
+	-moz-border-radius: 7px;
+	-webkit-border-radius: 7px;
+	border-radius: 7px;
+}
+
+
+
+add to global.css
+
+
+.tborder_portal {
+	background: #fff;
+	width: 100%;
+	margin: auto auto;
+	border: 1px solid #ccc;
+	padding: 1px;
+}
+
+
+
+If you want the tutorial already done in a theme (1824), here ya go: [attachment=43685]
+
+
+Now you can carry on and continue from there with expanding upon and improving upon this rather basic quick edit for your own usages.
+
+here is just one more example of things you might still continue to focus on:
+
+
+ok, so say you want to follow along like earlier and add text on areas for mobile to compensate for the removal of tcat text:
+
+so it is handy to take note on desktop view of the text on tcat and also factor that since the text is on tcat while hidden on mobile it does let you know that the the lang variables can be found in respective templates containing hidden tcat hence why saying take note of text on desktop view mindset is easy to know the text you are looking for, take note of the lang vars and then use them in your your new additions of mobile only displayed text and then start thinking like that as far as the hide/show text you want to add everywhere and anywhere as you go and may opt to.
+
+
+so for this example let us say hey while it is self explanatory it would be nice to have some of the hidden tcat text displayed one way or another in mobile modlogs result output so in order to do so we must add text to the modlogs result output display in modcp: simple enough as you have already noted from previous examples...
+
+
+like before the css should be fairly easy by now to know where to put it...
+
+
+
+/* Hide span */
+
+.mcp_show {
+	display: none !important;
+}
+
+
+
+
+@media only screen and (max-width: 868px) {
+
+/* mcp span for mobile */
+	
+.mcp_show {
+    display: inline-block !important; 	
+}
+
+}
+
+
+
+
+Edit Template: modcp_modlogs_result
+
+
+<tr>
+<td class="{$trow}" valign="top"><span class="mcp_show"><strong>{$lang->username}</strong></span>  {$logitem['profilelink']}</td>
+<td class="{$trow}" align="center" valign="top"> <span class="mcp_show"><strong>{$lang->date}</strong></span> {$log_date}</td>
+<td class="{$trow}" align="center" valign="top"> <span class="mcp_show"><strong>{$lang->action}</strong></span> {$logitem['action']}</td>
+<td class="{$trow}" align="center" valign="top"> <span class="mcp_show"><strong>{$lang->information}</strong></span> {$information}</td>
+<td class="{$trow}" align="center" valign="top"> <span class="mcp_show"><strong>{$lang->ip}</strong></span> {$logitem['ipaddress']}</td>
+</tr>
+
+
+and one more for example how about the users output in modcp finduser
+
+again using the modcp show class
+
+
+class="mcp_show"
+
+
+you could then do one say "ucpshow" for all usercp text, and so on and so forth, etc, etc..
+
+anyhoo, we can use this and display various text on modcp for mobile while hiding on full width
+
+Edit Template: modcp_finduser_user
+
+
+						<tr>
+							<td class="{$alt_row}"><span class="mcp_show"><strong>{$lang->username}</strong></span> <a href="modcp.php?action=editprofile&amp;uid={$user['uid']}"> {$user['username']}</a></td>
+							<td class="{$alt_row}" align="center"><span class="mcp_show"><strong>{$lang->usergroup}</strong></span> {$usergroup}</td>
+							<td class="{$alt_row}" align="center"><span class="mcp_show"><strong>{$lang->regdate}</strong></span> {$regdate}</td>
+							<td class="{$alt_row}" align="center"><span class="mcp_show"><strong>{$lang->lastvisit}</strong></span>  {$lastdate}</td>
+							<td class="{$alt_row}" align="center"><span class="mcp_show"><strong>{$lang->postnum}</strong></span>  {$user['postnum']}</td>
+						</tr>
+
+
+
+or say lets only display checkbox checkall tcat in usercp_attachments: and modcp_reports
+
+Edit Template: usercp_attachments
+
+
+<td class="tcat" width="1"><input type="checkbox" name="allbox" class="checkbox checkall" /></td>							
+
+
+
+<td class="tcat ucpcheck_show" width="1"><input type="checkbox" name="allbox" class="checkbox checkall" /></td>
+
+
+Edit Template: modcp_reports
+
+
+<td class="tcat" align="center" width="5%"><input type="checkbox" name="allbox" onclick="inlineReports.checkAll(this);" /></td>
+
+
+
+<td class="tcat mcpcheck_show" align="center" width="5%"><input type="checkbox" name="allbox" onclick="inlineReports.checkAll(this);" /></td>
+
+
+
+only add to:
+
+
+@media only screen and (max-width: 868px) {
+
+
+
+the following to respective section:
+
+
+/* ucpcheck span for mobile */
+	
+.ucpcheck_show {
+    display: flow !important; 	
+}
+
+/* mcpcheck span for mobile */
+	
+.mcpcheck_show {
+    display: flow !important; 	
+}
+
+
+
+
+
+* ok, by now doing these should give you a better idea and mindset on how to as you go through the mobile side over time and may see that you might want to add text here and there for mobile display you may now do so with ease... and continue from there with expanding upon and improving upon this rather basic quick set of edits for your own usages.
+
+Best of luck! ;)  
+
+~ Vintagedaddyo
