@@ -1,0 +1,174 @@
+[TUT] - Font Awesome 6 - Postbit status & Showteam status (online/offline/away)
+
+ie:
+
+[url=https://imgbb.com/][img]https://i.ibb.co/mqtM3P8/Forums-Forum-Team-1.png[/img][/url]
+
+[url=https://imgbb.com/][img]https://i.ibb.co/82XPLB1/Forums-Forum-Team.png[/img][/url]
+
+[url=https://imgbb.com/][img]https://i.ibb.co/x8z1D1b/Forums-Forum-Team-2.png[/img][/url]
+
+1. Loading Font Awesome 6
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+Find:
+
+
+{$stylesheets}
+
+
+Add the following after:
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+
+* note: if there is already fa6 included in your template, then this include step is not needed and can be skipped
+
+2. Adding Your Icons 
+
+
+Add to global.css:
+
+
+
+/** ShowTeam FA6 Status by: Vintagedaddyo **/
+
+.buddy_offline:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f057";
+	font-size: 16px;
+	color: #C7C7C7;
+	font-weight: 900;
+}
+
+.buddy_online:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f058";
+	font-size: 16px;
+	color: #15A018;
+	font-weight: 900;
+}
+
+.buddy_away:before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f057";
+	font-size: 16px;
+	color: #FCD12A;
+	font-weight: 900;
+}
+
+
+
+In Show Forum Team Templates -> showteam_usergroup_user 
+
+
+Find:
+
+
+<img src="{$theme['imgdir']}/buddy_{$status}.png" title="{$lang->$status}" alt="{$lang->$status}" style="vertical-align: middle;" />
+
+
+Replace with:
+
+
+<span class="buddy_{$status}" title="{$lang->$status}" alt="{$lang->$status}" style="vertical-align: middle;">&nbsp;</span>
+
+
+
+Now if you want the postbit user online/offline/away status to be similar you can do the following:
+
+ie:
+[url=https://imgbb.com/][img]https://i.ibb.co/cN6yqw6/test-1.png[/img][/url]
+
+[url=https://imgbb.com/][img]https://i.ibb.co/T4WP7Qd/test.png[/img][/url]
+
+[url=https://imgbb.com/][img]https://i.ibb.co/p407VVP/test-2.png[/img][/url]
+
+Add to global.css:
+
+
+
+/** User FA6 Postbit Status by: Vintagedaddyo **/
+
+.user_offline:before {
+	font-family: "Font Awesome 5 Free";
+	content: "\f057";
+	font-size: 13px;
+	color: #C7C7C7;
+	font-weight: 900;
+}
+
+.user_online:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f058";
+	font-size: 13px;
+	color: #15A018;
+	font-weight: 900;
+}
+
+a.user_online_link:link,
+a.user_online_link:visited,
+a.user_online_link:active,
+a.user_online_link:hover {
+	text-decoration: none;
+}
+
+.user_away:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f057";
+	font-size: 13px;
+	color: #FCD12A;
+	font-weight: 900;
+}
+
+a.user_away_link:link,
+a.user_away_link:visited,
+a.user_away_link:active,
+a.user_away_link:hover {
+	text-decoration: none;
+}
+
+
+
+Replace postbit_online with:
+
+
+<a class="user_online_link" href="online.php" title="{$lang->postbit_status_online}"><span class="user_online" alt="{$lang->postbit_status_online}"></span></a>
+
+
+
+Replace postbit_offline with:
+
+<span class="user_offline" title="{$lang->postbit_status_offline}" alt="{$lang->postbit_status_offline}"></span>
+
+
+Replace postbit_away with:
+
+
+<a class="user_away_link" href="{$post['profilelink_plain']}" title="{$lang->postbit_status_away}"><span class="user_away" alt="{$lang->postbit_status_away}"></span></a>
+
+
+
+Best of luck!  :D  Happy editing!  ~ V

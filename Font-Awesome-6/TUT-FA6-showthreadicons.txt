@@ -1,0 +1,131 @@
+[Tutorial - Font Awesome 6 show thread icons 
+
+
+1. Loading Font Awesome 6
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+
+* note: if there is already fa6 included in your template, then this include step is not needed and can be skipped
+
+Now for the styling edits:
+
+Go to your > Themes > showthread.css:
+
+
+Replace all with:
+
+/** FA6 show thread icons by: Vintagedaddyo **/
+
+ul.thread_tools,
+ul.thread_tools li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+ul.thread_tools li {
+	padding-left: 0;
+	padding-bottom: 4px;
+	margin-bottom: 3px;
+	font-size: 11px;
+}
+
+ul.thread_tools li.printable:after {
+	font-family: "Font Awesome 6 Free";
+	font-size: 14px;
+	color: #2C2C2C;
+	content: "\f02f";
+	float: left;
+	position: relative;
+	z-index: 0;
+	padding-right: 5px;
+	font-weight: 900;
+}
+
+ul.thread_tools li.sendthread:after {
+	font-family: "Font Awesome 6 Free";
+	font-size: 14px;
+	color: #2C2C2C;
+	content: "\f0e0";
+	position: relative;
+	z-index: 0;
+	float: left;
+	padding-right: 5px;
+	font-weight: 900;
+}
+
+ul.thread_tools li.subscription_add:after {
+	font-family: "Font Awesome 6 Free";
+	font-size: 14px;
+	color: #2C2C2C;
+	content: "\f067";
+	position: relative;
+	z-index: 0;
+	float: left;
+	padding-right: 5px;
+	font-weight: 900;
+}
+
+ul.thread_tools li.subscription_remove:after {
+	font-family: "Font Awesome 6 Free";
+	font-size: 14px;
+	color: #2C2C2C;
+	content: "\f068";
+	position: relative;
+	z-index: 0;
+	float: left;
+	padding-right: 5px;
+	font-weight: 900;
+}
+
+ul.thread_tools li.poll:after {
+	font-family: "Font Awesome 6 Free";
+	font-size: 14px;
+	color: #2C2C2C;
+	content: "\f080";
+	position: relative;
+	z-index: 0;
+	float: left;
+	padding-right: 5px;
+	font-weight: 900;
+}
+
+.showthread_spinner {
+	margin: 0 auto;
+	display: block;
+	text-align: center;
+	padding: 20px;
+	width: 100%;
+}

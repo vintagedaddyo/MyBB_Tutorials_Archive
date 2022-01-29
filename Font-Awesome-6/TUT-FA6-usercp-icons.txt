@@ -1,0 +1,268 @@
+[Tutorial - Font Awesome 6 UserCP icons 
+
+
+1. Loading Font Awesome 6
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+
+* note: if there is already fa6 included in your template, then this include step is not needed and can be skipped
+
+Now for the styling edits:
+
+Go to your > Themes > usercp.css:
+
+
+Replace all with:
+
+/** FA6 UserCP icons by; Vintagedaddyo **/
+
+.cp_options td:first-child{
+      width:230px;
+}
+
+.usercp_options{
+      margin:0;
+      padding:0;
+      list-style:none outside none;
+}
+
+.usercp_options>li{
+      margin:0;
+      padding:4px 0px;
+}
+
+.usercp_options>li>span{
+      display:inline-block;
+      text-align:right;
+}
+
+.usercp_nav_item{
+      display:block;
+}
+
+.usercp_nav_item a {
+	color:#0072BC;
+}
+
+.usercp_nav_item:before{
+      font-size:16px;
+      font-family:"Font Awesome 6 Free";
+	  font-weight: 900;
+      color: #2C2C2C;
+      width:28px;
+      margin-right:3px;
+      text-align:center;
+      display:inline-block;
+}
+
+.usercp_nav_composepm:before{
+      content:"\f3e5";
+}
+
+.usercp_nav_pmfolder:before{
+      content:"\f07c";
+}
+
+.usercp_nav_sub_pmfolder:before{
+      content:"\f07b";
+}
+
+.usercp_nav_trash_pmfolder:before{
+      content:"\f2ed";
+}
+
+.usercp_nav_pmtracking:before{
+      content:"\f024";
+}
+
+.usercp_nav_pmfolders:before{
+      content:"\f07b";
+}
+
+.usercp_nav_profile:before{
+      content:"\f007";
+}
+
+.usercp_nav_email:before{
+      content:"\f0e0";
+}
+
+.usercp_nav_password:before{
+      content:"\f084";
+}
+
+.usercp_nav_username:before{
+      content:"\f111";
+}
+
+.usercp_nav_editsig:before{
+      content:"\f303";
+}
+
+.usercp_nav_avatar:before{
+      content:"\f03e";
+}
+
+.usercp_nav_options:before{
+      content:"\f085";
+}
+
+.usercp_nav_usergroups:before{
+      content:"\f0c0";
+}
+
+.usercp_nav_editlists:before{
+      content:"\f004";
+}
+
+.usercp_nav_attachments:before{
+      content:"\f0c6";
+}
+
+.usercp_nav_drafts:before{
+      content:"\f303";
+}
+
+.usercp_nav_subscriptions:before{
+      content:"\f02e";
+}
+
+.usercp_nav_fsubscriptions:before{
+      content:"\f03a";
+}
+
+.usercp_nav_notepad:before{
+      content:"\f02d";
+}
+
+.usercp_nav_viewprofile:before{
+      content:"\f007";
+}
+
+.usercp_nav_home:before{
+      content:"\f015";
+}
+
+.usercp_nav_status:before{
+      content:"\f118";
+}
+
+.usercp_nav_myalerts:before{
+      content:"\f0f3";
+}
+
+.usercp_nav_myalerts_delete_all:before{
+      content:"\f058";
+}
+
+.usercp_nav_myalerts_delete_read:before{
+      content:"\f05c";
+}
+
+.usercp_nav_award:before{
+      content:"\f091";
+}
+
+.usercp_notepad{
+      width:99%;
+}
+
+#usercpalerts_e td[class^="trow"],#usercppms_e td[class^="trow"],#usercpprofile_e td[class^="trow"],#usercpmisc_e td[class^="trow"]{
+      border:none;
+      padding:0px;
+}
+
+.pagination{
+      padding:3px 0px;
+}
+
+.usercp_notepad{
+      width:99%;
+}
+
+.usercp_container{
+      margin:5px;
+      padding:8px;
+}
+
+td[class^=trow]{
+      border:none;
+}
+
+.pmspace {
+	float: right;
+	margin: -3px 5px;
+}
+
+.pmspace_container {
+	background: #fff;
+	border: 1px solid #ccc;
+	width: 100px;
+	display: inline-block;
+}
+
+.pmspace_used {
+	display: inline-block;
+	color: #fff;
+	margin: -1px;
+}
+
+.pmspace_used.low {
+	border: 1px solid #0c5a01;
+	background: #167203;
+}
+
+.pmspace_used.medium {
+	background: #ff862b;
+	border: 1px solid #d7611e;
+}
+
+.pmspace_used.high {
+	background: #e73c3c;
+	border: 1px solid #c00;
+}
+
+.pmspace_unused {
+	display: inline-block;
+}
+
+.pmspace_text {
+	padding: 1px 5px;
+	display: inline-block;
+}
+
+.new_pm {
+	font-weight: bold;
+}

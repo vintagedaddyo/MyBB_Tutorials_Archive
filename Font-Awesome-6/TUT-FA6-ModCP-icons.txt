@@ -1,0 +1,193 @@
+[Tutorial] - Font Awesome 6 modcp icons
+
+Loading Font Awesome 6 *
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+Find:
+
+
+{$stylesheets}
+
+
+Add the following after:
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+* you could also just include internally in headerinclude rather than externally in headerinclude if you have uploaded your library...
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+
+
+* note: if there is already fa6 included in your template, then this include step is not needed and can be skipped
+
+
+First the styling edits:
+
+Go to your > Themes > modcp.css:
+
+Replace modcp.css entirely with:
+
+
+.modcp_nav_item:before{
+      font-size:16px;
+      font-family:"Font Awesome 6 Free";
+	  font-weight: 900;
+      color: #2C2C2C;
+      width:28px;
+      margin-right:3px;
+      text-align:center;
+      display:inline-block;
+}
+
+.modcp_nav_home:before{
+      content:"\f015";
+}
+
+.modcp_nav_announcements:before {
+    content:"\f0f3"
+}
+
+.modcp_nav_reports:before {
+    content: "\f071";
+}
+
+.modcp_nav_modqueue:before {
+    content:"\f02d"
+}
+
+.modcp_nav_modlogs:before {
+    content: "\f109";
+}
+
+.modcp_nav_editprofile:before {
+    content: "\f007";
+}
+
+.modcp_nav_banning:before {
+    content: "\f023";
+}
+
+.modcp_nav_warninglogs:before {
+    content: "\f06e";
+}
+
+.modcp_nav_ipsearch:before {
+    content: "\f002";
+}
+
+.modqueue_message {
+	overflow: auto;
+	max-height: 250px;
+}
+
+.modqueue_controls {
+	width: 270px;
+	float: right;
+	text-align: center;
+	border: 1px solid #ccc;
+	background: #fff;
+	padding: 6px;
+	font-weight: bold;
+}
+
+.modqueue_controls label {
+	margin-right: 8px;
+}
+
+.label_radio_ignore,
+.label_radio_delete,
+.label_radio_approve {
+	font-weight: bold;
+}
+
+.modqueue_meta {
+	color: #444;
+	font-size: 95%;
+	margin-bottom: 8px;
+}
+
+.modqueue_mass {
+	list-style: none;
+	margin: 0;
+	width: 150px;
+	padding: 0;
+}
+
+.modqueue_mass li {
+	margin-bottom: 4px;
+	padding: 0;
+}
+
+.modqueue_mass li a {
+	display: block;
+	padding: 4px;
+	border: 1px solid transparent;
+}
+
+.modqueue_mass li a:hover {
+	background: #efefef;
+	border: 1px solid #ccc;
+	text-decoration: none;
+}
+		
+/** Modcp Announcement active/expired **/
+
+.mcp_announceicon {
+	height: 16px; 
+	width: 16px; 
+	display: inline-block;  
+	vertical-align: middle; 
+}
+
+.mcp_announceicon_on:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f058";
+	font-size: 13px;
+	color: #15A018;
+	font-weight: 900;
+}
+
+.mcp_announceicon_off:before {
+	font-family: "Font Awesome 6 Free";
+	content: "\f057";
+	font-size: 13px;
+	color: #2C2C2C;
+	/*color: #C7C7C7;*/
+	font-weight: 900;
+}
+
+* Note: ok, now you will notice that your madcap images are now replaced with font-awesome, but, you will eventually notice when managing announcements that your active and expired status images are missing, and this is something I personally forgot to get to in past tutorials nor have I seen any other past tutorials of the likes even notice this lil issue..., so what we need to do is fix that and while the css above has the css side of the fix already applied, we need to apply the fix to 2 templates in modcp found as follows below:
+
+Edit Template: modcp_announcements_announcement_active
+
+Replace with:
+
+<div class="mcp_announceicon mcp_announceicon_on" title="{$lang->active_announcement}"></div>	
+
+
+Edit Template: modcp_announcements_announcement_expired
+
+Replace with:
+
+<div class="mcp_announceicon mcp_announceicon_off" title="{$lang->expired_announcement}"></div>

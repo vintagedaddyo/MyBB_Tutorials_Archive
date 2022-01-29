@@ -1,0 +1,194 @@
+[Tutorial] - FA5 collapse icons for index, help section, usercp, modcp...
+
+
+Loading Font Awesome 5 *
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+Find:
+
+
+{$stylesheets}
+
+
+Add the following after:
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+* you could also just include internally in headerinclude rather than externally in headerinclude if you have uploaded your library...
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-5/css/all.css">
+
+
+* You can download font-awesome-5 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/vShTkNP0#link
+
+
+* note: if there is already fa5 included in your template, then this include step is not needed and can be skipped
+
+
+First the styling edits:
+
+Go to your > Themes > Global.css:
+
+Add:
+
+/** FA5 collapse **/
+
+/* thead */
+
+ .thead .expander:before {
+     font-size:16px;
+     font-weight:900;
+     content: "\f106";
+     display:inline-block;
+     font-family: 'Font Awesome 5 Free';
+     transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+}
+
+ .thead.thead_collapsed .expander:before {
+     transform: rotate(-180deg);
+}
+
+/* tcat */
+
+ .tcat .expander:before {
+     font-size:16px;
+     font-weight:900;
+     content: "\f106";
+     display:inline-block;
+     font-family: 'Font Awesome 5 Free';
+     transition: transform .3s ease-in-out,-webkit-transform .3s ease-in-out;
+}
+ 
+ .tcat.tcat_menu.tcat_collapse_collapsed .expander:before {
+     transform: rotate(-180deg);
+}
+
+
+
+Next, on to the template edits:
+
+Go to your > Theme > Templates: 
+
+
+FORUMS:
+
+
+edit > forumbit_depth1_cat:  
+
+Find
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/{$expcolimage}" id="cat_{$forum['fid']}_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with: 
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="cat_{$forum['fid']}_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+BOARDSTATS:
+
+edit > index_boardstats:
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/{$expcolimage}" id="boardstats_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with: 
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="boardstats_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+HELP SECTIONS:
+
+edit > misc_help_section:
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/{$expcolimage}" id="sid_{$section['sid']}_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+Replace with: 
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="sid_{$section['sid']}_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+USERCP:
+
+edit > usercp_nav_messenger:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['usercppms']}.png" id="usercppms_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with: 
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="usercppms_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+edit > usercp_nav_misc:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['usercpmisc']}.png" id="usercpmisc_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with:
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="usercpmisc_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+edit > usercp_nav_profile:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['usercpprofile']}.png" id="usercpprofile_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with:
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="usercpprofile_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+MODCP:
+
+edit > modcp_nav_forums_posts:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['modcpforums']}.png" id="modcpforums_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with:
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="modcpforums_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+edit > modcp_nav_users:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['modcpusers']}.png" id="modcpusers_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+Replace with:
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="modcpusers_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+

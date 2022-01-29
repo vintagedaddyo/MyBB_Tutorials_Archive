@@ -1,0 +1,428 @@
+[Tutorial] - Font Awesome 6 thread status icons
+
+
+1. Loading Font Awesome 6
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-6/css/all.css">
+
+
+* You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/5mSLMORO#link
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+
+* note: if there is already fa6 included in your template, then this include step is not needed and can be skipped
+
+Now for the styling edits:
+
+Go to your > Themes > thread_status.css:
+
+
+Replace all with:
+
+
+/** FA6 Thread status icons by: Vintagedaddyo **/
+
+.thread_status {
+    display: inline-block;
+}
+
+.thread_status.dot_folder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #017DCC;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_folder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_hotfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #FA6A6A;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_hotfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_hotclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FA6A6A;
+    content: "f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_hotclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_closefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FFD700;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_closefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FFD700;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newhotfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #FF0000;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newhotfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newhotclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FF0000;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newhotclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;
+}
+
+.thread_status.dot_newclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FFD700;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.dot_newclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.folder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #C6C6C6;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.folder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.hotfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #FA6A6A;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.hotfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.hotclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FA6A6A;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.hotclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.closefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #333;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.closefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.movefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #FFD700;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.movefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.newfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #BDE1A0;
+    content: "\f111";
+    position: absolute;
+    z-index: 1; 
+    font-weight: 900;    
+}
+
+.thread_status.newfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.newhotfolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 8px;
+    color: #FF0000;
+    content: "\f111";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.newhotfolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.newhotclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #FF0000;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.newhotclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}
+
+.thread_status.newclosefolder:before {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #AEAEAE;
+    content: "\f023";
+    position: absolute;
+    z-index: 1;
+    font-weight: 900;    
+}
+
+.thread_status.newclosefolder:after {
+    font-family: "Font Awesome 6 Free";
+    font-size: 13px;
+    color: #fff;
+    content: "\f15c";
+    position: relative;
+    z-index: 0;
+    background-color: #333;
+    border: #333 1px solid;
+    font-weight: 900;    
+}

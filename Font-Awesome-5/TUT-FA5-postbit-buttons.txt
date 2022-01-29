@@ -1,0 +1,450 @@
+Font-Awesome 5 Scalable Postbit Buttons Forum Icons on MyBB 
+
+ie:
+[url=https://ibb.co/bQP30FY][img]https://i.ibb.co/xXDskYw/test.png[/img][/url]
+
+[url=https://ibb.co/C60y6cB][img]https://i.ibb.co/dtKvtTB/test-1.png[/img][/url]
+
+Let us get started. ok, for testing purposes we need to make the forum scalable to see the scalable postbit buttons in action so we need to set viewport and remove existing container and wrapper sizing so begin by opening up the default theme headerinclude template and find:
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+
+
+Add this before it:
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+
+in global.css comment out the following for testing purposes:
+
+
+#container {
+/*    min-width: 990px; */
+}
+
+.wrapper {
+/*    min-width: 970px; */
+}
+
+
+
+Now...,
+
+
+Edit: headerinclude
+
+1. Loading Font Awesome 5
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+Add the following after:
+
+
+{$stylesheets}
+
+
+
+External linking:
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+Internal linking:
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-5/css/all.css">
+
+* You can download Fontawesome5 pkg stripped down for size to be used for theme includes here:
+http://s000.tinyupload.com/index.php?file_id=06797422687200671326 * not the the latest version of 5
+
+* Or you can also just download the latest Fontawesome5 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: [url=https://use.fontawesome.com/releases/v5.15.2/fontawesome-free-5.15.4-web.zip]https://use.fontawesome.com/releases/v5.15.4/fontawesome-free-5.15.4-web.zip[/url]
+
+... and include it in similar way as suggested above. ie: download, extract, drop into a directory say called font-awesome-5 and upload that directory inside theme directory then include in headerinclude template adjusting include linkage to reflect your location....
+
+
+2. Adding Your Icons
+
+
+Add to css3.css:
+
+
+
+/** FA5 Scalable postbit buttons by: Vintagedaddyo **/
+
+button, input.button, input.textbox, input.invalid_field, input.valid_field, select, textarea, .editor_control_bar, blockquote, .codeblock, fieldset, .pm_alert, .red_alert, .popup_menu, .postbit_buttons > a, a.button {
+-moz-border-radius: 3px;
+-webkit-border-radius: 3px;
+border-radius: 3px
+}
+
+
+
+Find in global.css:
+
+
+
+.post_controls {
+	clear: both;
+	background: #f5f5f5;
+	border-bottom: 1px solid #ccc;
+	padding: 5px;
+	overflow: hidden;
+}
+
+.postbit_buttons > a:link,
+.postbit_buttons > a:hover,
+.postbit_buttons > a:visited,
+.postbit_buttons > a:active {
+	display: inline-block;
+	padding: 2px 5px;
+	margin: 2px;
+	font-size: 11px;
+	background: #eee url(images/buttons_bg.png) repeat-x;
+	border: 1px solid #ccc;
+	color: #555;
+}
+
+.postbit_buttons > a:hover {
+	border-color: #bbb;
+}
+
+.postbit_buttons a span {
+	padding-left: 20px;
+	display: inline-block;
+	height: 16px;
+	background-image: url(images/buttons_sprite.png);
+	background-repeat: no-repeat;
+}
+
+.postbit_buttons a.postbit_find span {
+	background-position: 0 0;
+}
+
+.postbit_buttons a.postbit_reputation_add span {
+	background-position: 0 -20px;
+}
+
+.postbit_buttons a.postbit_email span {
+	background-position: 0 -40px;
+}
+
+.postbit_buttons a.postbit_website span {
+	background-position: 0 -60px;
+}
+
+.postbit_buttons a.postbit_pm span {
+	background-position: 0 -80px;
+}
+
+.postbit_buttons a.postbit_quote span {
+	background-position: 0 -100px;
+}
+
+.postbit_buttons a.postbit_multiquote span {
+	background-position: 0 -120px;
+}
+
+.postbit_buttons a.postbit_multiquote_on span {
+	background-position: 0 -140px;
+}
+
+.postbit_buttons a.postbit_edit span {
+	background-position: 0 -160px;
+}
+
+.postbit_buttons a.postbit_qdelete span {
+	background-position: 0 -180px;
+}
+
+.postbit_buttons a.postbit_qrestore span {
+	background-position: 0 -200px;
+}
+
+.postbit_buttons a.postbit_report span {
+	background-position: 0 -220px;
+}
+
+.postbit_buttons a.postbit_warn span {
+	background-position: 0 -240px;
+}
+
+.postbit_buttons a.postbit_purgespammer span {
+	background-position: 0 -540px;
+}
+
+.postbit_buttons a.postbit_reply_pm span {
+	background-position: 0 -260px;
+}
+
+.postbit_buttons a.postbit_reply_all span {
+	background-position: 0 -280px;
+}
+
+.postbit_buttons a.postbit_forward_pm span {
+	background-position: 0 -300px;
+}
+
+.postbit_buttons a.postbit_delete_pm span {
+	background-position: 0 -320px;
+}
+
+.post:not(.deleted_post) .postbit_qrestore,
+.post:not(.deleted_post) .status_type,
+.post.deleted_post .postbit_mirage {
+    display: none;
+}
+
+a.button:link,
+a.button:hover,
+a.button:visited,
+a.button:active {
+	background: #0f0f0f url(images/tcat.png) repeat-x;
+	color: #fff;
+	display: inline-block;
+	padding: 4px 8px;
+	margin: 2px 2px 6px 2px;
+	border: 1px solid #000;
+	font-size: 14px;
+}
+
+a.button.small_button {
+	font-size: 13px;
+	margin: 0;
+	padding: 3px 6px;
+}
+
+a.button span {
+	padding-left: 20px;
+	display: inline-block;
+	background-image: url(images/buttons_sprite.png);
+	background-repeat: no-repeat;
+}
+
+a.button.new_thread_button span {
+	background-position: 0 -340px;
+}
+
+a.button.new_reply_button span {
+	background-position: 0 -360px;
+}
+
+a.button.closed_button span {
+	background-position: 0 -380px;
+}
+
+a.button.rate_user_button span {
+	background-position: 0 -400px;
+}
+
+a.button.add_buddy_button span {
+	background-position: 0 -440px;
+}
+
+a.button.remove_buddy_button span {
+	background-position: 0 -480px;
+}
+
+a.button.add_ignore_button span {
+	background-position: 0 -460px;
+}
+
+a.button.remove_ignore_button span {
+	background-position: 0 -500px;
+}
+
+a.button.report_user_button span {
+	background-position: 0 -520px;
+}
+
+
+Replace with:
+
+
+
+/** Scalable Postbit Buttons FA5 by: Vintagedaddyo **/
+
+@media (max-width:768px) {
+.post_controls {
+text-align: center;
+}
+.postbit_buttons a span {
+font-size: 0px;
+}
+.postbit_buttons a span:before {
+margin: 0;
+}
+.postbit_buttons > a:link, .postbit_buttons > a:hover, .postbit_buttons > a:visited, .postbit_buttons > a:active {
+padding: 3px 7px;
+}
+}
+.post_controls {
+clear: both;
+background: #f5f5f5;
+padding: 5px;
+overflow: hidden;
+}
+.postbit_buttons > a:link, .postbit_buttons > a:hover, .postbit_buttons > a:visited, .postbit_buttons > a:active, .postbit_button {
+display: inline-block;
+padding: 2px 5px;
+margin: 2px;
+font-size: 11px;
+background: url(images/buttons_bg.png) repeat-x scroll 0% 0% #EEE;
+border: 1px solid #CCC;
+color: #555;
+}
+.postbit_button {
+padding: 7px 10px;
+border-radius: 3px;
+color: #333 !important;
+}
+.postbit_buttons > a:hover, .postbit_button:hover {
+border-color: #bbb;
+}
+.postbit_buttons a span:before {
+content: "";
+/* display: inline-block; */
+font-family: "Font Awesome 5 Free";
+font-weight: normal;
+font-size: inherit;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin-right: 5px;
+font-size: 12px;
+font-weight: 900;
+}
+.postbit_buttons a span:after {
+font-family: "Font Awesome 5 Free";
+font-weight: 900;
+}
+.postbit_buttons a.postbit_find span:before {
+content: "\f002";
+}
+.postbit_buttons a.postbit_reputation_add span:before {
+content: "\f067";
+}
+.postbit_buttons a.postbit_email span:before {
+content: "\f0e0";
+}
+.postbit_buttons a.postbit_website span:before {
+content: "\f0ac";
+}
+.postbit_buttons a.postbit_pm span:before {
+content: "\f199";
+}
+.postbit_buttons a.postbit_quote span:before {
+content: "\f10e";
+}
+.postbit_buttons a.postbit_multiquote span:before {
+content: "\f055";
+}
+.postbit_buttons a.postbit_multiquote_on span:before {
+content: "\f056";
+color: #DB1304;
+}
+.postbit_buttons a.postbit_edit span:before {
+content: "\f044";
+}
+.postbit_buttons a.postbit_qdelete span:before {
+content: "\f00d";
+}
+.postbit_buttons a.postbit_qrestore span:before {
+content: "\f067";
+}
+.postbit_buttons a.postbit_report span:before {
+content: "\f0a1";
+}
+.postbit_buttons a.postbit_warn span:before {
+content: "\f0e3";
+}
+.postbit_buttons a.postbit_purgespammer span:before {
+content: "\f071";
+}
+.postbit_buttons a.postbit_reply_pm span:before {
+content: "\f3e5";
+}
+.postbit_buttons a.postbit_reply_all span:before {
+content: "\f122";
+}
+.postbit_buttons a.postbit_forward_pm span:before {
+content: "\f064";
+}
+.postbit_buttons a.postbit_delete_pm span:before {
+content: "\f00d";
+}
+.post:not(.deleted_post) .postbit_qrestore,
+.post:not(.deleted_post) .status_type,
+.post.deleted_post .postbit_mirage {
+    display: none;
+}
+a.button:link, a.button:hover, a.button:visited, a.button:active {
+background: #555;
+background: -moz-linear-gradient(top, #555 0%, #333 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #555), color-stop(100%, #333));
+background: -webkit-linear-gradient(top, #555 0%, #333 100%);
+background: -o-linear-gradient(top, #555 0%, #333 100%);
+background: -ms-linear-gradient(top, #555 0%, #333 100%);
+background: linear-gradient(top, #555 0%, #333 100%);
+filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#555', endColorstr='#333', GradientType=0 );
+color: #fff;
+display: inline-block;
+padding: 4px 8px;
+margin: 2px 2px 6px 2px;
+border: 1px solid #333;
+font-size: 14px;
+}
+a.button.small_button {
+font-size: 13px;
+margin: 0;
+padding: 3px 6px;
+}
+a.button span:before {
+content: "";
+display: inline-block;
+font-family: "Font Awesome 5 Free";
+font-weight: normal;
+font-size: inherit;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+margin-right: 5px;
+font-weight: 900;
+}
+a.button span:after {
+font-family: "Font Awesome 5 Free";
+font-weight: 900;
+}
+a.button.new_thread_button span:before {
+content: "\f086";
+}
+a.button.new_reply_button span:before {
+content: "\f075";
+}
+a.button.closed_button span:before {
+content: "\f00d"
+}
+a.button.rate_user_button span:before {
+content: "\f123";
+}
+a.button.add_buddy_button span:before {
+content: "\f007";
+}
+a.button.remove_buddy_button span:before {
+content: "\f00d";
+}
+a.button.add_ignore_button span:before {
+content: "\f1f6";
+}
+a.button.remove_ignore_button span:before {
+content: "\f0f3";
+}
+a.button.report_user_button span:before {
+content: "\f0a1";
+}
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ V
