@@ -193,5 +193,20 @@ Replace with:
 <div class="expcolimage"><div src="{$theme['imgdir']}/" id="modcpusers_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
 
 
+edit > showthread_quickreply:
+
+
+Find:
+
+<div class="expcolimage"><img src="{$theme['imgdir']}/collapse{$collapsedimg['quickreply']}.png" id="quickreply_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div>
+
+
+
+Replace with:
+
+<div class="expcolimage"><div src="{$theme['imgdir']}/" id="quickreply_img" class="expander" alt="{$expaltext}" title="{$expaltext}" /></div></div>
+
+
+
 
 Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
