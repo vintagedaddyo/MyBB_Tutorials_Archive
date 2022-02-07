@@ -1,0 +1,2073 @@
+[Tutorial] - Font Awesome 6 select icons  - by Vintagedaddyo
+
+
+1. Loading Font Awesome 5
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+* you could also just include internally in headerinclude rather than externally in headerinclude if you have uploaded your library...
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-5/css/all.css">
+
+
+* You can download font-awesome-5 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/vShTkNP0#link
+
+
+* note: if there is already fa5 included in your template, then this include step is not needed and can be skipped
+
+
+2. CSS styling edits:
+
+
+In your theme global.css:
+
+
+Find:
+
+select {
+	background: #ffffff;
+	padding: 3px;
+	border: 1px solid #ccc;
+	outline: 0;
+	font-family: Tahoma, Verdana, Arial, Sans-Serif;
+	font-size: 13px;
+}
+
+
+Replace with:
+
+
+/** FA 5 Select icons by: Anka06 & Vintagedaddyo **/
+
+select {
+    padding: 4px;
+    margin: 0;
+    background: #FFF;
+    border: 1px solid #ddd;
+    color: #333;
+    outline: none;
+    font-size: 13px;
+    display: inline-block;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    width: 200px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    
+}
+
+.select-wrap {
+    position: relative;
+}
+
+.select-wrap:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f107';
+    font-size: 15px;
+    position: absolute;
+    top: -2px;
+    right: 10px;
+    color: #c6c4c4;
+    pointer-events: none;
+}
+
+
+3. Template edits:
+
+
+Edit Template: forumdisplay_forumsort
+
+Find:
+
+<select name="sortby">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="sortby">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="order">
+
+Change to:
+
+<span class="select-wrap">
+<select name="order">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="datecut">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="datecut">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: forumdisplay_threadlist_prefixes
+
+Find:
+
+<select name="prefix">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="prefix">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: forumdisplay_inlinemoderation
+
+Find:
+		
+<select name="action">
+
+Change to:
+
+<span class="select-wrap">			
+<select name="action">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: forumjump_advanced
+
+Find:
+
+<select name="{$name}" class="forumjump">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="{$name}" class="forumjump">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: forumjump_special
+
+Find:
+
+<select name="{$name}">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="{$name}">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: showthread_inlinemoderation
+
+
+Find:
+
+<select name="action" id="inlinemoderation_options_selector">
+
+Change to:
+
+<span class="select-wrap">
+<select name="action" id="inlinemoderation_options_selector">	
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: showthread_moderationoptions
+
+Find:
+
+<select name="action" id="moderator_options_selector">
+
+Change to:
+
+<span class="select-wrap">
+<select name="action" id="moderator_options_selector">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: memberlist
+
+Find:
+
+<select name="sort" id="sort" style="width: 99%;">
+
+Change to:
+
+<span class="select-wrap">
+<select name="sort" id="sort" style="width: 99%;">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: search
+
+
+Find:
+
+<select name="findthreadst">
+
+Change to:
+
+<span class="select-wrap">
+<select name="findthreadst">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Find:
+
+<select name="postdate">
+
+Change to:
+
+<span class="select-wrap">
+<select name="postdate">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Find:
+	
+<select name="sortby">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="sortby">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+Edit Template: search_moderator_options
+
+Find:
+
+<select name="visible">
+
+Change to:
+
+<span class="select-wrap">
+<select name="visible">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: search_results_posts_inlinemoderation
+
+
+Find:
+
+<select name="action">
+
+Change to:
+
+<span class="select-wrap">
+<select name="action">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: search_results_threads_inlinemoderation
+
+
+Find:
+
+<select name="action">
+
+Change to:
+
+<span class="select-wrap">
+<select name="action">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+
+Edit Template: footer_themeselector
+
+
+Find:
+
+<select name="{$name}" onchange="MyBB.changeTheme();">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="{$name}" onchange="MyBB.changeTheme();">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: footer_languageselect
+
+
+Find:
+
+<select name="language" onchange="MyBB.changeLanguage();">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="language" onchange="MyBB.changeLanguage();">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>	
+
+
+Edit Template: usercp_options
+
+
+Find:
+
+<select name="subscriptionmethod" id="subscriptionmethod">
+
+Change to:
+
+<span class="select-wrap">
+<select name="subscriptionmethod" id="subscriptionmethod">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="dateformat">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="dateformat">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+	
+<select name="timeformat">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="timeformat">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="dstcorrection">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="dstcorrection">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="daysprune">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="daysprune">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="threadmode">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="threadmode">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_options_tppselect
+
+
+Find:
+
+<select name="tpp">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="tpp">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_options_language
+
+Find:
+
+<select name="language">
+
+Change to:
+
+<span class="select-wrap">
+<select name="language">	
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_options_pppselect
+
+Find:
+
+<select name="ppp">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="ppp">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_options_timezone
+
+Find:
+
+<select name="{$name}" id="{$name}">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="{$name}" id="{$name}">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_themeselector
+
+Find:
+
+<select name="{$name}">
+
+Change to:
+
+<span class="select-wrap">
+<select name="{$name}">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_profile_away
+
+Find:
+
+<select name="awayday">
+
+Change to:
+
+<span class="select-wrap">
+<select name="awayday">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="awaymonth">
+
+Change to:
+
+<span class="select-wrap">
+<select name="awaymonth">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_profile
+
+
+Find:
+
+<select name="bday1">
+
+Change to:
+
+<span class="select-wrap">
+<select name="bday1">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="bday2">
+
+Change to:
+
+<span class="select-wrap">
+<select name="bday2">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+	
+<select name="birthdayprivacy">
+
+Change to:
+
+<span class="select-wrap">		
+<select name="birthdayprivacy">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_profile_profilefields_multiselect
+
+Find:
+
+<select name="profile_fields[$field][]" size="{$profilefield['length']}" multiple="multiple">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="profile_fields[$field][]" size="{$profilefield['length']}" multiple="multiple">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: usercp_profile_profilefields_select
+
+Find:
+
+<select name="profile_fields[$field]" size="{$profilefield['length']}">
+
+Change to:
+
+<span class="select-wrap">
+<select name="profile_fields[$field]" size="{$profilefield['length']}">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: calendar
+
+
+Find: 
+
+<select name="month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: calendar_addevent
+
+
+Find: 
+
+<select name="single_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="single_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="single_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats" id="repeats" onchange="toggleRepeats();">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats" id="repeats" onchange="toggleRepeats();">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_4_occurance" onfocus="$('#repeats_4_type_2').prop('checked', true);">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_4_occurance" onfocus="$('#repeats_4_type_2').prop('checked', true);">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find: 
+
+<select name="repeats_4_weekday" onfocus="$('#repeats_4_type_2').prop('checked', true);">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_4_weekday" onfocus="$('#repeats_4_type_2').prop('checked', true);">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_month" onfocus="$('#repeats_5_type_1').prop('checked', true);" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_month" onfocus="$('#repeats_5_type_1').prop('checked', true);" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_occurance" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_occurance" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find: 
+
+<select name="repeats_5_weekday" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_weekday" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find: 
+
+<select name="repeats_5_month2" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_month2" onfocus="$('#repeats_5_type_2').prop('checked', true);" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: calendar_editevent
+
+
+Find: 
+
+<select name="single_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="single_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="single_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="single_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="start_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="start_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_day">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_month">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="end_year">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="end_year">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find: 
+
+<select name="repeats" id="repeats" onchange="toggleRepeats();">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats" id="repeats" onchange="toggleRepeats();">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_4_occurance" onfocus="$('repeats_4_type_2').checked=true;">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_4_occurance" onfocus="$('repeats_4_type_2').checked=true;">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_4_weekday" onfocus="$('repeats_4_type_2').checked=true;">
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_4_weekday" onfocus="$('repeats_4_type_2').checked=true;">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_month" onfocus="$('repeats_5_type_1').checked=true;" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_month" onfocus="$('repeats_5_type_1').checked=true;" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_occurance" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Change to:
+
+<span class="select-wrap">	
+<select name="repeats_5_occurance" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_weekday" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Change to:
+
+<span class="select-wrap">
+<select name="repeats_5_weekday" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find: 
+
+<select name="repeats_5_month2" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Change to:
+
+<span class="select-wrap">
+<select name="repeats_5_month2" onfocus="$('repeats_5_type_2').checked=true;" >
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: private_advanced_search
+
+
+Find: 
+
+<select name="sort" id="sort">
+
+Change to:
+
+
+<select name="sort" id="sort">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: private_jump_folders
+
+Find: 
+
+<select name="jumpto">
+
+Change to:
+
+<span class="select-wrap">
+<select name="jumpto">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: private_move
+
+
+Find:
+
+<select name="fid">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="fid">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_modlogs
+
+
+Find:
+
+<select name="uid">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="uid">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="sortby">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="sortby">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="order">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="order">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_warninglogs 
+
+Find:
+
+<select name="filter[sortby]">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="filter[sortby]">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="filter[order]">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="filter[order]">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_announcements_edit
+
+Find:
+
+
+<select name="starttime_day">
+
+Change to:
+
+<span class="select-wrap">
+<select name="starttime_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+
+<select name="starttime_month">
+
+Change to:
+
+<span class="select-wrap">
+<select name="starttime_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="endtime_day">
+
+Change to:
+
+<span class="select-wrap">
+<select name="endtime_day">
+
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="endtime_month">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="endtime_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Edit Template: modcp_announcements_new
+
+
+Find:
+
+<select name="starttime_day">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="starttime_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+Find:
+
+<select name="starttime_month">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="starttime_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+<select name="endtime_day">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="endtime_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+
+<select name="endtime_month">
+
+Change to:
+
+<span class="select-wrap">
+<select name="endtime_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_editprofile_select
+
+
+Find:
+
+
+<select name="{$select_name}">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="{$select_name}">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_finduser
+
+
+Find:
+
+
+<select name="sortby">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="sortby">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+
+<select name="order">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="order">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_editprofile_away
+
+
+Find:
+
+
+<select name="awayday">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="awayday">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+
+<select name="awaymonth">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="awaymonth">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Edit Template: modcp_editprofile
+
+
+Find:
+
+
+<select name="birthday_day">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="birthday_day">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+Find:
+
+
+<select name="birthday_month">
+
+
+Change to:
+
+<span class="select-wrap">
+<select name="birthday_month">
+
+Find:
+
+</select>
+
+
+Change to:
+
+</select>
+</span>
+
+
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
