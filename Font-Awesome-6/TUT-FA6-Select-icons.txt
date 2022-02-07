@@ -78,7 +78,7 @@ select {
 }
 
 .select-wrap:before {
-    font-family: "Font Awesome 5 Free";
+    font-family: "Font Awesome 6 Free";
     font-weight: 900;
     content: '\f107';
     font-size: 15px;
