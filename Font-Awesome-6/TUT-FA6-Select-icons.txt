@@ -51,7 +51,7 @@ select {
 Replace with:
 
 
-/** FA 5 Select icons by: Anka06 & Vintagedaddyo **/
+/** FA 6 Select icons by: Anka06 & Vintagedaddyo **/
 
 select {
     padding: 4px;
