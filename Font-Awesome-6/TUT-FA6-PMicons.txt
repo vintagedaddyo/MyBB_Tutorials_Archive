@@ -10,7 +10,7 @@ In your Templates section of the MyBB ACP, find the Ungrouped Templates -> heade
 
 External linking:
 
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0-beta3/css/all.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
 
 Internal linking:
 
@@ -18,14 +18,14 @@ Internal linking:
 
 * You can download font-awesome-6 pkg stripped down for size to be used for theme includes here:
 
-https://filetransfer.io/data-package/5mSLMORO#link
+https://filetransfer.io/data-package/nAn2O0ry#link
 
 
 * Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
 
 ie: download web-specific files source: 
 
-https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-web.zip
 
 NOTE: You can skip the header include if you already have the font awesome 6 included in your headerinclude say from other parts of these tutorials.
 

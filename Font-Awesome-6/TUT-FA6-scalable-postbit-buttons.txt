@@ -49,7 +49,7 @@ Add the following after:
 
 External linking:
 
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css">
 
 
 Internal linking:
@@ -58,13 +58,13 @@ Internal linking:
 
 * You can download Fontawesome6 pkg stripped down for size to be used for theme includes here:
 
-https://filetransfer.io/data-package/5mSLMORO#link * beta version of 6
+https://filetransfer.io/data-package/nAn2O0ry#link
 
 * Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
 
 ie: download web-specific files source: 
 
-https://use.fontawesome.com/releases/v6.0.0-beta3/fontawesome-free-6.0.0-beta3-web.zip
+https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-web.zip
 
 ... and include it in similar way as suggested above. ie: download, extract, drop into a directory say called font-awesome-5 and upload that directory inside theme directory then include in headerinclude template adjusting include linkage to reflect your location....
 
