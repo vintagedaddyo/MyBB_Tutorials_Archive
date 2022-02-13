@@ -1,0 +1,44 @@
+[Tutorial] - Basic Add a basic WhatsApp button
+
+
+1. Adding your button:
+
+
+* you can add this wherever you need it in whatever template you may decide:
+
+
+<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?"  target="_blank" style="display: inline-block; padding:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;">Chat via WhatsApp</a>
+
+
+NOTES:
+
+
+Ok, in the first part of the button link in this example you will see: 3197010240285
+
+That is an example country code and phone number
+
+
+So you would say for example if you say live in the USA, note that your country code would be "1"
+
+Thus you would need to add 1 plus your phone number in place of 3197010240285
+
+
+Ok, next you will notice Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?
+
+This is a basic url encoded message that will be sent on contact.
+
+Ie:
+
+This:
+
+Not urlencoded = Hello, from a website vistor, do you have a moment to chat?
+
+Becomes:
+
+Urlencoded = Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?
+
+
+
+Easy enough to understand, right?
+
+Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
