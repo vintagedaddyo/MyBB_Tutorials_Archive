@@ -1,4 +1,4 @@
-[Tutorial] - Basic Add a basic WhatsApp button with FA5
+[Tutorial] - Add a basic WhatsApp button with FA5
 
 
 1. Loading Font Awesome 5 *
@@ -104,7 +104,7 @@ You would add this to your css file: *
 }
 /* Spanish */	
 .chat:lang(es):after {
-    content: 'Chatea a través de WhatsApp;
+    content: 'Chatea a través de WhatsApp';
 }
 /* French */	
 .chat:lang(fr):after {
