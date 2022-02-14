@@ -1,0 +1,129 @@
+[Tutorial] - Add basic ko-fi button with FA5 - by vintagedaddyo
+
+
+ok, in this simple tutorial we are going to make and add a basic ko-fi button using font awesome, note since there is not a ko-fi icon for font awesome yet that I know of, we will use two fa icons to make such. Because the text on the button is not part of mybb language files, if you use multiple languages on your board the hardcoded text in the button will remain as is. This can be sorted rather easily using css instead to translate. We also will make the button text translate. 
+
+
+
+1. Loading Font Awesome 5 *
+
+
+In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
+
+
+Add the following after:
+
+{$stylesheets}
+
+
+
+External linking:
+
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+
+* you could also just include internally in headerinclude rather than externally in headerinclude if you have uploaded your library...
+
+
+Internal linking:
+
+
+<link rel="stylesheet" href="{$mybb->asset_url}/font-awesome-5/css/all.css">
+
+
+* You can download font-awesome-5 pkg stripped down for size to be used for theme includes here:
+
+https://filetransfer.io/data-package/vShTkNP0#link
+
+
+* note: if there is already fa5 included in your template, then this include step is not needed and can be skipped
+
+
+
+
+2. Adding your button:
+
+Add the button code below to whatever template you may choose:
+
+
+<a href="https://ko-fi.com/vintagedaddyo" target="_blank" class="ko-fi-btn"><i class="fas fa-mug-hot ko-fi ko-fi-icon"></i><span class="ko-fi-buy"></span></a>
+
+
+NOTE: you will need to change https://ko-fi.com/vintagedaddyo to your specific ko-fi link
+
+next, we add the css for the button...
+
+Add the following to your CSS file:
+
+/* Ko-fi button */
+
+a.ko-fi-btn {
+	display: inline-block; 
+	padding: 16px; 
+	border-radius: 8px; 
+	background-color: #29abe0; 
+	color: #fff; 
+	text-decoration: none; 
+	font-family: sans-serif; 
+	font-size: 16px;
+}
+	
+/* Ko-fi FA icon */
+
+.ko-fi-icon {
+	padding-right: 4px;
+}
+
+.ko-fi::after {
+      content: '\f004';
+      font-weight: 900;
+      font-size: 8px;
+      color: #ff5e5b;
+      position: absolute;
+      margin: 8px 8px 8px -14px;
+}
+
+/* Button text translate */
+	
+/* English */	
+
+.ko-fi-buy:lang(en):after {
+    content: 'Buy me a Coffee';
+}
+	
+/* Spanish */	
+
+.ko-fi-buy:lang(es):after {
+    content: 'Cómprame un Café;
+}
+	
+/* French */	
+
+.ko-fi-buy:lang(fr):after {
+    content: 'Achetez-moi un Café';
+}
+	
+/* Italian */	
+
+.ko-fi-buy:lang(it):after {
+    content: 'Comprami un Caffè';
+}
+	
+/* German */
+
+.ko-fi-buy:lang(de):after {
+    content: 'Kaufen Sie mir einen Kaffee';
+}
+
+
+- You would then add any languages you may need that are not already supplied via css
+
+
+Simple enough and easy to understand, right?!
+
+Happy editing. Best of Luck! ;) ~ Vintagedaddyo
+
+
+
+
