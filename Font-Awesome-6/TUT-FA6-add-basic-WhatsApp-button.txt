@@ -1,4 +1,5 @@
-[Tutorial] - Add a basic WhatsApp button with FA6
+[Tutorial] - Add a basic WhatsApp button with FA6 - by Vintagedaddyo
+
 
 
 Loading Font Awesome 6 *
@@ -106,23 +107,35 @@ Because the text on the button is not part of mybb language files, if you use mu
 
 You would add this to your css file: *
 
-/* English */	
+
+/* WhatsApp button text translate */
+
+/* English */
+	
 .chat:lang(en):after {
     content: 'Chat via WhatsApp';
 }
-/* Spanish */	
+
+/* Spanish */
+	
 .chat:lang(es):after {
     content: 'Chatea a través de WhatsApp';
 }
-/* French */	
+
+/* French */
+	
 .chat:lang(fr):after {
     content: 'Chat via WhatsApp';
 }
-/* Italian */	
+
+/* Italian */
+	
 .chat:lang(it):after {
     content: 'Chatta tramite WhatsApp';
 }
+
 /* German */
+
 .chat:lang(de):after {
     content: 'Chat über WhatsApp';
 }
@@ -148,6 +161,8 @@ Ie:
 
 CSS:
 
+/* WhatsApp button */
+
 a.whatbtn {
     display: inline-block; 
     padding: 16px; 
@@ -158,15 +173,73 @@ a.whatbtn {
     font-family: sans-serif; 
     font-size: 16px;
 }
+
+/* Icon */
+
 .whaticon {
     padding-right: 4px;
 }
 
 
-Button with inline css styling removed
+Button with inline css styling removed and button text translation:
 
 <a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?" target="_blank" class="whatbtn"><i class="fa-brands fa-whatsapp whaticon"></i><span class="chat"></span></a>
 
 
+So as such your overall css should now look like:
+
+/* WhatsApp button */
+
+a.whatbtn {
+    display: inline-block; 
+    padding: 16px; 
+    border-radius: 8px; 
+    background-color: #25D366; 
+    color: #fff; 
+    text-decoration: none; 
+    font-family: sans-serif; 
+    font-size: 16px;
+}
+
+/* Icon */
+
+.whaticon {
+    padding-right: 4px;
+}
+
+/* WhatsApp button text translate */
+
+/* English */
+	
+.chat:lang(en):after {
+    content: 'Chat via WhatsApp';
+}
+
+/* Spanish */
+	
+.chat:lang(es):after {
+    content: 'Chatea a través de WhatsApp';
+}
+
+/* French */
+	
+.chat:lang(fr):after {
+    content: 'Chat via WhatsApp';
+}
+
+/* Italian */
+	
+.chat:lang(it):after {
+    content: 'Chatta tramite WhatsApp';
+}
+
+/* German */
+
+.chat:lang(de):after {
+    content: 'Chat über WhatsApp';
+}
+
+
+Simply easy enough to understand, right?
 
 Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
