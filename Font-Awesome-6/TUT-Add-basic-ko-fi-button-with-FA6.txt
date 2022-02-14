@@ -82,12 +82,12 @@ a.ko-fi-btn {
 }
 
 .ko-fi::after {
-      content: '\f004';
-      font-weight: 900;
-      font-size: 8px;
-      color: #ff5e5b;
-      position: absolute;
-      margin: 8px 8px 8px -14px;
+    content: '\f004';
+    font-weight: 900;
+    font-size: 8px;
+    color: #ff5e5b;
+    position: absolute;
+    margin: 8px 8px 8px -14px;
 }
 
 /* Button text translate */
@@ -101,7 +101,7 @@ a.ko-fi-btn {
 /* Spanish */	
 
 .ko-fi-buy:lang(es):after {
-    content: 'Cómprame un Café;
+    content: 'Cómprame un Café';
 }
 	
 /* French */	
