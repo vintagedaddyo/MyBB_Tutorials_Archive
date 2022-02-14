@@ -50,7 +50,7 @@ https://use.fontawesome.com/releases/v6.0.0/fontawesome-free-6.0.0-web.zip
 * you can add this wherever you need it in whatever template you may decide:
 
 
-<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?"  target="_blank" style="display: inline-block; padding:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;"><i class="fa-brands fa-whatsapp" style="padding-right:4px;"></i>Chat via WhatsApp</a>
+<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?" target="_blank" style="display: inline-block; padding:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;"><i class="fa-brands fa-whatsapp" style="padding-right:4px;"></i>Chat via WhatsApp</a>
 
 
 NOTES:
@@ -81,6 +81,14 @@ Becomes:
 Urlencoded = Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?
 
 
+
+NOTE: you can opt to omit that part of the link if you so desire
+
+Ie:
+
+<a href="https://wa.me/3197010240285" target="_blank" style="display: inline-block; padding:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;"><i class="fa-brands fa-whatsapp" style="padding-right:4px;"></i>Chat via WhatsApp</a>
+
+
 Lastly, you will see:
 
 
@@ -91,5 +99,72 @@ Mkay, well, hat is the FA6 WhatsApp icon on the button
 
 
 Easy enough to understand, right?
+
+Here is a another lil trick you might use:
+
+Because the text on the button is not part of mybb language files, if you use multiple languages on your board the hardcoded text in the button will remain as is. This can be sorted rather easily using css instead to translate.
+
+You would add this to your css file: *
+
+/* English */	
+.chat:lang(en):after {
+    content: 'Chat via WhatsApp';
+}
+/* Spanish */	
+.chat:lang(es):after {
+    content: 'Chatea a través de WhatsApp;
+}
+/* French */	
+.chat:lang(fr):after {
+    content: 'Chat via WhatsApp';
+}
+/* Italian */	
+.chat:lang(it):after {
+    content: 'Chatta tramite WhatsApp';
+}
+/* German */
+.chat:lang(de):after {
+    content: 'Chat über WhatsApp';
+}
+
+* And add any other languages you may need to the ones already provided.
+
+
+We would then replace the text on the button with this span:
+
+<span class="chat"></span>
+
+
+Ie:
+
+<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?" target="_blank" style="display: inline-block; padding:16px; border-radius: 8px; background-color: #25D366; color: #fff; text-decoration: none; font-family: sans-serif; font-size: 16px;"><i class="fa-brands fa-whatsapp" style="padding-right:4px;"></i><span class="chat"></span></a>
+
+
+Ok, since we did that and added styling in css, we could opt to move the inline css styling for the button to your css file...
+
+
+Ie:
+
+
+CSS:
+
+a.whatbtn {
+	display: inline-block; 
+	padding:16px; 
+	border-radius: 8px; 
+	background-color: #25D366; 
+	color: #fff; 
+	text-decoration: none; 
+	font-family: sans-serif; 
+	font-size: 16px
+}
+
+
+
+Button with inline css styling removed
+
+<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?" target="_blank" class="whatbtn"><i class="fa-brands fa-whatsapp"style="padding-right:4px;"></i><span class="chat"></span></a>
+
+
 
 Happy editing! Best of luck!  ;)  :cool:  ~ Vintagedaddyo
