@@ -151,12 +151,14 @@ a.whatbtn {
     font-family: sans-serif; 
     font-size: 16px
 }
-
+.whaticon {
+    padding-right: 4px;
+}
 
 
 Button with inline css styling removed
 
-<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?"  target="_blank" class="whatbtn"><i class="fab fa-whatsapp" style="padding-right:4px;"></i><span class="chat"></span></a>
+<a href="https://wa.me/3197010240285?text=Hello,%20from%20a%20website%20vistor,%20do%20you%20have%20a%20moment%20to%20chat?"  target="_blank" class="whatbtn"><i class="fab fa-whatsapp whaticon"></i><span class="chat"></span></a>
 
 
 
