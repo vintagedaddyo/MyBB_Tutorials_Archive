@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<theme name="Default_Respo_Tut" version="1829">
+<theme name="Default_Respo_Tut" version="1830">
 	<properties>
-		<templateset><![CDATA[20]]></templateset>
+		<templateset><![CDATA[6]]></templateset>
 		<editortheme><![CDATA[mybb.css]]></editortheme>
 		<imgdir><![CDATA[images]]></imgdir>
 		<logo><![CDATA[images/logo.png]]></logo>
@@ -11,7 +11,7 @@
 		<disporder><![CDATA[a:18:{s:10:"global.css";i:1;s:10:"usercp.css";i:2;s:9:"modcp.css";i:3;s:16:"star_ratings.css";i:4;s:14:"showthread.css";i:5;s:17:"thread_status.css";i:6;s:8:"css3.css";i:7;s:10:"extras.css";i:8;s:15:"color_black.css";i:9;s:14:"color_calm.css";i:10;s:14:"color_dawn.css";i:11;s:15:"color_earth.css";i:12;s:15:"color_flame.css";i:13;s:14:"color_leaf.css";i:14;s:15:"color_night.css";i:15;s:13:"color_sun.css";i:16;s:18:"color_twilight.css";i:17;s:15:"color_water.css";i:18;}]]></disporder>
 	</properties>
 	<stylesheets>
-		<stylesheet name="css3.css" version="1829"><![CDATA[/* portal tborder */
+		<stylesheet name="css3.css" version="1830"><![CDATA[/* portal tborder */
 
 .tborder_portal {
 	-moz-border-radius: 7px;
@@ -162,9 +162,10 @@ div.error {
    	 border-radius: 6px;
 }
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="extras.css" version="1829"><![CDATA[/*
+		<stylesheet name="extras.css" version="1830"><![CDATA[/*
  * MyBB: Default Respo Tut Frontend Theme 
  *
  * File: extras.css File
@@ -832,9 +833,10 @@ select {
     height: 30px;  
 }
 }	
-/* end */]]>
+/* end */
+		]]>
 		</stylesheet>
-		<stylesheet name="global.css" version="1829"><![CDATA[/*
+		<stylesheet name="global.css" version="1830"><![CDATA[/*
  * MyBB: Default Respo Tut Frontend Theme 
  *
  * File: global.css File
@@ -2664,9 +2666,10 @@ div.jqi .jqisubstate .jqibuttons button{
 /** Impromptu End */
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_black.css" attachedto="black" version="1829"><![CDATA[
+		<stylesheet name="color_black.css" attachedto="black" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -2749,9 +2752,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_calm.css" attachedto="calm" version="1829"><![CDATA[
+		<stylesheet name="color_calm.css" attachedto="calm" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -2801,9 +2805,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_dawn.css" attachedto="dawn" version="1829"><![CDATA[
+		<stylesheet name="color_dawn.css" attachedto="dawn" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -2852,9 +2857,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_earth.css" attachedto="earth" version="1829"><![CDATA[
+		<stylesheet name="color_earth.css" attachedto="earth" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -2903,9 +2909,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_flame.css" attachedto="flame" version="1829"><![CDATA[
+		<stylesheet name="color_flame.css" attachedto="flame" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -2954,9 +2961,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_leaf.css" attachedto="leaf" version="1829"><![CDATA[
+		<stylesheet name="color_leaf.css" attachedto="leaf" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -3005,9 +3013,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_night.css" attachedto="night" version="1829"><![CDATA[
+		<stylesheet name="color_night.css" attachedto="night" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -3056,9 +3065,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_sun.css" attachedto="sun" version="1829"><![CDATA[
+		<stylesheet name="color_sun.css" attachedto="sun" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -3116,9 +3126,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_twilight.css" attachedto="twilight" version="1829"><![CDATA[
+		<stylesheet name="color_twilight.css" attachedto="twilight" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -3167,9 +3178,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="color_water.css" attachedto="water" version="1829"><![CDATA[
+		<stylesheet name="color_water.css" attachedto="water" version="1830"><![CDATA[
 a:link,
 a:visited,
 a:hover,
@@ -3218,9 +3230,10 @@ a:active {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="modcp.css" attachedto="modcp.php" version="1829"><![CDATA[.modcp_nav_item {
+		<stylesheet name="modcp.css" attachedto="modcp.php" version="1830"><![CDATA[.modcp_nav_item {
 	display: block;
 	padding: 1px 0 1px 23px;
 	background-image: url(images/modcp_sprite.png);
@@ -3318,9 +3331,10 @@ a:active {
 	text-decoration: none;
 }
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="star_ratings.css" attachedto="forumdisplay.php|showthread.php" version="1829"><![CDATA[.star_rating,
+		<stylesheet name="star_ratings.css" attachedto="forumdisplay.php|showthread.php" version="1830"><![CDATA[.star_rating,
 .star_rating li a:hover,
 .star_rating .current_rating {
 	background: url(images/star_rating.png) left -1000px repeat-x;
@@ -3408,9 +3422,10 @@ td .star_rating {
 	padding-right: 5px;
 }
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="thread_status.css" attachedto="forumdisplay.php|usercp.php|search.php" version="1829"><![CDATA[.thread_status {
+		<stylesheet name="thread_status.css" attachedto="forumdisplay.php|usercp.php|search.php" version="1830"><![CDATA[.thread_status {
 	display: inline-block;
 	width: 16px;
 	height: 16px;
@@ -3486,9 +3501,10 @@ td .star_rating {
 	background-position: 0 -320px;
 }
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="showthread.css" attachedto="showthread.php" version="1829"><![CDATA[ul.thread_tools,
+		<stylesheet name="showthread.css" attachedto="showthread.php" version="1830"><![CDATA[ul.thread_tools,
 ul.thread_tools li {
 	list-style: none;
 	padding: 0;
@@ -3534,9 +3550,10 @@ ul.thread_tools li.poll {
 
 
 		
+		
 		]]>
 		</stylesheet>
-		<stylesheet name="usercp.css" attachedto="usercp.php|private.php" version="1829"><![CDATA[.usercp_nav_item {
+		<stylesheet name="usercp.css" attachedto="usercp.php|private.php" version="1830"><![CDATA[.usercp_nav_item {
 	display: block;
 	padding: 1px 0 1px 23px;
 	background-image: url(images/usercp_sprite.png);
@@ -3689,6 +3706,7 @@ ul.thread_tools li.poll {
 .new_pm {
 	font-weight: bold;
 }
+		
 		
 		]]>
 		</stylesheet>
