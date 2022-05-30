@@ -1,0 +1,135 @@
+
+Edit Headerinclude template:
+
+Find:
+
+{$stylesheets}
+
+After add:
+
+<!-- Font Awesome 5 library -->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+<!--  Font Awesome 5 Pre-loader Spinner by effone, vintagedaddyo and ic_myXMB -->
+
+<!-- delay 1000 fadeOut 400 linear -->
+
+<script type = "text/javascript" >
+    $(window).on('load', function() {
+      $('#preloader').delay(1000).fadeOut(400, 'linear', function() {
+            $('body').css('overflow', 'visible');
+            $(this).remove();
+        });
+    }); 
+</script>
+
+
+* one can simply modify delay and fadeout milliseconds to your desired needs 
+
+
+
+Edit Header template:
+
+Find:
+
+        <a name="top" id="top"></a>
+
+
+
+After add:
+
+                <!-- Font Awesome 5 Pre-loader Spinner by effone, vintagedaddyo and ic_myXMB -->
+                <div id="preloader">
+                 <div id="spinblock">
+                     <div id="spinner"><div class="loading-icon"></div></div>
+                      <!-- loading text -->
+                     <div id="spinblock_text">{$lang->ajax_loading}</div>
+                   </div>
+                 </div> 
+
+
+Edit global.css stylesheet:
+
+
+Add:
+
+/** Font Awesome 5 Pre-loader Spinner by effone, vintagedaddyo and ic_myXMB **/
+
+/* Pre-loader div */
+
+#preloader {
+  background: #fff; /* If you have applied background image, you may use it. But keep the size as small as possible */
+  z-index: 9999; /* Set the position of the pre-loader above all, greater value is more secure */
+  height: 100%; /* Set height: Set the size of the pre-loader full screen */
+  width: 100%;  /* Set width: Set the size of the pre-loader full screen */
+  position: fixed; /* These 3 lines will set the preloader area fixed at the top in case overflow fails to hide */  
+  top: 0; /* top */
+  left: 0;  /* left */
+}
+
+/* Spinblock div */
+
+#spinblock {
+  margin: 250px auto; /* Align the spinner icon at the middle of the screen */
+  width: 100px; /* The spinblock div overall area. Must be greater than the spinner icon width */   
+}
+
+/* Spinner div */
+
+#spinner {
+  margin: auto auto; /* spinner div margin */
+  display: block;   /* spinner div display */
+}
+
+/* Spinner loading-icon div */
+
+/* loading icon */
+
+.loading-icon { 
+  -webkit-animation: fa-spin 1s steps(8) infinite; /* icon animation */
+  animation: fa-spin 1s steps(8) infinite; /* icon animation */
+  position: relative; /* position */
+  height: 74px; /* height */
+  width: 74px;  /* width */ 
+}
+
+/* loading icon before */
+
+.loading-icon:before {
+   -moz-osx-font-smoothing: grayscale; /* smoothing */
+   -webkit-font-smoothing: antialiased; /* smoothing */
+   font-family: "Font Awesome 5 Free"; /* font family */
+   display: inline-block; /* display */
+   font-variant: normal; /* font variant */
+   text-rendering: auto; /* text rendering */   
+   font-style: normal; /* font style */
+   position: absolute; /* position */   
+   font-weight: 900; /* font weight */  
+   content: "\f110"; /* icon code */
+   color: #0071BE; /* color */
+   font-size: 74px; /* font size */
+   line-height: 1;  /* line height */
+   top: 0;  /* top*/
+}
+
+/* Spinblock Text */
+
+#spinblock_text {
+  text-transform: uppercase; /* text uppercase */
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  text-align: center;   /* text align center */
+  height: 60px; /* height*/
+  width: 90px; /* width */
+  display: flex; /* display */
+  font-weight: 300; /* font weight */
+  color: #2C2C2C; /* color */
+}
+
+/* Body */
+
+body {
+   overflow-y: unset !important; /* unset */
+   overflow: hidden; /* overflow */
+}
