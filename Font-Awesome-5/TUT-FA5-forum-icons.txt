@@ -1,15 +1,22 @@
-[Tutorial] - Font-Awesome 5 Forum Icons - vintagedaddyo - 10-02-2018 **  --> 1/28/22 ( re-shared due to numerous user requests and complaints after I deleted my old tutorials, though this is not the complete forum theme icon replacements tutorials all in one tutorial as that tutorial was huge and this re-share is simply the main/base forum icons to font awesome 5 old tutorial only, now mildly updated to reflect current FA5 version)
+Orig auth note: [Tutorial] - Font-Awesome 5 Forum Icons - vintagedaddyo - 10-02-2018 **  --> 1/28/22 ( re-shared due to numerous user requests and complaints after I deleted my old tutorials, though this is not the complete forum theme icon replacements tutorials all in one tutorial as that tutorial was huge and this re-share is simply the main/base forum icons to font awesome 5 old tutorial only, now mildly updated to reflect current FA5 version)
 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+note by contributor: (ic_myXMB) simply edited past tutorial by permission to update library version to latest and add further credits and clean up index include rather than replacing full template on that as in past.
+------------------------------------------------------------------------------------------------------------------------------------------------------
 
 This here is a Tutorial For mybb to use Font Awesome 5:
 
 
-Font-Awesome 5 Forum Icons on MyBB 1.8.29 + Software   - by Vintagedaddyo
+[For 1.8] - [Tutorial] - Font-Awesome 5 Forum Icons
 
 
-Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 5 icons. The software of board being used in this tutorial is MyBB 1.8.29. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial. 
+Font-Awesome 5 Forum Icons on MyBB 1.8 Software
 
-1. Loading Font Awesome 5
+
+Today, we will be giving you a tutorial on how to replace forum icons with Font-Awesome 5 icons. The software of board being used in this tutorial is MyBB 1.8.X. Most of you have seen these type of additions on bulletin board's across the globe, and very much sure some of you would like to have one of these pages of your own. All others are also welcome to help other individuals on this thread who may be having issues, problems, and, errors after or before reading this tutorial. 
+
+
+1. Loading Font Awesome 5 library
 
 
 In your Templates section of the MyBB ACP, find the Ungrouped Templates -> headerinclude template. 
@@ -38,13 +45,24 @@ Internal linking:
 
 * You can download font-awesome-5 pkg stripped down for size to be used for theme includes here:
 
-https://filetransfer.io/data-package/vShTkNP0#link
+
+Attachment:
+
+
+
+
+
+* Or you can also just download the latest Font-awesome-6 web files pkg from the Font-Awesome site and strip it down for size to be used for for internal theme include:
+
+ie: download web-specific files source: 
+
+https://use.fontawesome.com/releases/v5.15.4/fontawesome-free-5.15.4-web.zip
 
 
 * note: if there is already fa5 included in your template, then this include step is not needed and can be skipped
 
 
-2. Adding Your Icon
+2. Adding Your Icons
 
 
 Still in Templates, find Forum Bit Templates -> forumbit_depth2_forum (Do the same for forumbit_depth2_cat) and replace:
@@ -87,7 +105,7 @@ background-position: 0 -90px;
 Replace it with:
 
 
-/** Forums FA5 by: Vintagedaddyo **/
+/** Forums Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .forum_status {
 height: 50px;
@@ -120,24 +138,32 @@ content: "\f0c1";
 3. Fix Your Legend
 
 
-If you wish to keep your forum icon legend, find your Index Page Templates -> index template and replace the contents with this:
+If you wish to keep your forum icon legend, find your Index Page Templates -> index template and edit as follows:
+
+
+Find:
+
+
+<dl class="forum_legend smalltext">
+	<dt><span class="forum_status forum_on" title="{$lang->new_posts}"></span></dt>
+	<dd>{$lang->new_posts}</dd>
+
+	<dt><span class="forum_status forum_off" title="{$lang->no_new_posts}"></span></dt>
+	<dd>{$lang->no_new_posts}</dd>
+
+	<dt><span class="forum_status forum_offclose" title="{$lang->forum_closed}"></span></dt>
+	<dd>{$lang->forum_closed}</dd>
+
+	<dt><span class="forum_status forum_offlink" title="{$lang->forum_redirect}"></span></dt>
+	<dd>{$lang->forum_redirect}</dd>
+</dl>
 
 
 
-<html>
-<head>
-<title>{$mybb->settings['bbname']}</title>
-{$headerinclude}
-<script type="text/javascript">
-<!-lang.no_new_posts = "{$lang->no_new_posts}";
-lang.click_mark_read = "{$lang->click_mark_read}";
-// -->
-</script>
-</head>
-<body>
-{$header}
-{$forums}
-{$boardstats}
+
+Replace with:
+
+
 <dl class="forum_legend smalltext">
 <dt><div class="forum_status forum_on"><i class="fas fa-comments"></i></div></dt>
 <dd>{$lang->new_posts}</dd>
@@ -148,10 +174,6 @@ lang.click_mark_read = "{$lang->click_mark_read}";
 <dt><div class="forum_status forum_offlink"><i class="fas fa-comments"></i></div></dt>
 <dd>{$lang->forum_redirect}</dd>
 </dl>
-<br class="clear" />
-{$footer}
-</body>
-</html>
 
 
 
@@ -180,7 +202,7 @@ float: left;
 Replace with:
 
 
-/** Forum Legend tweak for FA5 by: Vintagedaddyo **/
+/** Forum Legend tweak for FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .forum_legend, .forum_legend dt, .forum_legend dd {
 margin: 0;
@@ -244,7 +266,7 @@ Replace it with:
 
 
 
-/** Subforums FA5 by: Vintagedaddyo **/
+/** Subforums Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .subforumicon {
 height: 10px;
@@ -291,7 +313,7 @@ Find the following in global.css:
 
 
 
-/** Forums FA5 by: Vintagedaddyo **/
+/** Forums Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .forum_status {
 height: 50px;
@@ -324,7 +346,7 @@ After it, add this:
 
 
 
-/** Ficons FA5 by: Vintagedaddyo **/
+/** Ficons Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .ficons_2 i:before {
 content: "\f000";
@@ -373,6 +395,7 @@ content: "\f03e";
 }
 
 
+
 ficons_1,2,3 etc are your forums ID, if you don't know your forum ID just hover to one of the forums and underneath left hand corner of your screen you'll see something like forumdisplay.php?fid=9 or go inside your forum and on the search bar you will see fid ID.
 
 
@@ -390,7 +413,7 @@ Find in global.css:
 
 
 
-/** Subforums FA5 by: Vintagedaddyo **/
+/** Subforums Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .subforumicon {
 height: 10px;
@@ -420,7 +443,7 @@ Add after:
 
 
 
-/** sFicons FA5 by: Vintagedaddyo **/
+/** sFicons Icons FA5 by: Vintagedaddyo, Eric J., Livewire, ic_myXMB **/
 
 .sficons_2 i:before {
 content: "\f000";
@@ -470,5 +493,7 @@ content: "\f03e";
 
 
 
-All past and current tutorial credits go to: Eric J., Livewire, Vintagedaddyo
+All past and current tutorial credits go to: Eric J., Livewire, Vintagedaddyo, ic_myXMB
 
+
+Happy editing! Best of luck!
